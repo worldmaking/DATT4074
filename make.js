@@ -26,6 +26,13 @@ const meta_default = {
 	description: "",
 }
 
+const uniqueID = (function() {
+	let id=1000;
+	return function(prefix="id") {
+		return `${prefix}${++id}`
+	}
+})()
+
 function generate(file) {
 	let src = fs.readFileSync(path.format(file), "utf8");
 
@@ -87,12 +94,54 @@ function generate(file) {
 			let base = url.split('\\').pop().split('/').pop()
 			return `<p><audio controls src="${url}" title="${base}"></audio> <a href="${url}">${base}</a></p>`
 		})
+		// falstad circuit.js:
+		.replace(/\n\s*https:\/\/www\.falstad\.com\/circuit\/circuitjs\.html\?ctz=([^\n]*)/g, (match, url) => {
+			let id = uniqueID("circuitjs")
+
+			return `
+<iframe id=${id} src="/circuitjs/circuitjs.html?ctz=${url}" width="920" height="550"></iframe>
+
+<script>
+// Wait for the iframe to load and use the JS API to stop it
+let iframe = document.getElementById('${id}');
+
+iframe.onload = function() {
+// Poll every 50ms until the CircuitJS1 API object is fully ready
+const checkInterval = setInterval(() => {
+	try {
+		const win = iframe.contentWindow;
+		
+		// Note the exact casing: Capital C, capital JS, followed by number 1
+		if (win && win.CircuitJS1) {
+			clearInterval(checkInterval); // Stop looking, it's ready!
+			
+			win.CircuitJS1.setSimRunning(false); // Stop the simulation
+			console.log("Simulation successfully paused on startup.");
+		}
+	} catch (e) {
+		clearInterval(checkInterval);
+		console.error("Security/Access error:", e);
+	}
+}, 50);
+
+// Timeout safety net: stop checking after 5 seconds if it never initializes
+setTimeout(() => clearInterval(checkInterval), 5000);
+};
+
+</script>
+
+<a href="https://www.falstad.com/circuit/circuitjs.html?startRunning=false&ctz=${url}" target="_blank">Open this circuit on Falstad</a>
+`
+})		
+		//.replace(/\n---falstad:\s*https:\/\/www\.falstad\.com\/circuit\/circuitjs\.html\?ctz=([^\n]*)/g, `<iframe src="https://www.falstad.com/circuit/circuitjs.html?ctz=$1" width="920" height="550"></iframe>`)
 		// auto-embed google slides: e.g. https://docs.google.com/presentation/d/1xrXM86cCE7vzykYYdINs1G9g9f7FaeiiZd6IRlKBEjI/
 		// auto-embed youtube e.g. https://www.youtube.com/watch?v=AbcZ2f5fdNc
 		.replace(/\n\s*(https:\/\/docs.google.com\/presentation\/d\/[^\n]*)/g, 
 			`<p>$1</p>
-			<iframe src="$1embed?start=false" frameborder="0" width="960" height="569" allowfullscreen></iframe>
+			<iframe src="$1embed?start=false" frameborder="0" width="920" height="546" allowfullscreen></iframe>
 `)
+		.replace(/\n--[-]+/g, 
+			`<hr>`)
 
 	}
 	

@@ -5,34 +5,65 @@
 
 Wednesdays, 9.30am-12.20pm, [Fine Arts building room ACW 103](https://find.yorku.dev)
 
-This includes both *DATT4074 Creative Audio Signal Processing II: **Synthesis Workshop*** and *DIGM 6074 Generative Sound & Synthesis **Workshop***
+This includes both 
+- *DATT4074 Creative Audio Signal Processing II: **Synthesis Workshop*** and 
+- *DIGM 6074 Generative Sound & **Synthesis Workshop***
 
 **Instructor:** [Graham Wakefield](https://discover.academics.yorku.ca/Graham.Wakefield) g rrr w aaa a t yo rk u do t ca
 
-**Course material** is available at or linked from [this website](**TBC**) -- bookmark it! 
+> For those that don’t know me, I’m a researcher and Associate Professor in Digital Media, but I’m also deeply involved in the audio software/hardware industry as a developer for audio software [(Max/MSP's gen~)](https://cycling74.com), a developer of software for dedicated audio hardware platform ([Electrosmith Daisy](https://daisy.audio/)), and for professional audio hardware products (recently launched: [Fancyyyyy K-Accumulator](https://www.fancysynthesis.net/)), all experience I’ll be bringing to the course.  
 
-**Assignments** will be handled through **e-Class** at [https://](**TBC**) 
+**Course material** is available at or linked from [this website](https://alicelab.world/DATT4074) -- bookmark it! 
+
+**Assignments** will be handled through **e-Class** at [https://TBC](**TBC**) 
 
 **Class recordings**: I usually share screen and record classes via Zoom. This doesn't mean the class is hybrid (in-person attendence is required and will be accounted), but I have heard that it has been useful for many students to be able to review sessions after class hours, or to view a live class on their personal laptop screens. 
-- [Zoom meeting (same link every week)](**TBC**)
-- [Add it to your calendar (.ics file)](**TBC**)
+- [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+- [Add it to your calendar (.ics file)](https://yorku.zoom.us/meeting/tJclcu-qqzwuHtNdaKtRMtSDvpFNb2HzWijE/ics?icsToken=DMk7sXsoFa5zP12M-wAALAAAAC43fiWPlGSR19UxF5GYW3-hcardNuY7NAbGrZ8lfnYJfI2wirC49UGypNfWFQRmIVjTO1WYC3GtucAeFzAwMDAwMg&meetingMasterEventId=KANIVnCvTtKGmxXoAb5smg)
 - [List of class recordings](#class-recordings)
 
 ---
 
-TODO DESCRIPTION
+This is a problem-driven and technique-focused studio course — part hackathon, part production incubator — where you take a sample-level interactive audio synthesis idea from prototypes to finished, portfolio-ready products in software and/or hardware.
+
+You can work solo or in groups, and develop final projects in a variety of possible forms:
+
+🎛️ Hardware — Design your own device: a standalone instrument, a guitar pedal, a modular synthesos module, or an interactive art installation. In the course of this, get to know analog hardware, build embedded analog and digital systems!  
+
+🎮 Game Audio — Build adaptive sound and procedural foley systems that react live inside game engines such as Unity and Unreal. 
+
+🌐 Web & XR — Create generative audio for browser-based experiences, games and WebXR worlds. 
+
+🔌 Plugins — Build real plugins that work with the audio software or video editors people already use such as Ableton Live or VCV Rack. 
+
+Instruction includes a blend of essential topic instruction with online resources, but mainly focuses on per-project supervision. 
+
+Your progress is documented in a continuous development log, and final creative projects that can form part of a graduating portfolio. 
 
 ### Course software
 
-We will work using the **gen~** environment within [Cycling '74's Max](https://cycling74.com). All students have access to a license for Max supported by the course fees. 
+We will work with the same tools many professional studios and hardware companies use to prototype sonic algorithms in the real world. To begin developing synthesis algorithms we will work using the **gen~** environment within [Cycling '74's Max](https://cycling74.com). 
 
-License codes should be coming to all students through the department after our first attendance check.  
-
-The computers in ACW 102 also have Max installed and licensed, and students can come in to use them during open lab hours. Two of the machines in DM labs also have the RNBO license that you may need for the final project. 
+> All students have access to a license for Max supported by the course fees. License codes should be coming to all students through the department after our first attendance check. The computers in ACW 102 also have Max installed and licensed, and students can come in to use them during open lab hours. Two of the machines in DM labs also have the RNBO license that you may need for the final project. 
 
 ### Evaluation
 
-TODO
+- **25% Dev Log**   
+An online log of project design and the development progress, maintained throughout the course
+
+- **25% Presentation & Discussion**   
+Presenting work-in-progress to the group, and generous contribution to discussion
+
+- **25% Final distributable project**   
+A functional, professional embodiment of the sonic ideas in a specific application format such as: adaptive sound generators for video games; new embedded hardware for guitar pedals, modular synthesizers, or interactive art installations; embedding in web-native projects; creating plugins for desktop software.
+
+- **10% Attendance (Undergraduate only)**
+
+- **15% Website (Undergraduate only)**   
+Documentation of the final project in the form of a web page with embedded video demonstration.
+
+- **25% Research paper (Graduate only)**   
+The final project implementation documented in research-appropriate writing, such as an academic paper suitable for submission to a conference such as NIME (New Instruments for Musical Expression), SMC (Sound Music Computing), or another comparable research document. 
 
 ### Online course notes
 
@@ -41,15 +72,23 @@ Please note that the online course notes below on this website are subject to ch
 [Back to top](#top)
 
 # Week 1: Introduction
-Sep 9
-
-[Class Recording](#class-recordings)
+Sep 9 - [Class Recording](#class-recordings)
 
 **Hello and welcome!**
 
----
+Introduction to the course
+
+Introductory presentation
+
+Software setup
+
 
 # Class Recordings
 
 Recordings of the weekly sessions will be here:
+
+---
+
+https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSS+AHAGwDsATI-Uo0QJzVu2ogBGiavVQAHQQiLZUANwiISUALaYFAUwC0lBAD4AUFCjBoAD0QtGUJLWxQAzI1vXpsHKnnJCBBAHp9h4AATKDMEO1pqKzZ7CKgAFmpUeAQXJQB7REC1GABDAFcAGzRffyMAJRDEcMiEmMjrJLcoAHdk1JyTGXMSgyMAeUqwxysbe2o4kZc21AxyFJ6AitCLSahGOKcbRvmW5Lskjw3UJQ6uzwWjUTRBh03baqhqKYpjnPMvF1EMlNwiRg56B8gSgoBgCogymoMGAMGgcgA7EBqC7AK43YbOMYTdbPZCvd5eMTfPBSDgcGbghCQ6GwhFIlHBUJ2cZrIi0LFrbCJVw7dKZbL5IoopZVFnsdnM7HUbnTXZNE6dRAaRgotJQNTwxBxGaiRC0bU8kz7KC6+alAKiKBnFyzCjSPy9C1WqozOZ4QhIDhEOxsEgOgI+NKlYBqjUu0Gm-XbEwqk0vc2XZ07W3nf1GQP6YA+cAQfRAA
+
 
