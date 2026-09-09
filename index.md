@@ -103,8 +103,9 @@ https://docs.google.com/presentation/d/147RoDVI9CexC3cXXdqOqc6ns1jGn0L_rGpgzSky1
 
 - Open-ended demonstration: Modular, gen~, Oopsy & different Daisies :-)
 
-- **Homework for next week**  
-  - Do some field research into reference videos about audio synthesis projects while thinking about what you would like to build. Collect the best 3 reference projects to your interest. 
+## Homework week 1
+
+Do some field research into reference videos about audio synthesis projects while thinking about what you would like to build. Collect the best 3 reference projects to your interest. 
     - They could be guitar pedals, modular synthesis modules, DIY instruments, VST plugins, sonic art installations, game audio, etc.  Keep their scope fairly narrow though -- modular modules, pedals and plugins are good choices because usually each one focuses on a single synthesis algorithm.
     - All 3 should be different enough from each other so that they cover the different aspects of what you might want to do. For example:
       - One could be selected for what makes it interesting in terms of audio synthesis or generative algorithms
