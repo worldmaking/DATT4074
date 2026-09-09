@@ -134,6 +134,10 @@ Can you sketch out what a hybrid between 2 or 3 of your references might look li
 
 Setting up the Max / gen~ / Daisy workflow, and flashing Daisy on breadboards
 
+Inspiration Slides: 
+
+https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/
+
 # Class Recordings
 
 Recordings of the weekly sessions will be here:
