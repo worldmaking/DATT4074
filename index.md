@@ -121,10 +121,12 @@ https://docs.google.com/presentation/d/147RoDVI9CexC3cXXdqOqc6ns1jGn0L_rGpgzSky1
 
 **Also for next week: remember to bring headphones and/or portable speakers -- we will start flashing Daisies together**
 
-# Week 2
+# Week 2: Flashing Daisy
 
 Setting up the Max / gen~ / Daisy workflow, and flashing Daisy on breadboards
 
 # Class Recordings
 
 Recordings of the weekly sessions will be here:
+
+- [Week 1](https://yorku.zoom.us/rec/share/WvH17_lakNNvKvn-CyZ74cwDlYrRqHXntI-AFOhnvkXhUIDuh8ICQ0HSumcj2TCa.Q7j1bOMUS56nFRD3)
