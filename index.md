@@ -106,19 +106,19 @@ https://docs.google.com/presentation/d/147RoDVI9CexC3cXXdqOqc6ns1jGn0L_rGpgzSky1
 ## Homework week 1
 
 Do some field research into reference videos about audio synthesis projects while thinking about what you would like to build. Collect the best 3 reference projects to your interest. 
-    - They could be guitar pedals, modular synthesis modules, DIY instruments, VST plugins, sonic art installations, game audio, etc.  Keep their scope fairly narrow though -- modular modules, pedals and plugins are good choices because usually each one focuses on a single synthesis algorithm.
-    - All 3 should be different enough from each other so that they cover the different aspects of what you might want to do. For example:
-      - One could be selected for what makes it interesting in terms of audio synthesis or generative algorithms
-      - One could be selected for the interestingness of its interface 
-      - At least one should be a project that explains how it was made (e.g. DIY, open source, tutorial video, etc.). Its OK if you don't fully understand it yet, or if it looks beyond what you think you can achieve. 
-  - [Add these videos to slides in this presentation](https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/edit?usp=sharing)
-  - For each one, think about how to answer these questions:
-    - What is especially impressive or inspiring to you about it?  What makes it uniquely interesting? 
-    - What surprised you in the details or implementation / what did you learn from it that you intend to apply?
-    - Where do you think the project is weak, why, and how could it be better?
-  - Put these answers into the slides (or presenter notes)
-  - Can you sketch out what a hybrid between 2 or 3 of your references might look like?
-  - Be careful not to accidentally overwrite one of your colleagues slides! 
+  - They could be guitar pedals, modular synthesis modules, DIY instruments, VST plugins, sonic art installations, game audio, etc.  Keep their scope fairly narrow though -- modular modules, pedals and plugins are good choices because usually each one focuses on a single synthesis algorithm.
+  - All 3 should be different enough from each other so that they cover the different aspects of what you might want to do. For example:
+    - One could be selected for what makes it interesting in terms of audio synthesis or generative algorithms
+    - One could be selected for the interestingness of its interface 
+    - At least one should be a project that explains how it was made (e.g. DIY, open source, tutorial video, etc.). Its OK if you don't fully understand it yet, or if it looks beyond what you think you can achieve. 
+- [Add these videos to slides in this presentation](https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/edit?usp=sharing)
+- For each one, think about how to answer these questions:
+  - What is especially impressive or inspiring to you about it?  What makes it uniquely interesting? 
+  - What surprised you in the details or implementation / what did you learn from it that you intend to apply?
+  - Where do you think the project is weak, why, and how could it be better?
+- Put these answers into the slides (or presenter notes)
+- Can you sketch out what a hybrid between 2 or 3 of your references might look like?
+- Be careful not to accidentally overwrite one of your colleagues slides! 
 
 **Also for next week: remember to bring headphones and/or portable speakers -- we will start flashing Daisies together**
 
