@@ -1,5 +1,5 @@
 
-# DATT4074 Synthesis Workshop
+# DATT4074 | DIGM6074 Synthesis Workshop
 
 ## Course Information
 
@@ -13,11 +13,13 @@ This includes both
 
 > For those that don’t know me, I’m a researcher and Associate Professor in Digital Media, but I’m also deeply involved in the audio software/hardware industry as a developer for audio software [(Max/MSP's gen~)](https://cycling74.com), a developer of software for dedicated audio hardware platform ([Electrosmith Daisy](https://daisy.audio/)), and for professional audio hardware products (recently launched: [Fancyyyyy K-Accumulator](https://www.fancysynthesis.net/)), all experience I’ll be bringing to the course.  
 
+Office hours: Thursdays, 9:30am-11:30am, in the Alice Lab - GCFA 309
+
 **Course material** is available at or linked from [this website](https://alicelab.world/DATT4074) -- bookmark it! 
 
 **Assignments** will be handled through **e-Class** at [https://TBC](**TBC**) 
 
-**Class recordings**: I usually share screen and record classes via Zoom. This doesn't mean the class is hybrid (in-person attendence is required and will be accounted), but I have heard that it has been useful for many students to be able to review sessions after class hours, or to view a live class on their personal laptop screens. 
+**Class recordings**: I often share screen and record classes via Zoom. This doesn't mean the class is hybrid (in-person attendence is required and will be accounted), but I have heard that it has been useful for many students to be able to review sessions after class hours, or to view a live class on their personal laptop screens. 
 - [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 - [Add it to your calendar (.ics file)](https://yorku.zoom.us/meeting/tJclcu-qqzwuHtNdaKtRMtSDvpFNb2HzWijE/ics?icsToken=DMk7sXsoFa5zP12M-wAALAAAAC43fiWPlGSR19UxF5GYW3-hcardNuY7NAbGrZ8lfnYJfI2wirC49UGypNfWFQRmIVjTO1WYC3GtucAeFzAwMDAwMg&meetingMasterEventId=KANIVnCvTtKGmxXoAb5smg)
 - [List of class recordings](#class-recordings)
@@ -28,13 +30,13 @@ This is a problem-driven and technique-focused studio course — part hackathon,
 
 You can work solo or in groups, and develop final projects in a variety of possible forms:
 
-🎛️ Hardware — Design your own device: a standalone instrument, a guitar pedal, a modular synthesos module, or an interactive art installation. In the course of this, get to know analog hardware, build embedded analog and digital systems!  
+🎛️ Hardware — Design your own device: a standalone instrument, a guitar pedal, a modular synthesos module, or an interactive art installation. In the course of this, get to know analog hardware and build embedded digital audio systems!  
 
 🎮 Game Audio — Build adaptive sound and procedural foley systems that react live inside game engines such as Unity and Unreal. 
 
-🌐 Web & XR — Create generative audio for browser-based experiences, games and WebXR worlds. 
-
 🔌 Plugins — Build real plugins that work with the audio software or video editors people already use such as Ableton Live or VCV Rack. 
+
+🌐 Web & XR — Create generative audio for browser-based experiences, games and WebXR worlds. 
 
 Instruction includes a blend of essential topic instruction with online resources, but mainly focuses on per-project supervision. 
 
@@ -49,10 +51,10 @@ We will work with the same tools many professional studios and hardware companie
 ### Evaluation
 
 - **25% Dev Log**   
-An online log of project design and the development progress, maintained throughout the course
+An online log of project design and the development progress, maintained throughout the course. It could be a Google Doc, a Notion doc, a Github page -- anything that can be shared online.
 
 - **25% Presentation & Discussion**   
-Presenting work-in-progress to the group, and generous contribution to discussion
+Presenting work-in-progress to the group, and generous contribution to discussion.
 
 - **25% Final distributable project**   
 A functional, professional embodiment of the sonic ideas in a specific application format such as: adaptive sound generators for video games; new embedded hardware for guitar pedals, modular synthesizers, or interactive art installations; embedding in web-native projects; creating plugins for desktop software.
@@ -65,9 +67,11 @@ Documentation of the final project in the form of a web page with embedded video
 - **25% Research paper (Graduate only)**   
 The final project implementation documented in research-appropriate writing, such as an academic paper suitable for submission to a conference such as NIME (New Instruments for Musical Expression), SMC (Sound Music Computing), or another comparable research document. 
 
-### Online course notes
+### Related Courses
 
-Please note that the online course notes below on this website are subject to change. 
+The course accompanies [DATT3074](https://alicelab.world/datt3074/) **Creative Generative Audio Signal Processing**, which focuses on sample-level audio synthesis algorithms. 
+
+The course complements and supports Sonic Arts stream courses in Digital Media, including DATT4071/DIGM5071/6071 and DATT3070/4070/DIGM5070. The course may also directly contribute to project development in other courses such as DATT4700, DATT4520, and EECS4441.
 
 [Back to top](#top)
 
@@ -78,17 +82,48 @@ Sep 9 - [Class Recording](#class-recordings)
 
 Introduction to the course
 
-Introductory presentation
+*It's the 1st time to run this course, so the roadmap will be fleshed out more after I know more about what your interest foci are (after the 1st week's homework).*
 
-Software setup
+Context: over a century of electronic sound synthesis & instrument design, intertwining creativity & technology 
+  - Explore https://nodemusic.cc/horizon (Katerina Ryzhzh, 2026) + discussion
+  - Mechanical, Analog, Digital, AI? 
+  - Interconnectivity: Voltage, MIDI, plugins, networking, ...?
+  - Mimicry, supernormal, alien
+  - Physicality
+  - Why is modular resurgent?
+  - What's missing from this graph?
 
+Presentation:
+
+https://docs.google.com/presentation/d/147RoDVI9CexC3cXXdqOqc6ns1jGn0L_rGpgzSky1RvA/
+
+- [Survey](https://docs.google.com/forms/d/e/1FAIpQLSfc-nzHniN77CjY7-6F_ik-i8j4uW_9yHiZzF3MV-fmJt_4pQ/viewform?usp=publish-editor)
+- Attendance
+- Max license question
+
+- Open-ended demonstration: Modular, gen~, Oopsy & different Daisies :-)
+
+- **Homework for next week**  
+  - Do some field research into reference videos about audio synthesis projects while thinking about what you would like to build. Collect the best 3 reference projects to your interest. 
+    - They could be guitar pedals, modular synthesis modules, DIY instruments, VST plugins, sonic art installations, game audio, etc.  Keep their scope fairly narrow though -- modular modules, pedals and plugins are good choices because usually each one focuses on a single synthesis algorithm.
+    - All 3 should be different enough from each other so that they cover the different aspects of what you might want to do. For example:
+      - One could be selected for what makes it interesting in terms of audio synthesis or generative algorithms
+      - One could be selected for the interestingness of its interface 
+      - At least one should be a project that explains how it was made (e.g. DIY, open source, tutorial video, etc.). Its OK if you don't fully understand it yet, or if it looks beyond what you think you can achieve. 
+  - [Add these videos to slides in this presentation](https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/edit?usp=sharing)
+  - For each one, think about how to answer these questions:
+    - What is especially impressive or inspiring to you about it?  What makes it uniquely interesting? 
+    - What surprised you in the details or implementation / what did you learn from it that you intend to apply?
+    - Where do you think the project is weak, why, and how could it be better?
+  - Can you sketch out what a hybrid between 2 or 3 of your references might look like?
+  - Be careful not to accidentally overwrite one of your colleagues slides! 
+
+**Also for next week: remember to bring headphones and/or portable speakers -- we will start flashing Daisies together**
+
+# Week 2
+
+Setting up the Max / gen~ / Daisy workflow, and flashing Daisy on breadboards
 
 # Class Recordings
 
 Recordings of the weekly sessions will be here:
-
----
-
-https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSS+AHAGwDsATI-Uo0QJzVu2ogBGiavVQAHQQiLZUANwiISUALaYFAUwC0lBAD4AUFCjBoAD0QtGUJLWxQAzI1vXpsHKnnJCBBAHp9h4AATKDMEO1pqKzZ7CKgAFmpUeAQXJQB7REC1GABDAFcAGzRffyMAJRDEcMiEmMjrJLcoAHdk1JyTGXMSgyMAeUqwxysbe2o4kZc21AxyFJ6AitCLSahGOKcbRvmW5Lskjw3UJQ6uzwWjUTRBh03baqhqKYpjnPMvF1EMlNwiRg56B8gSgoBgCogymoMGAMGgcgA7EBqC7AK43YbOMYTdbPZCvd5eMTfPBSDgcGbghCQ6GwhFIlHBUJ2cZrIi0LFrbCJVw7dKZbL5IoopZVFnsdnM7HUbnTXZNE6dRAaRgotJQNTwxBxGaiRC0bU8kz7KC6+alAKiKBnFyzCjSPy9C1WqozOZ4QhIDhEOxsEgOgI+NKlYBqjUu0Gm-XbEwqk0vc2XZ07W3nf1GQP6YA+cAQfRAA
-
-

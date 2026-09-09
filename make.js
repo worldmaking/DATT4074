@@ -103,13 +103,13 @@ function generate(file) {
 
 <script>
 // Wait for the iframe to load and use the JS API to stop it
-let iframe = document.getElementById('${id}');
+let iframe_${id} = document.getElementById('${id}');
 
-iframe.onload = function() {
+iframe_${id}.onload = function() {
 // Poll every 50ms until the CircuitJS1 API object is fully ready
 const checkInterval = setInterval(() => {
 	try {
-		const win = iframe.contentWindow;
+		const win = iframe_${id}.contentWindow;
 		
 		// Note the exact casing: Capital C, capital JS, followed by number 1
 		if (win && win.CircuitJS1) {
