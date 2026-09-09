@@ -115,6 +115,7 @@ https://docs.google.com/presentation/d/147RoDVI9CexC3cXXdqOqc6ns1jGn0L_rGpgzSky1
     - What is especially impressive or inspiring to you about it?  What makes it uniquely interesting? 
     - What surprised you in the details or implementation / what did you learn from it that you intend to apply?
     - Where do you think the project is weak, why, and how could it be better?
+  - Put these answers into the slides (or presenter notes)
   - Can you sketch out what a hybrid between 2 or 3 of your references might look like?
   - Be careful not to accidentally overwrite one of your colleagues slides! 
 
