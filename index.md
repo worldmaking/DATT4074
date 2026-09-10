@@ -17,7 +17,9 @@ Office hours: Thursdays, 9:30am-11:30am, in the Alice Lab - GCFA 309
 
 **Course material** is available at or linked from [this website](https://alicelab.world/DATT4074) -- bookmark it! 
 
-**Assignments** will be handled through **e-Class** at [https://TBC](**TBC**) 
+**Assignments** will be handled through **e-Class** 
+- Undergraduate at [https://eclass.yorku.ca/course/view.php?id=157128]()
+- Graduate at [https://eclass.yorku.ca/course/view.php?id=157121]() 
 
 **Class recordings**: I often share screen and record classes via Zoom. This doesn't mean the class is hybrid (in-person attendence is required and will be accounted), but I have heard that it has been useful for many students to be able to review sessions after class hours, or to view a live class on their personal laptop screens. 
 - [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
