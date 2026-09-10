@@ -134,11 +134,23 @@ Can you sketch out what a hybrid between 2 or 3 of your references might look li
 
 # Week 2: Flashing Daisy
 
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
 Setting up the Max / gen~ / Daisy workflow, and flashing Daisy on breadboards
 
 Inspiration Slides: 
 
 https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+# Week 3: 
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+TBC
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 # Class Recordings
 
