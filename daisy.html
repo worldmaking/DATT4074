@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Daisy</title>
+<meta name="description" content="">
+<meta name="author" content="Graham Wakefield">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/basic.css" type="text/css" />
+<link rel="stylesheet" href="css/github.css" type="text/css" />
+<style>
+img {
+	max-height: 75vh;
+}
+td { vertical-align: top;}
+header {
+	background-color:#f5f5f5;
+	font-size: 75%;
+	padding: 0.5em;
+}
+
+footer {
+	background-color:#f5f5f5;
+	font-size: 75%;
+	padding: 0.5em;
+}
+</style>
+<script>
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function copyPatch(str) {
+	navigator.clipboard.writeText(str);
+//   // Get the text field
+//   var copyText = document.getElementById("myInput");
+
+//   // Select the text field
+//   copyText.select();
+//   copyText.setSelectionRange(0, 99999); // For mobile devices
+
+//    // Copy the text inside the text field
+//   navigator.clipboard.writeText(copyText.value);
+
+//   // Alert the copied text
+//   alert("Copied the text: " + copyText.value);
+}
+</script>
+</head>
+
+<body class="centremaxwidth960">
+<header><a href="index.html">Synthesis Workshop</a><a name="top"></a></header>
+<ul>
+<li><a href="#daisy">Daisy</a></li>
+<li><a href="#installing-the-libdaisy-toolchain">Installing the libdaisy Toolchain</a><ul>
+<li><a href="#mac">Mac</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#installing-oopsy-for-max">Installing Oopsy for Max</a></li>
+<li><a href="#how-does-oopsy-work">How does Oopsy work?</a></li>
+<li><a href="#flashing-from-oopsy">Flashing from Oopsy</a></li>
+<li><a href="#daisy-on-a-breadboard">Daisy on a Breadboard</a><ul>
+<li><a href="#placing-the-daisy">Placing the Daisy</a></li>
+<li><a href="#identifying-pins">Identifying pins</a></li>
+<li><a href="#wiring-up-ground">Wiring up Ground</a></li>
+<li><a href="#wiring-up-audio-output">Wiring up audio output</a></li>
+<li><a href="#connecting-the-3v3-rail">Connecting the 3v3 rail</a></li>
+<li><a href="#adding-a-knob">Adding a knob</a></li>
+<li><a href="#define-the-json">Define the JSON</a></li>
+<li><a href="#a-simple-example-with-mono-push-button-oscillator">A simple example with mono push-button oscillator</a></li>
+</ul>
+</li>
+<li><a href="#oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</a></li>
+<li><a href="#list-of-possible-components">List of possible components</a></li>
+</ul>
+</li>
+</ul>
+
+<hr>
+
+<h1 id="daisy">Daisy</h1>
+<p>The <a href="https://docs.daisy.audio/">Electrosmith Daisy</a> is an open-source hardware and software platform designed for creating custom digital musical instruments, effects processors, and synthesizers. </p>
+<table>
+<thead>
+<tr>
+<th><a href="https://docs.daisy.audio/hardware/Seed/#pinout"><img src="img/seed_spin_4-5_hires.gif" alt="Daisy Seed"></a></th>
+<th><a href="https://docs.daisy.audio/hardware/Seed/#pinout"><img src="img/pinout.png" alt="pinout"></a></th>
+</tr>
+</thead>
+</table>
+<p>The <strong>Daisy Seed</strong> is a small development board, similar to an Arduino or Teensy, but with an integrated stereo audio IO interface. It is suitable for developing DIY projects on breadboard type environments, but scalable to professional hardware PCB products (and now widely used in synths and guitar pedals).</p>
+<ul>
+<li>Powered by an ARM Cortex-M7 microcontroller running at 480 MHz for real-time audio processing</li>
+<li>Audio Quality: Supports high-resolution stereo audio (up to 96kHz/24-bit or 192kHz/32-bit depending on the specific module/seed version)</li>
+<li>Many GPIO pins that can be configured for analog or digital input or output, making it easy to connect things like buttons, switches, knobs, LEDs, control voltages and other circuits </li>
+<li>Some pins that can be configured for specific protocols and purposes, such as MIDI, I2C, SDCARD, etc. </li>
+</ul>
+<p>Collections of example projects:</p>
+<ul>
+<li>Profiled: <a href="https://daisy.audio/blogs/seeds-n-circuits">https://daisy.audio/blogs/seeds-n-circuits</a></li>
+<li>Community: <a href="https://community.daisy.audio/c/projects-and-examples/">https://community.daisy.audio/c/projects-and-examples/</a></li>
+<li>Join the Discord to view more in the Show-and-Tell section: <a href="https://discord.com/invite/ByHBnMtQTR">https://discord.com/invite/ByHBnMtQTR</a></li>
+<li>Examples in Github: <a href="https://github.com/electro-smith/DaisyExamples">https://github.com/electro-smith/DaisyExamples</a></li>
+</ul>
+<p>Specific products &amp; projects using Daisy:</p>
+<ul>
+<li>Standalone Devices<ul>
+<li>Chompi Sampler <a href="https://www.chompiclub.com/">https://www.chompiclub.com/</a></li>
+<li>Pocket Audio HiChord <a href="https://hichord.shop/">https://hichord.shop/</a></li>
+<li>Vongon Replay <a href="https://www.vongon.com/pages/replay">https://www.vongon.com/pages/replay</a></li>
+<li>Enjoy Electronics Godfather <a href="https://www.enjoy-lab.com/godfather">https://www.enjoy-lab.com/godfather</a></li>
+<li>Xtrike: <a href="https://www.indiegogo.com/en/projects/xaudiosystems/xtrike-impact-driven-wavetable-synthesizer">https://www.indiegogo.com/en/projects/xaudiosystems/xtrike-impact-driven-wavetable-synthesizer</a></li>
+<li>Recovery Effects Seven Sisters <a href="https://recoveryeffects.com/products/seven-sisters-percussion-synthesizer">https://recoveryeffects.com/products/seven-sisters-percussion-synthesizer</a></li>
+<li>SynthUX Touch, Audrey and Spotykach <a href="https://www.synthux.academy/">https://www.synthux.academy/</a></li>
+<li>YMNK POly Analog <a href="https://www.ymnkmusic.com/project/13">https://www.ymnkmusic.com/project/13</a></li>
+<li>ginTronic TransparentSea <a href="https://gintronic.io">https://gintronic.io</a></li>
+</ul>
+</li>
+<li>Eurorack modular<ul>
+<li>Venus Instruments Veno Echo &amp; Veno Orbit <a href="https://www.venusinstrumentsaudio.com/">https://www.venusinstrumentsaudio.com/</a></li>
+<li>Modbap Modular Per4mer &amp; Osiris (<strong>written with Oopsy</strong>) <a href="https://www.modbap.com/">https://www.modbap.com/</a></li>
+<li>Fancyyyyy K-Accumulator (<strong>with Oopsy</strong>) <a href="https://www.fancysynthesis.net">https://www.fancysynthesis.net</a>) </li>
+<li>Hermetic Alchemy Lab <a href="https://hermeticmodular.com/">https://hermeticmodular.com/</a></li>
+<li>OXI Instruments Coral <a href="https://oxiinstruments.com/oxi-coral">https://oxiinstruments.com/oxi-coral</a></li>
+<li>Entropic Loop Grackle <a href="https://entropicloop.com/shop/p/grackle">https://entropicloop.com/shop/p/grackle</a></li>
+<li>Ampersand Wear &amp; Tear <a href="https://ampersandampersand.co/products/wear-and-tear">https://ampersandampersand.co/products/wear-and-tear</a></li>
+<li>Olivia Arts Time Machine <a href="https://oamodular.org/products/time-machine">https://oamodular.org/products/time-machine</a></li>
+<li>Infrasonic Warp Core <a href="https://infrasonicaudio.com/products/warp-core">https://infrasonicaudio.com/products/warp-core</a></li>
+<li>Isobar Industries Serratus <a href="https://isobar.studio/serratus">https://isobar.studio/serratus</a></li>
+<li>System Lizard Iguanamente <a href="https://www.systemlizard.com">https://www.systemlizard.com</a></li>
+<li>Blukač Instruments Endless Processor <a href="https://www.blukac.com/endless-processor.html">https://www.blukac.com/endless-processor.html</a></li>
+<li>Noise Engineering Legio and Alia platforms <a href="https://noiseengineering.us/">https://noiseengineering.us/</a></li>
+<li>QuBit Data Bender, Surface, Aurora, Mojave, Nautilus, Bloom v2 <a href="https://www.qubitelectronix.com/">https://www.qubitelectronix.com/</a></li>
+<li>Electrosmith Patch.Init <a href="https://daisy.audio/products/patch-init">https://daisy.audio/products/patch-init</a></li>
+</ul>
+</li>
+<li>Guitar pedals<ul>
+<li>Pure Magnetik LAPS <a href="https://puremagnetik.com/products/laps-multitrack-collage-machine">https://puremagnetik.com/products/laps-multitrack-collage-machine</a></li>
+<li>GuitarML SoundSketch, Funbox and Seed <a href="https://guitarml.com/pedals.html">https://guitarml.com/pedals.html</a></li>
+<li>TONE3000 Neural Amp Models on the Daisy Seed <a href="https://www.tone3000.com/blog/running-nam-on-embedded-hardware">https://www.tone3000.com/blog/running-nam-on-embedded-hardware</a></li>
+<li>Cleveland Audio Hothouse <a href="https://community.daisy.audio/t/hothouse-dsp-pedal-kit/5631">https://community.daisy.audio/t/hothouse-dsp-pedal-kit/5631</a> &amp; <a href="https://github.com/clevelandmusicco/HothouseExamples">https://github.com/clevelandmusicco/HothouseExamples</a></li>
+<li>PedalPCB Terrarium <a href="https://www.pedalpcb.com/product/pcb351/">https://www.pedalpcb.com/product/pcb351/</a> </li>
+<li>Keith Shepherd collection here <a href="https://github.com/bkshepherd/DaisySeedProjects">https://github.com/bkshepherd/DaisySeedProjects</a></li>
+<li>NYU Pedal projects (<strong>using Oopsy</strong>) <a href="https://idmnyu.github.io/IDMPEDALS/">https://idmnyu.github.io/IDMPEDALS/</a></li>
+<li>Sam Knight&#39;s Pedal Tutorial <a href="https://github.com/skngh/How-to-Make-a-Guitar-Pedal">https://github.com/skngh/How-to-Make-a-Guitar-Pedal</a> and <a href="https://www.youtube.com/watch?v=QKbvmnLBfEQ&amp;list=PLXj_YR5uUMrulxui4f4sE3yInUK220c-X">https://www.youtube.com/watch?v=QKbvmnLBfEQ&amp;list=PLXj_YR5uUMrulxui4f4sE3yInUK220c-X</a></li>
+<li>Atlas Reverb/Delay <a href="https://www.reddit.com/r/diypedals/comments/17p2hj0/atlas_reverb_and_delay_pedal_using_daisy_seed/">https://www.reddit.com/r/diypedals/comments/17p2hj0/atlas_reverb_and_delay_pedal_using_daisy_seed/</a></li>
+<li>Dub Siren Pedal (<strong>with Oopsy</strong>) <a href="https://www.youtube.com/watch?v=qOSyVUJKIQw&amp;feature=youtu.be">https://www.youtube.com/watch?v=qOSyVUJKIQw&amp;feature=youtu.be</a></li>
+<li>Euclidean Tremelo (<strong>with Oopsy</strong>) <a href="https://www.youtube.com/watch?v=Tfp7akjn5n0">https://www.youtube.com/watch?v=Tfp7akjn5n0</a></li>
+<li>Snowstorm (<strong>with Oopsy</strong>) <a href="https://www.youtube.com/watch?v=kS47zSkWa5c">https://www.youtube.com/watch?v=kS47zSkWa5c</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>We have several Daisy Seed boards to use in this class, along with breadboards and many different sensors and other components we can use, including LEDs, knobs, switches, buttons, LED buttons, mono and stereo jacks, light sensors, piezos, touch sensors, muxes, various ICs such as opamps, counters, shift registers etc.</p>
+</blockquote>
+<p>Daisy can be programmed in C++, Max/MSP (Gen~), Pure Data, or Arduino. We&#39;ll mostly focus on Max (or C++) in the class. But first, to program a Daisy Seed, we need to install a few things (the &quot;toolchain&quot;). </p>
+<hr>
+
+<h1 id="installing-the-libdaisy-toolchain">Installing the libdaisy Toolchain</h1>
+<p>Before we can flash code to the Daisy, there&#39;s a lot of software dependencies we need to install for the required toolchain.  We only need to set up this toolchain once, but it requires quite a few steps and careful attention along the way! </p>
+<p>Let&#39;s start at the <a href="https://docs.daisy.audio/tutorials/cpp-dev-env/">Getting Started</a> page of the Daisy docs. The libDaisy toolchain includes several other tools:</p>
+<ul>
+<li><code>Git</code> for obtaining the source code</li>
+<li><code>Make</code> for Makefile-based compilation of library and examples</li>
+<li><code>ARM Toolchain</code> used to cross compile for the Daisy processor</li>
+<li><code>dfu-util</code> for flashing programs from the command line</li>
+<li><em>(Windows only)</em> <code>Zadig</code> to reset the USB driver</li>
+</ul>
+<p>For working with Max/MSP, we&#39;ll also need:</p>
+<ul>
+<li>Max: <a href="https://cycling74.com/downloads">https://cycling74.com/downloads</a></li>
+<li>Oopsy: <a href="https://docs.daisy.audio/tutorials/oopsy-dev-env/">https://docs.daisy.audio/tutorials/oopsy-dev-env/</a></li>
+</ul>
+<p>Before following the tutorial to install these, you will need to have some pre-requisites installed. </p>
+<h2 id="mac">Mac</h2>
+<p>You have two options.  </p>
+<ol>
+<li><p>Do you have <a href="https://brew.sh/">Homebrew</a> installed? </p>
+<ul>
+<li>Type <code>brew -v</code> into a terminal.  If it replies with a version number, you can install the toolchain with this command: </li>
+<li><code>brew install make armmbed/formulae/arm-none-eabi-gcc dfu-util</code></li>
+</ul>
+</li>
+<li><p>If not, you can do it via the <strong>Apple Developer Tools</strong>. Xcode is Apple&#39;s developer envionment.  It is a huge project and download, but we don&#39;t need the whole thing for our purposes; we just need the more minimal &quot;developer tools&quot;. </p>
+<ul>
+<li>Do you have Xcode developer tools installed? <ul>
+<li>Run <code>xcode-select -p</code> in a terminal. If it replies with a file path on your system, you have it installed. </li>
+<li>If not, install it with <code>xcode-select --install</code>. This could take some time. </li>
+</ul>
+</li>
+<li>Next follow the instructions of <strong>Install the Toolchain</strong> at <a href="https://docs.daisy.audio/tutorials/toolchain-mac/">https://docs.daisy.audio/tutorials/toolchain-mac/</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="windows">Windows</h2>
+<p>First, check whether you already have <code>git</code> installed! Open a Command Prompt or Powershell, and type <code>git --version</code> -- if it replies with a message starting with <code>git version</code> then you already have git. If not, you need to install <code>git</code>, by running the downloadable isntaller from <a href="https://git-scm.com/install/windows">https://git-scm.com/install/windows</a></p>
+<blockquote>
+<p>What is <code>git</code>? Git is a free, open-source distributed version control system designed to track changes in source code and files over time. It is probably the most common way for software developers to distribute code projects today. A project is held in a &#39;git repository&#39;, possibly with different versions in &#39;branches&#39;, which are updated through &#39;commits&#39;. How it works is beyond the scope for this class, but we will need <code>git</code> in order to install the Daisy toolchain. </p>
+</blockquote>
+<p>Next follow the instructions of <strong>Install the Toolchain</strong> at <a href="https://docs.daisy.audio/tutorials/toolchain-windows/">https://docs.daisy.audio/tutorials/toolchain-windows/</a></p>
+<blockquote>
+<p>You <strong>do not need to install Python!</strong></p>
+</blockquote>
+<p>However, it is likely that you will need to use Zadig to reset USB drivers for flashing to the Daisy. See the instructions at <a href="https://docs.daisy.audio/tutorials/zadig/">https://docs.daisy.audio/tutorials/zadig/</a></p>
+<h2 id="installing-oopsy-for-max">Installing Oopsy for Max</h2>
+<p>Once you have <a href="https://cycling74.com/downloads">Max</a> installed, you need to add the Oopsy package.  <strong>Oopsy</strong> is a way to turn Max&#39;s <code>gen~</code> patches into Daisy firmware, and flash the firmware onto the Daisy directly.  </p>
+<p>To get the Oopsy package, either use the download link or <code>git clone</code> it as described at <a href="https://docs.daisy.audio/tutorials/oopsy-dev-env/#getting-oopsy">https://docs.daisy.audio/tutorials/oopsy-dev-env/#getting-oopsy</a></p>
+<ul>
+<li>If you downloaded a zip file, you should unzip the zip file to get an Oopsy folder.  </li>
+<li>If you get it by <code>git clone https://github.com/electro-smith/oopsy.git</code>, make sure you also then <code>cd oopsy</code> and <code>./install.sh</code> to build it. </li>
+</ul>
+<p>Now for Max to be able to see Oopsy, we need to install this folder as a &quot;package&quot; for Max, by moving <code>oopsy</code> folder into Max&#39;s Packages folder.  </p>
+<ul>
+<li>On Windows that means moving it into <code>C:\Users\YourUserName\Documents\Max 9\Packages</code>.  </li>
+<li>On Mac, move it to your user <code>Documents/Max 9/Packages</code>.</li>
+</ul>
+<p>Now you can restart Max, and verify that <code>oopsy</code> is installed:</p>
+<ul>
+<li>Make a new patcher with Cmd-N or File -&gt; New patcher</li>
+<li>Create an oopsy object by pressing &#39;n&#39; and typing <code>oopsy.pod</code>. You should get something that looks like this:</li>
+</ul>
+<p><img src="img/oopsy.pod.png" alt="Oopsy pod"></p>
+<p>If not, try restarting Max. If that doesn&#39;t work, retrace the installation steps. </p>
+<h2 id="how-does-oopsy-work">How does Oopsy work?</h2>
+<p>The main idea is that you have a Max patch that contains both an <code>oopsy</code> object and a <code>gen~</code> object.  Every time you save the patch, or click the button in the <code>oopsy</code> object, it does the following:</p>
+<ul>
+<li>It finds the <code>gen~</code> object, and makes it export its code as C++</li>
+<li>It then reads that C++ code and analyzes it, to find out what inputs and outputs it has.  This includes: <ul>
+<li>audio inputs (<code>in</code> objects) </li>
+<li>audio outputs (<code>out</code> objects)</li>
+<li>control inputs (<code>param</code> objects with specific names)</li>
+<li>control outputs (<code>history</code> objects with specific names that end with <code>_out</code>)</li>
+</ul>
+</li>
+<li>It imports a target definition file, in JSON format, which specifies how the Seed is configured, including how GPIO pins are configured (for knobs, switches, LEDs, etc.), and what names to identify these with</li>
+<li>It then generates C++ code that maps the patcher&#39;s audio C++ code and IO to the JSON configuration</li>
+<li>It compiles this C++ code using a Makefile and the ARM gcc compiler to produce a binary firmware <code>.bin</code> file</li>
+<li>It then attempts to flash this <code>.bin</code> to the Daisy over USB, using <code>dfu-util</code>, reporting any errors back to Max. </li>
+</ul>
+<p>That&#39;s a lot of work that you don&#39;t have to think about most of the time!  </p>
+<p>Most of the time, your job is to </p>
+<ul>
+<li><strong>Target definition</strong>: efine the hardware JSON according to what you physically have connected to the Daisy on the circuit</li>
+<li><strong>Audio design</strong>: define the gen~ patcher for your audio algorithms</li>
+</ul>
+<h2 id="flashing-from-oopsy">Flashing from Oopsy</h2>
+<p>Let&#39;s make a minimal example:</p>
+<ul>
+<li>Save your patcher somewhere on your disk.  That folder will be your project working folder. </li>
+<li>Make sure your patcher has a single <code>gen~</code> object in it. To create one, type &#39;n&#39; and type <code>gen~</code>.  Oopsy will now use that gen~ object to compile and flash to the Daisy. </li>
+<li>Make sure your patcher has a single <code>oopsy</code> object in it. To create one, type &#39;n&#39; and type <code>oopsy.pod</code>. </li>
+<li>Pick your target JSON.  You can just select &quot;pod&quot; from the drop down menu in the <code>oopsy</code> object if you haven&#39;t defined a JSON yet.  If you have defined a JSON, click the <code>browse</code> button to find it, or send a <code>target mydef.json</code> message to oopsy (assuming you have a <code>mydef.json</code> file in the same folder as the patcher). </li>
+<li>Connect up your computer to the Daisy with a USB cable.  <em>(note, not all USB cables work -- some cables are only &quot;charging&quot; cables, not data cables)</em></li>
+<li>On the Daisy, push the buttons to put it into bootloader mode as follows:<ul>
+<li>Press and hold the Boot button</li>
+<li>Press and hold the Reset button</li>
+<li>Let go of the Reset button</li>
+<li>Let go of the Boot button</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/boot_procedure.webp" alt="Bootloader push"></p>
+<ul>
+<li>Switch out of edit mode (Ctrl-E) and push the button on the Oopsy object, and it will try to flash.  It can take a few seconds. <ul>
+<li>If it worked, one LED on the Daisy will be solid on, and the other LED will blink once per second (it may be a very short blink though!)<ul>
+<li><strong>That blink is indicating the CPU usage</strong> -- the blink on time is very short because our gen~ patch is very simple!  A more complex gen~ patch would have a blink with a longer on-time. </li>
+</ul>
+</li>
+<li>If it says &quot;DFU error&quot; or &quot;No DFU capable device available&quot;, there are a few possible reasons:<ul>
+<li>The USB cable is not connected, or is not a data-capable cable</li>
+<li><strong>Windows only</strong> you may need to use Zadig to set up your USB driver, see <a href="https://docs.daisy.audio/troubleshooting/#oopsy">https://docs.daisy.audio/troubleshooting/#oopsy</a></li>
+<li>Perhaps libdaisy is not fully installed &amp; built. Try again with the QUIET button on the Oopsy object switched to VERBOSE.  If there&#39;s an error in the Max window like &quot;oopsy-verbose: &quot;stderr . . . . . cannot find -ldaisy&quot;&quot;, see the instructions at <a href="https://docs.daisy.audio/troubleshooting/#oopsy">https://docs.daisy.audio/troubleshooting/#oopsy</a> to build libdaisy. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="daisy-on-a-breadboard">Daisy on a Breadboard</h2>
+<p>If we want to hear the audio output and start manipulating the algorithm, we&#39;ll want to start connecting components to it (such as stereo headphone sockets).  The best place to start is with a prototyping breadboard. Here is how a broadboard is internally connected:</p>
+<p><img src="img/breadboard_wiring.jpg" alt="breadboard wiring"></p>
+<h3 id="placing-the-daisy">Placing the Daisy</h3>
+<p>We&#39;ll first place a Daisy onto a breadbard. <strong>Do this very carefully -- we really don&#39;t want to bend any of the pins!</strong>  First, line up the Daisy over the pin holes.  Typically we&#39;ll want the Daisy&#39;s USB socket at the edge of the breadboard, and the Daisy&#39;s centre aligned to the track that runs through the middle of the breadbard. Typically this means you&#39;ll have 2 or 3 pins free at either side of the Daisy (see photo below). Then very evenly push on all four corners at the same time, gently first and then more firmly as you find the point where it starts to go in. (<em>If you don&#39;t feel confident, ask me.</em>)</p>
+<blockquote>
+<p>(If you ever have to remove it, the best way is to slide a cable or string through the channel underneath the daisy, then pull slowly on both ends of the cable/string to start lifting the chip out of the breadboard.  The key is to lift it evenly at all sides, so that no pins get bent!)</p>
+</blockquote>
+<h3 id="identifying-pins">Identifying pins</h3>
+<p>Depending on what inputs and outputs you want to use, and how they are configured in your target JSON file, you&#39;ll need to wire up different pins to different components on the breadboard.  </p>
+<p>To know which pins correspond to what purposes, see the <a href="https://docs.daisy.audio/hardware/Seed/#pinout">pinout diagram</a> at the top of this page or on the <a href="https://docs.daisy.audio/hardware/Seed/">https://docs.daisy.audio/hardware/Seed/</a> page. </p>
+<p>For a more detailed view of the pins, see the <a href="https://daisy.nyc3.cdn.digitaloceanspaces.com/products/seed/Daisy_Seed_datasheet.pdf">Datasheet</a></p>
+<h3 id="wiring-up-ground">Wiring up Ground</h3>
+<p>Ground is also known as the zero volt (0V) reference. The Daisy has two ground ports at pins 20 (&quot;analog ground&quot;) and 40 (&quot;digital ground&quot;) on the board.  You&#39;ll nearly always want to connect these together with your board&#39;s ground. </p>
+<p>If you put the USB port to your left, this is the top-left and bottom-right pins. Connect both of these to the blue ground rails on the breadboard. (<em>I recommend using blue jumper cables consistently to represent ground.</em>)  It&#39;s easier to wire these to the nearest rail, and then at the other end of the breadboard, put another jumper cable between the two rails to connect them together. </p>
+<h3 id="wiring-up-audio-output">Wiring up audio output</h3>
+<p>The pinout identifies pins 18 &amp; 19 as the two audio output channels.  If you have the USB port to the left, then these are the two pins at the bottom right just before the analog ground pin. </p>
+<table>
+<thead>
+<tr>
+<th>mono</th>
+<th>stereo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A <strong>mono</strong> audio jack needs both the signal and the ground wired up.  The signal goes to the <em>tip</em> and the ground goes to the <em>shield/sleeve</em>.</td>
+<td>A <strong>stereo</strong> audio jack needs two signals plus ground wired up.  One signal channel goes to <em>tip</em>, another goes to <em>ring</em>, and ground goes to <em>shield/sleeve</em>.</td>
+</tr>
+<tr>
+<td><img src="img/mono_jack.png" alt="mono jack"></td>
+<td><img src="img/stereo_jack.png" alt="sterep jack"></td>
+</tr>
+<tr>
+<td><img src="img/mono_socket.png" alt="mono socket"></td>
+<td><img src="img/stereo_socket.png" alt="sterep jack"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Notice that the sockets also have <em>switch</em> pins.  This is how you would send a signal if you wanted a &quot;default&quot; or &quot;normal&quot; signal when nothing is plugged in. In modular synths these default signals are called &quot;normalled&quot; connections. </p>
+</blockquote>
+<h3 id="connecting-the-3v3-rail">Connecting the 3v3 rail</h3>
+<p>Many components, such as knobs, need a positive reference voltage in addition to ground. </p>
+<p>Typically we will use the analog 3V3 (3.3 volts) pin for this reference voltage -- that is on pin 21, at the top right of the Daisy if you have the USB socket at the left.  In this case, we can simply connect &quot;pin 21 3v3 Analog&quot; to our red positive rail on the breadboard.  <em>I recommend using red jumper wires for this.</em>  It makes sense to use 3v3 as our reference, because these analog GPIO pins can only detect values between 0v and 3v3. </p>
+<h3 id="adding-a-knob">Adding a knob</h3>
+<p>A knob, or properly speaking, a <strong>potentiometer</strong> (or &quot;pot&quot;), is a component with variable resistance.  Typically pots have three pins: the left and right pins hold the two reference voltages, and the middle pin (the &quot;wiper&quot;) produces a voltage between these according to the position of the knob. </p>
+<p>Place the pot on the breadboard to the right of the Daisy, so that each of the 3 pins has a unique 5-socket vertical track.  </p>
+<p>We can use our ground rail as one refernence voltage.  Connect a jumper from the the left pin&#39;s column to the nearest ground rail. </p>
+<p>Once we have a 3v3 rail set up, connect the pot right pin&#39;s column to this rail (again with a red jumper wire). </p>
+<p>Typically we will use the analog 3V3 (3.3 volts) pin for the other reference voltage -- that is on pin 21, at the top right of the Daisy if you have the USB socket at the left.  In this case, we can simply connect &quot;pin 21 3v3 Analog&quot; to our red positive rail on the breadboard.  <em>I recommend using red jumper wires for this.</em>  It makes sense to use 3v3 as our reference, because these analog pins can only detect values between 0v and 3v3. </p>
+<p>Once we have 3V3 rail set up, connect the pot right pin&#39;s column to this rail (again with a red jumper wire). </p>
+<p>Now the middle &quot;wiper&quot; pin of the pot needs to connect to one of the Analog-capable GPIO inputs on the Daisy.  Again look at the pinout: these pins are prefixed with &quot;A&quot;, such as &quot;A0&quot;, &quot;A1&quot;, etc. We&#39;ll need to pick one of these and wire it up to the wiper (using some jumper color that isn&#39;t red or blue). Also write down what the GPIO pin number was -- not the number of the board, not the &quot;A&quot; number, but the &quot;D&quot; number -- because we&#39;ll need that to configure our JSON file. E.g. if you used pin 27 on the board, which is marked &quot;A5/D20&quot; on the pinout, then the GPIO number we need is 20 (not 5 or 27)!  <em>Confusing, I know.</em></p>
+<p>Here&#39;s an example of a breadboard with a Daisy wired up with a knob on GPIO pin 20 (board pin 27) and a mono audio socket for the left channel:</p>
+<p><img src="img/minimal_circuit.jpg" alt="breadboard example"></p>
+<h3 id="define-the-json">Define the JSON</h3>
+<p>If we are doing any kind of GPIO connection, we&#39;ll need to define a custom JSON file to let Oopsy know what inputs &amp; outputs we have and how to generate the code for them. </p>
+<p>Every time we connect up a component to one of Daisy&#39;s GPIO pins, we need to modify our target JSON so that it knows what it is. </p>
+<p>So far we hooked up a potentiometer to GPIO pin 20, so we can define our JSON file as follows -- create this file and save it as <code>mydef.json</code> in the same folder as your Max patch. </p>
+<pre><code>{
+    &quot;som&quot;: &quot;seed&quot;,
+    &quot;components&quot;: {
+        &quot;knob1&quot;: {
+            &quot;component&quot;: &quot;AnalogControl&quot;,
+            &quot;pin&quot;: 20
+        }
+    }
+}
+</code></pre>
+<p>Every component has </p>
+<ul>
+<li>a unique name, which we will use in the gen~ patcher. Here it is <code>knob1</code></li>
+<li>a specific component type. Here we used <code>AnalogControl</code> because it is continuous input between 0v and 3v3. </li>
+<li>a pin (or in some cases, multiple pins) that it is connected to on the Daisy</li>
+<li>(other possible options for how the component behaves)</li>
+</ul>
+<p>To tell Oopsy to use this JSON, send the message <code>target mydef.json</code> to the <code>oopsy</code> object in your patcher so that Oopsy knows to use it. (I recommend connecting a <code>loadbang</code> to this message so that it does it every time you open the patch).</p>
+<p>Now you can use a <code>param knob1 @min 0 @max 1</code> in your patcher to control your audio processing. Example gen~ patch:</p>
+<p><img src="img/one_knob_synth.png" alt="one knob synth"></p>
+<p><strong>Button</strong>: </p>
+<ul>
+<li>For a 2-leg button: connect one leg to any digital pin (any pin with a &quot;D&quot; name). Connect the other leg of the button to a ground rail. If a switch has 3 pins, just use the middle pin and one of the end pins. </li>
+<li>In the JSON, use <code>Switch</code> as the component type and give it a name like <code>button1</code>. </li>
+<li>In gen~ you can use <code>param button1 @min 0 @max 1</code> to access the button value. (You can also use different min &amp; max values as desired!)</li>
+</ul>
+<p><strong>LED</strong>: </p>
+<ul>
+<li>LEDs have polarity -- it matters which way you plug them in.  The longer leg of the LED is the anode (positive), which should connect to a digital pin on the Daisy. The shorter leg of the LED is the cathode (negative), which should connect to a ground rail. <strong>However, you should always connect one or the other pins of the LED to ground in series with a resistor</strong>, to prevent current overflow burning out the LED. So for example, connect Daisy digital pin -&gt; resistor -&gt; LED -&gt; Ground. Something between 100-1k ohms is typically fine for the resistor. </li>
+<li>In the JSON, use the <code>Led</code> as the component type, and pick a useful name like <code>led1</code>. </li>
+<li>In the gen~ patch, use a <code>history led1_out</code> (i.e.,<code>&lt;componentname&gt;_out</code>). Set the LED on or off by sending 0 or 1 to this <code>history</code> object. </li>
+</ul>
+<p>There are lots of other possible components we can use, but this covers the basics. </p>
+<h3 id="a-simple-example-with-mono-push-button-oscillator">A simple example with mono push-button oscillator</h3>
+<p>Here&#39;s an example wiring diagram for a simple oscillator with button, knob, and audio output:</p>
+<table>
+<thead>
+<tr>
+<th>circuit schematic</th>
+<th>breadboard layout</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="img/Osc_schem.png" alt="schematic"></td>
+<td><img src="img/Osc_bb.png" alt="breadboard"></td>
+</tr>
+</tbody></table>
+<p>Custom JSON target file:</p>
+<pre><code>{
+    &quot;name&quot;: &quot;mydef&quot;,
+    &quot;som&quot;: &quot;seed&quot;,
+    &quot;defines&quot;: {},
+    &quot;components&quot;: {
+        &quot;knob1&quot;: {
+            &quot;component&quot;: &quot;AnalogControl&quot;,
+            &quot;pin&quot;: 21
+        },
+        &quot;button1&quot;: {
+            &quot;component&quot;: &quot;Switch&quot;,
+            &quot;pin&quot;: 28
+        }
+    }
+}
+</code></pre>
+<p>Save this as <code>mydef.json</code> in the folder, and send the message <code>target mydef.json</code> to the <code>oopsy</code> object in your patcher so that Oopsy knows to use it. (I recommend connecting a <code>loadbang</code> to this message so that it does it every time you open the patch).</p>
+<p>Now you can use a <code>param button @min 0 @max 1</code> and a <code>param knob1 @min 0 @max 1</code> in your patcher to control your audio processing.  Example gen~ patch:</p>
+<p><img src="img/simple_synth.png" alt="simple synth"></p>
+<hr>
+
+<h2 id="oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</h2>
+<ul>
+<li><code>bang</code>: tells Oopsy to compile the patch and try to flash it to a USB-connected Daisy. </li>
+<li><code>target &lt;jsonfile&gt;</code>: where <code>jsonfile</code> is the path to a JSON file on disk.  Tells Oopsy what JSON target definition to use.  We have to make a JSON to configure all GPIO pin connections for our circuit.</li>
+<li><code>blocksize &lt;N&gt;</code> where <code>N</code> can be 48, 32, 16, 8, 4, 2 or 1. How many audio samples pass in each block of processing between processing GPIO data. Making this lower will make inputs and outputs more responsive, but will also increase the CPU load.  I suggest starting with 16 or 8, and increase only if you have to.</li>
+<li><code>samplerate 96khz</code>, <code>samplerate 48khz</code>, <code>samplerate 32khz</code>: choose what sample rate to use. 48khz is normal, the same as DVD audio. 96khz may be desirable to help reduce aliasing artefacts with nonlinear audio algorithms, but CPU load will double.  32khz may have audibly lower quality, but will reduce CPU load.</li>
+</ul>
+<blockquote>
+<p>I recommend using a <code>loadbang</code> object to send your preferred settings to <code>oopsy</code> when the patcher loads -- especially if you use a custom JSON target file. </p>
+</blockquote>
+<p>Other options: </p>
+<ul>
+<li><code>boost 0</code> or <code>boost 1</code>: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. </li>
+<li><code>fastmath 0</code> or <code>fastmath 1</code>.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. </li>
+</ul>
+<h2 id="list-of-possible-components">List of possible components</h2>
+<p>Basic components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Values</th>
+<th>Pins</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Switch</td>
+<td><code>name</code> (0/1), <code>name_press</code> (0/1), <code>name&gt;_seconds</code> (float)</td>
+<td>1</td>
+<td>type=<strong>momentary</strong>/toggle, polarity=normal/<strong>inverted</strong>, <strong>pullup</strong>/pulldown/nopull</td>
+</tr>
+<tr>
+<td>Switch3 (3 position switch)</td>
+<td><code>name</code> (0/1/2)</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>GateIn</td>
+<td><code>name</code> (0/1), <code>name_trig</code> (0/1)</td>
+<td>1</td>
+<td>invert=true/false</td>
+</tr>
+<tr>
+<td>Encoder</td>
+<td><code>name</code> (-1/0/1), <code>name_press</code> (0/1), <code>name_rise</code> (0/1), <code>name_fall</code> (0/1), <code>name_seconds</code> (float)</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>AnalogControl</td>
+<td><code>name</code> (0..1)</td>
+<td>1</td>
+<td>invert=true/<strong>false</strong>, flip=true/<strong>false</strong></td>
+</tr>
+<tr>
+<td>GateOut</td>
+<td><code>name_out</code> (0/1)</td>
+<td>1</td>
+<td>pullup/pulldown/<strong>nopull</strong></td>
+</tr>
+<tr>
+<td>Led</td>
+<td><code>name_out</code> (float)</td>
+<td>1</td>
+<td>invert=<strong>true</strong>/false</td>
+</tr>
+<tr>
+<td>RgbLed</td>
+<td><code>name_red_out</code>, <code>name_green_out</code>, <code>name_blue_out</code>, <code>name_white_out</code> (all float 0..1) or <code>name_out</code> (-1..1)</td>
+<td>3</td>
+<td>invert=<strong>true</strong>/false</td>
+</tr>
+<tr>
+<td>CVOuts</td>
+<td><code>name1_out</code>, <code>name2_out</code> (0..1)</td>
+<td>hardware 29 &amp; 30</td>
+<td>8bit/<strong>12bit</strong>, <strong>polling</strong>/DMA</td>
+</tr>
+</tbody></table>
+<p>For a more items see <a href="https://raw.githubusercontent.com/electro-smith/oopsy/refs/heads/dev/source/component_defs.json">https://raw.githubusercontent.com/electro-smith/oopsy/refs/heads/dev/source/component_defs.json</a> -- there are examples there for </p>
+<ul>
+<li>CD4021 button/switch multiplexor (8 buttons from 3 pins)</li>
+<li>CD4051 analog multiplexor (8 knobs from 4 pins)</li>
+<li>PCA9685 LED controller with mono or RGB Leds</li>
+<li>PCA9685 motor controller for stepper motors/DC motors</li>
+<li>NeoTrellis light/button array</li>
+<li>MPR121 capacitative touch sensor</li>
+<li>Hall effect sensor</li>
+<li>APDS9960 proximity, light, RTBG and gesture sensor</li>
+<li>BME280/BMP390/DPS310 temperature/humidity/pressure/altitude sensor</li>
+<li>VL53L1X/VL53L0X time-of-flight distance sensor</li>
+<li>TLV493D 3-axis magnetometer</li>
+<li>BNO055/ICM-20948 9-DoF orientation accelerometer/gyro/magnetometer</li>
+</ul>
+<p>... And other things not listed can still be defined &amp; created in C++. </p>
+
+<footer>Synthesis Workshop &copy; Graham Wakefield, 2026
+</footer>
+</body>
+<script src="js/connect.js"></script>
+</html>
