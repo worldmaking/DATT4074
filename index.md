@@ -182,3 +182,4 @@ If you have never used `git` before, you'll need to get to know it. We don't nee
 Recordings of the weekly sessions will be here:
 
 - [Week 1](https://yorku.zoom.us/rec/share/WvH17_lakNNvKvn-CyZ74cwDlYrRqHXntI-AFOhnvkXhUIDuh8ICQ0HSumcj2TCa.Q7j1bOMUS56nFRD3)
+- [Week 2](https://yorku.zoom.us/rec/share/qmHnp-lYJ9dh-JqzDLIhIPKySSfiRhGAcxGyBES_t-7U6Vmnx7o6XdK98A08yg.TVvsvu0hO3Fies_l)
