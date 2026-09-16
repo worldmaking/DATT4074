@@ -132,23 +132,48 @@ Can you sketch out what a hybrid between 2 or 3 of your references might look li
 
 **Also for next week: remember to bring headphones and/or portable speakers -- we will start flashing Daisies together**
 
-# Week 2: Flashing Daisy
+# Week 2: Inspirations & Flashing Daisy
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
-Setting up the Max / gen~ / Daisy workflow, and flashing Daisy on breadboards
+## Inspiration slides
 
-Inspiration Slides: 
+Inspiration slides:
 
 https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
+
+## Daisy setup
+
+[Setting up the Daisy toolchain & Flashing Daisy on breadboards from Max](daisy.html)
+
+## Homework
+
+Let's use Github to manage our projects and collaborations.  Git is not *ideal* for working with Max files, but there really isn't a better option.
+
+- Set up a personal [github account](https://github.com/signup) if you don't already have one.
+- As a group: 
+  - Either have one of you create a repository for the project and all all other group members as collaborators (admin level), or
+  - Create an "organization" for your group, have all members join, and create a repository for the project
+- Whichever you choose, also invite the professor (username `grrrwaaa` to your project)
+- Also add a `gh-pages` branch to the repository to make a webpage for it
+
+If you have never used `git` before, you'll need to get to know it. We don't need to get super deep, but understanding the basic idea of version control, history, repositories, commits, status/pull/push, branches and merges should be enough. 
+- here's what Github recommends: https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources 
+- here's a decent tutorial: https://www.youtube.com/watch?v=8JJ101D3knE
+
 # Week 3: 
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
-TBC
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+# Week 4: 
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
