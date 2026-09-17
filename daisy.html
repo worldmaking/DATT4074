@@ -78,6 +78,10 @@ function copyPatch(str) {
 <li><a href="#identifying-pins">Identifying pins</a></li>
 <li><a href="#wiring-up-ground">Wiring up Ground</a></li>
 <li><a href="#wiring-up-audio-output">Wiring up audio output</a></li>
+<li><a href="#example-from-week-2">Example from Week 2</a></li>
+</ul>
+</li>
+<li><a href="#adding-more-components">Adding more components</a><ul>
 <li><a href="#connecting-the-3v3-rail">Connecting the 3v3 rail</a></li>
 <li><a href="#adding-a-knob">Adding a knob</a></li>
 <li><a href="#define-the-json">Define the JSON</a></li>
@@ -98,10 +102,11 @@ function copyPatch(str) {
 <thead>
 <tr>
 <th><a href="https://docs.daisy.audio/hardware/Seed/#pinout"><img src="img/seed_spin_4-5_hires.gif" alt="Daisy Seed"></a></th>
-<th><a href="https://docs.daisy.audio/hardware/Seed/#pinout"><img src="img/pinout.png" alt="pinout"></a></th>
+<th><img src="img/daisy_seed.jpg" alt="seed"></th>
 </tr>
 </thead>
 </table>
+<p><a href="https://docs.daisy.audio/hardware/Seed/#pinout"><img src="img/pinout.png" alt="pinout"></a></p>
 <p>The <strong>Daisy Seed</strong> is a small development board, similar to an Arduino or Teensy, but with an integrated stereo audio IO interface. It is suitable for developing DIY projects on breadboard type environments, but scalable to professional hardware PCB products (and now widely used in synths and guitar pedals).</p>
 <ul>
 <li>Powered by an ARM Cortex-M7 microcontroller running at 480 MHz for real-time audio processing</li>
@@ -329,6 +334,68 @@ function copyPatch(str) {
 <blockquote>
 <p>Notice that the sockets also have <em>switch</em> pins.  This is how you would send a signal if you wanted a &quot;default&quot; or &quot;normal&quot; signal when nothing is plugged in. In modular synths these default signals are called &quot;normalled&quot; connections. </p>
 </blockquote>
+<h3 id="example-from-week-2">Example from Week 2</h3>
+<p>Wiring:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="img/week2a.jpg" alt="week2a"></td>
+<td><img src="img/week2b.jpg" alt="week2a"></td>
+</tr>
+</tbody></table>
+<ul>
+<li>Insert Daisy to breadboard</li>
+<li>Insert Stereo Socket to breadboard</li>
+<li>Connect both ground rails on the breadboard</li>
+<li>Daisy AGND (pin 20) to nearest ground rail</li>
+<li>Daisy DGND (pin 40) to nearest ground rail</li>
+<li>Audio Socket GND to nearest ground rail</li>
+<li>Daisy Audio 1 (pin 18) to Audio Socket Tip</li>
+<li>Daisy Audio 2 (pin 19) to Audio Socket Rng (Ring)</li>
+<li>Connect USB to Daisy and computer for power</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Max patch:</th>
+<th>gen~ patch:</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="img/week2-max.png" alt="week2a"></td>
+<td><img src="img/week2-gen.png" alt="week2a"></td>
+</tr>
+</tbody></table>
+<p>Here&#39;s the example Max patch:</p>
+<p><button value="----------begin_max5_patcher----------
+895.3oc6XkrjZCCD8NeEp7YFJKuAjS4CHmx0Ppo7RCnYLRtjjYYlh7sGIYfY
+RPxfwIjplJ9BK8SRV868Za0uN.ot7xXaAg2mPey7S80qm91Q.pv+5eZBrJca
+dYpPOXub1pU.U5M7bXRXqTCghly3HJrAwxdBxkynxcU.ZAP+wLZAqNqDdHuj
+j+r4uPRFBJHRTNiJUyrv1TWRnPNqlpm+PKwq3fPM1TIgQe78firANUlujPW7
+HWcyoSHn.b7H+gHr5iP8UbR3D+njfD0+MMPGJIYjO56Vlrr5L09QPJ.0LE3D
+fJH1RPZ8JBsDjBGwIE5DpJM9.1y9vY0xCi2+Whu+zu1OrWDthGUqusUecJml
+tRu071..7bPahBCU+YIQc2h13BrElINzvLSBOmY7mnCED3fYZxLZomYl7DjE
+zzRugm9l0Qc8LRxEYj.WaQfaMua.LmTBqAtPojseKXPkVU8FH6yzAl7Ildwl
+NrELDpACtELbXM4vpE2BrTth+jJxqlazEaSh7ZakYE.mVSzKtUT6cr8MpSs3
+STklaVoBQ0HkFywp4cRPoTM3FYyTiuFazWJgkcUjiJm+9kaFnUi1MVo0oISH
+ANvPJEXUsDAaSWUUBynTFQ.HBEUByU0YWlRoP4LZju+xWPBU0Rzlz0F.bxhk
+mPbMq7EJLeENb73HMCLYrgUvleDM1MazE2ZGcuco95YJUmQ2O7tJabVu1opI
+eWtpnrRM3caDnO9MBLdZa0juXMZc0YuNy79ch4wcl4C9nx7psHJ.80dw63jf
+iV1NP72twM9+F2Sunstt9sQdQSeyyFNted1+x90vNS33Ox9UL5K8gxOZWiuS
+10n6mc0ZDWuSm9EW506zYRv5Y45HdAqlmevwb3oPnqK2W.BIgZNZ6aCOtY32
+cgdO20g8aWG0ucscAxf1w8G6fz2dmSXrJwtQUrhK0Zjfq5L03olCNOd74GoN
+1+3CDZoYG8tWFw+q5kQ1wSeaqaFDXi9LtYjRhbmi8.a9bAzjEMYJeGIpRV9y
+PQAOcgHmyJKs+POOSWvjK4r5EKc.AnopT9xVmlFLqaESycjf7B3.P1B8owcE
+jwKLMsv+pTXIG6VSPf531giisq1BM4PbvDGYwT9BQi4Wq8uo10brAUMVHkVP
+cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher-----------" onclick="copyPatch(this.value)">Copy Max Patch and select <strong>File / New From Clipboard</strong> in Max</button></p>
+<p>If you want to add an audio input, use pins 16 &amp; 17 on the Daisy to connect to another stereo socket (or pair of mono sockets), being sure to also connect the socket sleeve pins to ground.  In <code>gen~</code>, these audio inputs are available as the <code>in 1 </code> and <code>in 2</code> operators. </p>
+<h2 id="adding-more-components">Adding more components</h2>
+<p>To add more components, we&#39;ll need to start using GPIO pins, define a custom JSON, and usually we will also need the 3.3v (3v3) power rail hooked up.</p>
 <h3 id="connecting-the-3v3-rail">Connecting the 3v3 rail</h3>
 <p>Many components, such as knobs, need a positive reference voltage in addition to ground. </p>
 <p>Typically we will use the analog 3V3 (3.3 volts) pin for this reference voltage -- that is on pin 21, at the top right of the Daisy if you have the USB socket at the left.  In this case, we can simply connect &quot;pin 21 3v3 Analog&quot; to our red positive rail on the breadboard.  <em>I recommend using red jumper wires for this.</em>  It makes sense to use 3v3 as our reference, because these analog GPIO pins can only detect values between 0v and 3v3. </p>

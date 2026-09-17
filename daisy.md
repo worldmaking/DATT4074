@@ -3,8 +3,10 @@
 
 The [Electrosmith Daisy](https://docs.daisy.audio/) is an open-source hardware and software platform designed for creating custom digital musical instruments, effects processors, and synthesizers. 
 
-| [![Daisy Seed](img/seed_spin_4-5_hires.gif)](https://docs.daisy.audio/hardware/Seed/#pinout) | [![pinout](img/pinout.png)](https://docs.daisy.audio/hardware/Seed/#pinout) |
+| [![Daisy Seed](img/seed_spin_4-5_hires.gif)](https://docs.daisy.audio/hardware/Seed/#pinout) | ![seed](img/daisy_seed.jpg) |
 |--|--|
+
+[![pinout](img/pinout.png)](https://docs.daisy.audio/hardware/Seed/#pinout)
 
 The **Daisy Seed** is a small development board, similar to an Arduino or Teensy, but with an integrated stereo audio IO interface. It is suitable for developing DIY projects on breadboard type environments, but scalable to professional hardware PCB products (and now widely used in synths and guitar pedals).
 
@@ -213,6 +215,61 @@ The pinout identifies pins 18 & 19 as the two audio output channels.  If you hav
 | ![mono socket](img/mono_socket.png) | ![sterep jack](img/stereo_socket.png) |
 
 > Notice that the sockets also have *switch* pins.  This is how you would send a signal if you wanted a "default" or "normal" signal when nothing is plugged in. In modular synths these default signals are called "normalled" connections. 
+
+### Example from Week 2
+
+Wiring:
+
+|  |  |
+|--|--|
+| ![week2a](img/week2a.jpg) |  ![week2a](img/week2b.jpg) |
+
+- Insert Daisy to breadboard
+- Insert Stereo Socket to breadboard
+- Connect both ground rails on the breadboard
+- Daisy AGND (pin 20) to nearest ground rail
+- Daisy DGND (pin 40) to nearest ground rail
+- Audio Socket GND to nearest ground rail
+- Daisy Audio 1 (pin 18) to Audio Socket Tip
+- Daisy Audio 2 (pin 19) to Audio Socket Rng (Ring)
+- Connect USB to Daisy and computer for power
+
+| Max patch: | gen~ patch: |
+|--|--|
+| ![week2a](img/week2-max.png) |  ![week2a](img/week2-gen.png) |
+
+Here's the example Max patch:
+
+<pre><code>
+----------begin_max5_patcher----------
+895.3oc6XkrjZCCD8NeEp7YFJKuAjS4CHmx0Ppo7RCnYLRtjjYYlh7sGIYfY
+RPxfwIjplJ9BK8SRV868Za0uN.ot7xXaAg2mPey7S80qm91Q.pv+5eZBrJca
+dYpPOXub1pU.U5M7bXRXqTCghly3HJrAwxdBxkynxcU.ZAP+wLZAqNqDdHuj
+j+r4uPRFBJHRTNiJUyrv1TWRnPNqlpm+PKwq3fPM1TIgQe78firANUlujPW7
+HWcyoSHn.b7H+gHr5iP8UbR3D+njfD0+MMPGJIYjO56Vlrr5L09QPJ.0LE3D
+fJH1RPZ8JBsDjBGwIE5DpJM9.1y9vY0xCi2+Whu+zu1OrWDthGUqusUecJml
+tRu071..7bPahBCU+YIQc2h13BrElINzvLSBOmY7mnCED3fYZxLZomYl7DjE
+zzRugm9l0Qc8LRxEYj.WaQfaMua.LmTBqAtPojseKXPkVU8FH6yzAl7Ildwl
+NrELDpACtELbXM4vpE2BrTth+jJxqlazEaSh7ZakYE.mVSzKtUT6cr8MpSs3
+STklaVoBQ0HkFywp4cRPoTM3FYyTiuFazWJgkcUjiJm+9kaFnUi1MVo0oISH
+ANvPJEXUsDAaSWUUBynTFQ.HBEUByU0YWlRoP4LZju+xWPBU0Rzlz0F.bxhk
+mPbMq7EJLeENb73HMCLYrgUvleDM1MazE2ZGcuco95YJUmQ2O7tJabVu1opI
+eWtpnrRM3caDnO9MBLdZa0juXMZc0YuNy79ch4wcl4C9nx7psHJ.80dw63jf
+iV1NP72twM9+F2Sunstt9sQdQSeyyFNted1+x90vNS33Ox9UL5K8gxOZWiuS
+10n6mc0ZDWuSm9EW506zYRv5Y45HdAqlmevwb3oPnqK2W.BIgZNZ6aCOtY32
+cgdO20g8aWG0ucscAxf1w8G6fz2dmSXrJwtQUrhK0Zjfq5L03olCNOd74GoN
+1+3CDZoYG8tWFw+q5kQ1wSeaqaFDXi9LtYjRhbmi8.a9bAzjEMYJeGIpRV9y
+PQAOcgHmyJKs+POOSWvjK4r5EKc.AnopT9xVmlFLqaESycjf7B3.P1B8owcE
+jwKLMsv+pTXIG6VSPf531giisq1BM4PbvDGYwT9BQi4Wq8uo10brAUMVHkVP
+cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB
+-----------end_max5_patcher-----------
+</code></pre>
+
+If you want to add an audio input, use pins 16 & 17 on the Daisy to connect to another stereo socket (or pair of mono sockets), being sure to also connect the socket sleeve pins to ground.  In `gen~`, these audio inputs are available as the `in 1 ` and `in 2` operators. 
+
+## Adding more components
+
+To add more components, we'll need to start using GPIO pins, define a custom JSON, and usually we will also need the 3.3v (3v3) power rail hooked up.
 
 ### Connecting the 3v3 rail
 
