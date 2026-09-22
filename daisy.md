@@ -331,9 +331,63 @@ Now you can use a `param knob1 @min 0 @max 1` in your patcher to control your au
 
 **Button**: 
 
-- For a 2-leg button: connect one leg to any digital pin (any pin with a "D" name). Connect the other leg of the button to a ground rail. If a switch has 3 pins, just use the middle pin and one of the end pins. 
+- For a 2-leg button: connect one leg to any digital pin (any pin with a "D" name). Connect the other leg of the button to a ground rail. 
 - In the JSON, use `Switch` as the component type and give it a name like `button1`. 
 - In gen~ you can use `param button1 @min 0 @max 1` to access the button value. (You can also use different min & max values as desired!)
+
+Here I used pin D26, which is physical pin 33, to connect a switch.  Notice that I gave it a unique name `switch1`, set the component type to `Switch`, and set the pin to `26` for D26:
+
+```json
+{
+	"som": "seed",
+	"components": {
+		"knob1": {
+			"component": "AnalogControl",
+			"pin": 20
+		},
+		"switch1": {
+			"component": "Switch3",
+			"pin": {
+				"a": 26,
+				"b": 27
+			}
+		}
+	}
+}
+```
+
+Now in gen~ we can use `param switch1 @min 0 @max 1` to access this. 
+
+---
+
+For a three-position switch, which has 3 physical terminals, we can treat this as two switches:
+
+- Connect the middle pin to the ground rail, and the other two pins to two D GPIO pins on the Daisy, e.g. D26 and D27.  
+- That means we'll have two switch parameters in our gen~ patch, e.g. `param switch1 @min 0 @max 1` and `param switch2 @min 0 @max 1`
+- In the JSON, add a corresponding switch component for each param/pin:
+
+```json
+{
+	"som": "seed",
+	"components": {
+		"knob1": {
+			"component": "AnalogControl",
+			"pin": 20
+		},
+		"switch1": {
+			"component": "Switch",
+			"pin": 26
+		},
+		"switch2": {
+			"component": "Switch",
+			"pin": 27
+		}
+	}
+}
+```
+
+With the physical switch in the middle position, both `param` values will be 0. With the switch in UP or DOWN positions, one or the other `param` values will be 1.
+
 
 **LED**: 
 
@@ -399,7 +453,6 @@ Basic components:
 | Component | Values	| Pins 	| Options	| 
 |---		|---		|---	|---		|
 | Switch 	| `name` (0/1), `name_press` (0/1), `name>_seconds` (float) | 1 | type=**momentary**/toggle, polarity=normal/**inverted**, **pullup**/pulldown/nopull |
-| Switch3 (3 position switch) 	| `name` (0/1/2) | 2 | |
 | GateIn	| `name` (0/1), `name_trig` (0/1) | 1 | invert=true/false |
 | Encoder 	| `name` (-1/0/1), `name_press` (0/1), `name_rise` (0/1), `name_fall` (0/1), `name_seconds` (float) | 3 | |
 | AnalogControl | `name` (0..1) | 1 | invert=true/**false**, flip=true/**false** |

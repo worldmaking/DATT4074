@@ -435,10 +435,56 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <p><img src="img/one_knob_synth.png" alt="one knob synth"></p>
 <p><strong>Button</strong>: </p>
 <ul>
-<li>For a 2-leg button: connect one leg to any digital pin (any pin with a &quot;D&quot; name). Connect the other leg of the button to a ground rail. If a switch has 3 pins, just use the middle pin and one of the end pins. </li>
+<li>For a 2-leg button: connect one leg to any digital pin (any pin with a &quot;D&quot; name). Connect the other leg of the button to a ground rail. </li>
 <li>In the JSON, use <code>Switch</code> as the component type and give it a name like <code>button1</code>. </li>
 <li>In gen~ you can use <code>param button1 @min 0 @max 1</code> to access the button value. (You can also use different min &amp; max values as desired!)</li>
 </ul>
+<p>Here I used pin D26, which is physical pin 33, to connect a switch.  Notice that I gave it a unique name <code>switch1</code>, set the component type to <code>Switch</code>, and set the pin to <code>26</code> for D26:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;som&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;seed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;components&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;knob1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;AnalogControl&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;switch1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch3&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;a&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;b&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">27</span>
+            <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Now in gen~ we can use <code>param switch1 @min 0 @max 1</code> to access this. </p>
+<hr>
+
+<p>For a three-position switch, which has 3 physical terminals, we can treat this as two switches:</p>
+<ul>
+<li>Connect the middle pin to the ground rail, and the other two pins to two D GPIO pins on the Daisy, e.g. D26 and D27.  </li>
+<li>That means we&#39;ll have two switch parameters in our gen~ patch, e.g. <code>param switch1 @min 0 @max 1</code> and <code>param switch2 @min 0 @max 1</code></li>
+<li>In the JSON, add a corresponding switch component for each param/pin:</li>
+</ul>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;som&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;seed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;components&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;knob1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;AnalogControl&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;switch1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;switch2&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">27</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>With the physical switch in the middle position, both <code>param</code> values will be 0. With the switch in UP or DOWN positions, one or the other <code>param</code> values will be 1.</p>
 <p><strong>LED</strong>: </p>
 <ul>
 <li>LEDs have polarity -- it matters which way you plug them in.  The longer leg of the LED is the anode (positive), which should connect to a digital pin on the Daisy. The shorter leg of the LED is the cathode (negative), which should connect to a ground rail. <strong>However, you should always connect one or the other pins of the LED to ground in series with a resistor</strong>, to prevent current overflow burning out the LED. So for example, connect Daisy digital pin -&gt; resistor -&gt; LED -&gt; Ground. Something between 100-1k ohms is typically fine for the resistor. </li>
@@ -513,12 +559,6 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <td><code>name</code> (0/1), <code>name_press</code> (0/1), <code>name&gt;_seconds</code> (float)</td>
 <td>1</td>
 <td>type=<strong>momentary</strong>/toggle, polarity=normal/<strong>inverted</strong>, <strong>pullup</strong>/pulldown/nopull</td>
-</tr>
-<tr>
-<td>Switch3 (3 position switch)</td>
-<td><code>name</code> (0/1/2)</td>
-<td>2</td>
-<td></td>
 </tr>
 <tr>
 <td>GateIn</td>
