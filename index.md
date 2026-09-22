@@ -168,8 +168,33 @@ If you have never used `git` before, you'll need to get to know it. We don't nee
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
+Github project setup checkin!
+
+## Inspiration slides part II
+
+Inspiration slides:
+
+https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35PLUI/
+
+Discussion.
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+## Daisy setup part II
+
+Adding more breadboard components and configuring a custom JSON file.
+
+I have 5 kits ready to go for group work. 
+
+[Setting up the Daisy toolchain & Flashing Daisy on breadboards from Max](daisy.html)
+
+More gen~ explorations.
+
+Examples with the Modular: flashing Daisy Patch / Patch.init / Versio... I have 6 daisy-driven modules, and could get a couple more, if we wanted to make a class project be a modular system. That modular system could also have a software equivalent using VCVRack. 
+
+## Homework
+
+---
 
 # Week 4: 
 

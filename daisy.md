@@ -329,7 +329,7 @@ Now you can use a `param knob1 @min 0 @max 1` in your patcher to control your au
 
 ![one knob synth](img/one_knob_synth.png)
 
-**Button**: 
+### Buttons & switches: 
 
 - For a 2-leg button: connect one leg to any digital pin (any pin with a "D" name). Connect the other leg of the button to a ground rail. 
 - In the JSON, use `Switch` as the component type and give it a name like `button1`. 
@@ -346,11 +346,8 @@ Here I used pin D26, which is physical pin 33, to connect a switch.  Notice that
 			"pin": 20
 		},
 		"switch1": {
-			"component": "Switch3",
-			"pin": {
-				"a": 26,
-				"b": 27
-			}
+			"component": "Switch",
+			"pin": 26
 		}
 	}
 }
@@ -358,9 +355,41 @@ Here I used pin D26, which is physical pin 33, to connect a switch.  Notice that
 
 Now in gen~ we can use `param switch1 @min 0 @max 1` to access this. 
 
+> Note: if you don't have a switch handy, or it is fiddly, you can really quickly test this by simply taking a jumper cable from the D26 pin and touching it to any ground rail. That's all the switch is doing anyway! 
+
 ---
 
-For a three-position switch, which has 3 physical terminals, we can treat this as two switches:
+How does it work?  Internally, the GPIO is configured to use a "pull up" resistor to the 3V3 rail. That means, the GPIO pin, when not connected to anything, is going to quickly rise up to 3V3. However, once you directly connect the cable to ground with a jumper cable (or mechanical switch), which has a much lower resitance, then voltage at the GPIO pin will quickly fall to the ground 0V reference.  By default, the switch component inverts its output, so that 0V means `true` (or `1`), and the 3v3 reference means `false` (or `0`).  
+
+You can disable the logic inversion by adding `"polarity": "daisy::Switch::POLARITY_NORMAL"` to the switch in the JSON.  You can also change the pin to be a pull-down type, which means it will be 0v when disconnected; in that case, the other leg of the switch should connect to a 3v3 rail to pull it up, rather than a ground rail:
+
+```json
+{
+	"som": "seed",
+	"components": {
+		"knob1": {
+			"component": "AnalogControl",
+			"pin": 20
+		},
+		"switch1": {
+			"component": "Switch",
+			"pin": 26,
+			"pull": "daisy::Switch::PULL_DOWN",
+			"polarity": "daisy::Switch::POLARITY_NORMAL"
+		}
+	}
+}
+```
+
+---
+
+- What if you want to know how long a button has been held down?  Then you can use `param switch1_seconds`.  Or, connecte
+- What if you want to know only the moment when a switch is first pressed? Then use `param switch1_fall`.  Or, simply route the param to a `change` then `> 0`.
+- What if you want to know only the moment when a pushed switch is released? Then use `param switch1_rise`.  Or, simply route the param to a `change` then `< 0`.
+
+---
+
+For a three-position switch, which has 3 physical terminals, we can aimply treat this as two switches. 
 
 - Connect the middle pin to the ground rail, and the other two pins to two D GPIO pins on the Daisy, e.g. D26 and D27.  
 - That means we'll have two switch parameters in our gen~ patch, e.g. `param switch1 @min 0 @max 1` and `param switch2 @min 0 @max 1`
@@ -388,14 +417,6 @@ For a three-position switch, which has 3 physical terminals, we can treat this a
 
 With the physical switch in the middle position, both `param` values will be 0. With the switch in UP or DOWN positions, one or the other `param` values will be 1.
 
-
-**LED**: 
-
-- LEDs have polarity -- it matters which way you plug them in.  The longer leg of the LED is the anode (positive), which should connect to a digital pin on the Daisy. The shorter leg of the LED is the cathode (negative), which should connect to a ground rail. **However, you should always connect one or the other pins of the LED to ground in series with a resistor**, to prevent current overflow burning out the LED. So for example, connect Daisy digital pin -> resistor -> LED -> Ground. Something between 100-1k ohms is typically fine for the resistor. 
-- In the JSON, use the `Led` as the component type, and pick a useful name like `led1`. 
-- In the gen~ patch, use a `history led1_out` (i.e.,`<componentname>_out`). Set the LED on or off by sending 0 or 1 to this `history` object. 
-
-There are lots of other possible components we can use, but this covers the basics. 
 
 ### A simple example with mono push-button oscillator
 
@@ -431,22 +452,62 @@ Now you can use a `param button @min 0 @max 1` and a `param knob1 @min 0 @max 1`
 
 ![simple synth](img/simple_synth.png)
 
+
+### LEDs: 
+
+Before doing anything, there are two important rules with LEDs!!
+
+1. **LEDs have polarity** -- it matters which way you plug them in. 
+2. **LEDs should always be connected with a resistor** -- otherwise, too much current through the LED can end up burning the LED out. 
+ 
+| led component | led schematic symbol |
+|---|---|
+| ![schematic](img/led.png) | ![breadboard](img/led_schmatic.png) | 
+
+> (How I remember this: the `+` symbol requires more ink than a `-` symbol. The longer leg has more metal than the shorter leg.)
+
+- LEDs have polarity.  The longer leg of the LED is the anode (positive), which should connect to a digital pin on the Daisy. The Daisy can then choose to supply 3v3 to the LED, or remain at 0v. 
+- The shorter leg of the LED is the cathode (negative), which should connect to a ground rail.
+- **However, you should always connect one or the other pins of the LED to ground in series with a resistor**, to prevent current overflow burning out the LED. So for example, connect Daisy digital pin -> resistor -> LED -> Ground; or Daisy digital pin -> LED -> resistor -> Ground. Something between 100-1k ohms is typically fine for the resistor. 
+- In the JSON, use the `Led` as the component type, and pick a useful name like `led1`. 
+- In the gen~ patch, use another `out` object for the LED. Use an `out` number that hasn't been used for anything else yet, and label it with your compponent name. For example, if you haven't used `out 3` yet, you can use `out 3 led1`. 
+- Note also that the output is inverted by default. If you send a `1` to the LED, it will turn off. You can fix this by adding `"invert": false` to the definition:
+
+```json
+{
+	"som": "seed",
+	"components": {
+		"led1": {
+			"component": "Led",
+			"pin": 3,
+      "invert": false
+		}
+	}
+}
+```
+
+### LDRs (Light-dependent resistors), aka Photoresistors
+
+A Light Dependent Resistor (LDR) or photoresistor is a resistor whose resistance depends on the ambient light level. 
+
+To turn that into a voltage level for an analog GPIO pin, we can use a voltage divider circuit with another fixed resistor (e.g. 10k ohms)
+
+- Connect one leg of the LDR to the 3v3 rail, and the other leg to a free column on the breadboard
+- Connect one leg of the fixed resistor to the 0v ground rail, and the other leg to the same column as the LDR.  
+- Finally, connect this column to an analog capable GPIO pin on the Daisy, just like we did for a knob. 
+- Now we have a bridge of 3v3 -- LDR --(GPIO pin)-- resistor -- 0v.  As the resistance to the LDR increases, current can more easily flow from the GPIO through the resistor to ground, so the measured voltage at the GPIO is pulled lower. But as the LDR resistance *decreases*, current can flow more easily through it to 3V3, so the measured voltage rises. 
+
+This is really doing the same thing as a potentiometer (knob).  The potentiometer divided the voltage between the 3v3 and 0v rails according to the knob position in just the same way, by balancing the relative resistances to each. 
+
+So not surprisingly, the JSON doesn't need to change at all -- we can use `AnalogControl` here in the same way. 
+
 ---
 
-## `oopsy` object options & messages
+One fun thing to experiment with is to place an LED right next to an LDR and wrap them up in tape or some other light blocking shield.  This is called an "optocoupler".  The voltage sent to the LED will change the resistance of the LDR. It is a way of passing information from one circuit to another without actually connecting any wires -- this is actually an essential part of most hardware MIDI circuits, to prevent circuit noise between devices!  However, there's another side effect: the response of the LED + LDR pair is naturally slightly sluggish, and sometimes that's a useful property. Some synthesizers have circuits called "low pass gates" or "vactrol" components that like to use this sluggishness to create a natural softness to transitions. 
 
-- `bang`: tells Oopsy to compile the patch and try to flash it to a USB-connected Daisy. 
-- `target <jsonfile>`: where `jsonfile` is the path to a JSON file on disk.  Tells Oopsy what JSON target definition to use.  We have to make a JSON to configure all GPIO pin connections for our circuit.
-- `blocksize <N>` where `N` can be 48, 32, 16, 8, 4, 2 or 1. How many audio samples pass in each block of processing between processing GPIO data. Making this lower will make inputs and outputs more responsive, but will also increase the CPU load.  I suggest starting with 16 or 8, and increase only if you have to.
-- `samplerate 96khz`, `samplerate 48khz`, `samplerate 32khz`: choose what sample rate to use. 48khz is normal, the same as DVD audio. 96khz may be desirable to help reduce aliasing artefacts with nonlinear audio algorithms, but CPU load will double.  32khz may have audibly lower quality, but will reduce CPU load.
+---
 
-> I recommend using a `loadbang` object to send your preferred settings to `oopsy` when the patcher loads -- especially if you use a custom JSON target file. 
-
-Other options: 
-- `boost 0` or `boost 1`: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. 
-- `fastmath 0` or `fastmath 1`.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. 
-
-## List of possible components
+### What other components can we connect?
 
 Basic components:
 
@@ -461,18 +522,48 @@ Basic components:
 | RgbLed 	| `name_red_out`, `name_green_out`, `name_blue_out`, `name_white_out` (all float 0..1) or `name_out` (-1..1) | 3 | invert=**true**/false |
 | CVOuts	| `name1_out`, `name2_out` (0..1) | hardware 29 & 30 | 8bit/**12bit**, **polling**/DMA |
 
-For a more items see https://raw.githubusercontent.com/electro-smith/oopsy/refs/heads/dev/source/component_defs.json -- there are examples there for 
-- CD4021 button/switch multiplexor (8 buttons from 3 pins)
+## More complex components
+
+Besides basic digital and analog inputs on the GPIOs, the Daisy can also connect to more complex sensors and circuits.  
+
+This is sometimes needed when you want to connect far more buttons, knobs, LEDs etc. than the Daisy has pins for. In that case you can use multiplexers to make a smaller number of pins on the Daisy control many more sensors.  
+
 - CD4051 analog multiplexor (8 knobs from 4 pins)
+  - We have 10 of these
+- MPR121 capacitative touch sensor array
+  - We have 2 of these plus some copper tape for building touch surfaces
 - PCA9685 LED controller with mono or RGB Leds
+  - I might have a couple of these I can dig out
 - PCA9685 motor controller for stepper motors/DC motors
+  - I might have a couple of these I can dig out
+- CD4021 button/switch multiplexor (8 buttons from 3 pins)
+  
+There are also other subcircuit devices we can connect to for very specific purposes, such as:
+
 - NeoTrellis light/button array
-- MPR121 capacitative touch sensor
-- Hall effect sensor
 - APDS9960 proximity, light, RTBG and gesture sensor
 - BME280/BMP390/DPS310 temperature/humidity/pressure/altitude sensor
 - VL53L1X/VL53L0X time-of-flight distance sensor
 - TLV493D 3-axis magnetometer
 - BNO055/ICM-20948 9-DoF orientation accelerometer/gyro/magnetometer
 
-... And other things not listed can still be defined & created in C++. 
+Many of these connect using the I2C protocol, which can send complex data over just two wires. Most of the complexity of this is wrapped up in C++ classes we can directly invoke in our JSON. 
+
+There's also the ability to define new C++ behaviours in the JSON that can be inserted into the firmware, for other devices and protocols that are not already covered. Almost anything you can connect with Arduino can also be connected with Daisy, with a bit of work. 
+
+And on top of that there's various analog and CMOS circuit designs we can use alongside the Daisy!
+
+[Here's a work-in-progress inventory](https://docs.google.com/spreadsheets/d/1iMUwBXqKRTjaA6fHENjSYb6nXgWkCBrd1-5Fmb8WH9Q/edit?usp=sharing)
+
+## `oopsy` object options & messages
+
+- `bang`: tells Oopsy to compile the patch and try to flash it to a USB-connected Daisy. 
+- `target <jsonfile>`: where `jsonfile` is the path to a JSON file on disk.  Tells Oopsy what JSON target definition to use.  We have to make a JSON to configure all GPIO pin connections for our circuit.
+- `blocksize <N>` where `N` can be 48, 32, 16, 8, 4, 2 or 1. How many audio samples pass in each block of processing between processing GPIO data. Making this lower will make inputs and outputs more responsive, but will also increase the CPU load.  I suggest starting with 16 or 8, and increase only if you have to.
+- `samplerate 96khz`, `samplerate 48khz`, `samplerate 32khz`: choose what sample rate to use. 48khz is normal, the same as DVD audio. 96khz may be desirable to help reduce aliasing artefacts with nonlinear audio algorithms, but CPU load will double.  32khz may have audibly lower quality, but will reduce CPU load.
+
+> I recommend using a `loadbang` object to send your preferred settings to `oopsy` when the patcher loads -- especially if you use a custom JSON target file. 
+
+Other options: 
+- `boost 0` or `boost 1`: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. 
+- `fastmath 0` or `fastmath 1`.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. 

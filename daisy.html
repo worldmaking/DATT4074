@@ -85,11 +85,15 @@ function copyPatch(str) {
 <li><a href="#connecting-the-3v3-rail">Connecting the 3v3 rail</a></li>
 <li><a href="#adding-a-knob">Adding a knob</a></li>
 <li><a href="#define-the-json">Define the JSON</a></li>
+<li><a href="#buttons--switches">Buttons &amp; switches:</a></li>
 <li><a href="#a-simple-example-with-mono-push-button-oscillator">A simple example with mono push-button oscillator</a></li>
+<li><a href="#leds">LEDs:</a></li>
+<li><a href="#ldrs-light-dependent-resistors-aka-photoresistors">LDRs (Light-dependent resistors), aka Photoresistors</a></li>
+<li><a href="#what-other-components-can-we-connect">What other components can we connect?</a></li>
 </ul>
 </li>
+<li><a href="#more-complex-components">More complex components</a></li>
 <li><a href="#oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</a></li>
-<li><a href="#list-of-possible-components">List of possible components</a></li>
 </ul>
 </li>
 </ul>
@@ -433,7 +437,7 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <p>To tell Oopsy to use this JSON, send the message <code>target mydef.json</code> to the <code>oopsy</code> object in your patcher so that Oopsy knows to use it. (I recommend connecting a <code>loadbang</code> to this message so that it does it every time you open the patch).</p>
 <p>Now you can use a <code>param knob1 @min 0 @max 1</code> in your patcher to control your audio processing. Example gen~ patch:</p>
 <p><img src="img/one_knob_synth.png" alt="one knob synth"></p>
-<p><strong>Button</strong>: </p>
+<h3 id="buttons--switches">Buttons &amp; switches:</h3>
 <ul>
 <li>For a 2-leg button: connect one leg to any digital pin (any pin with a &quot;D&quot; name). Connect the other leg of the button to a ground rail. </li>
 <li>In the JSON, use <code>Switch</code> as the component type and give it a name like <code>button1</code>. </li>
@@ -448,19 +452,46 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
             <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span>
         <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;switch1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch3&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-                <span class="hljs-attr">&quot;a&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-attr">&quot;b&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">27</span>
-            <span class="hljs-punctuation">}</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26</span>
         <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p>Now in gen~ we can use <code>param switch1 @min 0 @max 1</code> to access this. </p>
+<blockquote>
+<p>Note: if you don&#39;t have a switch handy, or it is fiddly, you can really quickly test this by simply taking a jumper cable from the D26 pin and touching it to any ground rail. That&#39;s all the switch is doing anyway! </p>
+</blockquote>
 <hr>
 
-<p>For a three-position switch, which has 3 physical terminals, we can treat this as two switches:</p>
+<p>How does it work?  Internally, the GPIO is configured to use a &quot;pull up&quot; resistor to the 3V3 rail. That means, the GPIO pin, when not connected to anything, is going to quickly rise up to 3V3. However, once you directly connect the cable to ground with a jumper cable (or mechanical switch), which has a much lower resitance, then voltage at the GPIO pin will quickly fall to the ground 0V reference.  By default, the switch component inverts its output, so that 0V means <code>true</code> (or <code>1</code>), and the 3v3 reference means <code>false</code> (or <code>0</code>).  </p>
+<p>You can disable the logic inversion by adding <code>&quot;polarity&quot;: &quot;daisy::Switch::POLARITY_NORMAL&quot;</code> to the switch in the JSON.  You can also change the pin to be a pull-down type, which means it will be 0v when disconnected; in that case, the other leg of the switch should connect to a 3v3 rail to pull it up, rather than a ground rail:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;som&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;seed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;components&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;knob1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;AnalogControl&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;switch1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Switch&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pull&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;daisy::Switch::PULL_DOWN&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;polarity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;daisy::Switch::POLARITY_NORMAL&quot;</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<hr>
+
+<ul>
+<li>What if you want to know how long a button has been held down?  Then you can use <code>param switch1_seconds</code>.  Or, connecte</li>
+<li>What if you want to know only the moment when a switch is first pressed? Then use <code>param switch1_fall</code>.  Or, simply route the param to a <code>change</code> then <code>&gt; 0</code>.</li>
+<li>What if you want to know only the moment when a pushed switch is released? Then use <code>param switch1_rise</code>.  Or, simply route the param to a <code>change</code> then <code>&lt; 0</code>.<hr>
+
+</li>
+</ul>
+<p>For a three-position switch, which has 3 physical terminals, we can aimply treat this as two switches. </p>
 <ul>
 <li>Connect the middle pin to the ground rail, and the other two pins to two D GPIO pins on the Daisy, e.g. D26 and D27.  </li>
 <li>That means we&#39;ll have two switch parameters in our gen~ patch, e.g. <code>param switch1 @min 0 @max 1</code> and <code>param switch2 @min 0 @max 1</code></li>
@@ -485,13 +516,6 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <span class="hljs-punctuation">}</span>
 </code></pre>
 <p>With the physical switch in the middle position, both <code>param</code> values will be 0. With the switch in UP or DOWN positions, one or the other <code>param</code> values will be 1.</p>
-<p><strong>LED</strong>: </p>
-<ul>
-<li>LEDs have polarity -- it matters which way you plug them in.  The longer leg of the LED is the anode (positive), which should connect to a digital pin on the Daisy. The shorter leg of the LED is the cathode (negative), which should connect to a ground rail. <strong>However, you should always connect one or the other pins of the LED to ground in series with a resistor</strong>, to prevent current overflow burning out the LED. So for example, connect Daisy digital pin -&gt; resistor -&gt; LED -&gt; Ground. Something between 100-1k ohms is typically fine for the resistor. </li>
-<li>In the JSON, use the <code>Led</code> as the component type, and pick a useful name like <code>led1</code>. </li>
-<li>In the gen~ patch, use a <code>history led1_out</code> (i.e.,<code>&lt;componentname&gt;_out</code>). Set the LED on or off by sending 0 or 1 to this <code>history</code> object. </li>
-</ul>
-<p>There are lots of other possible components we can use, but this covers the basics. </p>
 <h3 id="a-simple-example-with-mono-push-button-oscillator">A simple example with mono push-button oscillator</h3>
 <p>Here&#39;s an example wiring diagram for a simple oscillator with button, knob, and audio output:</p>
 <table>
@@ -526,24 +550,65 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <p>Save this as <code>mydef.json</code> in the folder, and send the message <code>target mydef.json</code> to the <code>oopsy</code> object in your patcher so that Oopsy knows to use it. (I recommend connecting a <code>loadbang</code> to this message so that it does it every time you open the patch).</p>
 <p>Now you can use a <code>param button @min 0 @max 1</code> and a <code>param knob1 @min 0 @max 1</code> in your patcher to control your audio processing.  Example gen~ patch:</p>
 <p><img src="img/simple_synth.png" alt="simple synth"></p>
+<h3 id="leds">LEDs:</h3>
+<p>Before doing anything, there are two important rules with LEDs!!</p>
+<ol>
+<li><p><strong>LEDs have polarity</strong> -- it matters which way you plug them in. </p>
+</li>
+<li><p><strong>LEDs should always be connected with a resistor</strong> -- otherwise, too much current through the LED can end up burning the LED out. </p>
+<table>
+<thead>
+<tr>
+<th>led component</th>
+<th>led schematic symbol</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="img/led.png" alt="schematic"></td>
+<td><img src="img/led_schmatic.png" alt="breadboard"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p>(How I remember this: the <code>+</code> symbol requires more ink than a <code>-</code> symbol. The longer leg has more metal than the shorter leg.)</p>
+</blockquote>
+<ul>
+<li>LEDs have polarity.  The longer leg of the LED is the anode (positive), which should connect to a digital pin on the Daisy. The Daisy can then choose to supply 3v3 to the LED, or remain at 0v. </li>
+<li>The shorter leg of the LED is the cathode (negative), which should connect to a ground rail.</li>
+<li><strong>However, you should always connect one or the other pins of the LED to ground in series with a resistor</strong>, to prevent current overflow burning out the LED. So for example, connect Daisy digital pin -&gt; resistor -&gt; LED -&gt; Ground; or Daisy digital pin -&gt; LED -&gt; resistor -&gt; Ground. Something between 100-1k ohms is typically fine for the resistor. </li>
+<li>In the JSON, use the <code>Led</code> as the component type, and pick a useful name like <code>led1</code>. </li>
+<li>In the gen~ patch, use another <code>out</code> object for the LED. Use an <code>out</code> number that hasn&#39;t been used for anything else yet, and label it with your compponent name. For example, if you haven&#39;t used <code>out 3</code> yet, you can use <code>out 3 led1</code>. </li>
+<li>Note also that the output is inverted by default. If you send a <code>1</code> to the LED, it will turn off. You can fix this by adding <code>&quot;invert&quot;: false</code> to the definition:</li>
+</ul>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;som&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;seed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;components&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;led1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Led&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;invert&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="ldrs-light-dependent-resistors-aka-photoresistors">LDRs (Light-dependent resistors), aka Photoresistors</h3>
+<p>A Light Dependent Resistor (LDR) or photoresistor is a resistor whose resistance depends on the ambient light level. </p>
+<p>To turn that into a voltage level for an analog GPIO pin, we can use a voltage divider circuit with another fixed resistor (e.g. 10k ohms)</p>
+<ul>
+<li>Connect one leg of the LDR to the 3v3 rail, and the other leg to a free column on the breadboard</li>
+<li>Connect one leg of the fixed resistor to the 0v ground rail, and the other leg to the same column as the LDR.  </li>
+<li>Finally, connect this column to an analog capable GPIO pin on the Daisy, just like we did for a knob. </li>
+<li>Now we have a bridge of 3v3 -- LDR --(GPIO pin)-- resistor -- 0v.  As the resistance to the LDR increases, current can more easily flow from the GPIO through the resistor to ground, so the measured voltage at the GPIO is pulled lower. But as the LDR resistance <em>decreases</em>, current can flow more easily through it to 3V3, so the measured voltage rises. </li>
+</ul>
+<p>This is really doing the same thing as a potentiometer (knob).  The potentiometer divided the voltage between the 3v3 and 0v rails according to the knob position in just the same way, by balancing the relative resistances to each. </p>
+<p>So not surprisingly, the JSON doesn&#39;t need to change at all -- we can use <code>AnalogControl</code> here in the same way. </p>
 <hr>
 
-<h2 id="oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</h2>
-<ul>
-<li><code>bang</code>: tells Oopsy to compile the patch and try to flash it to a USB-connected Daisy. </li>
-<li><code>target &lt;jsonfile&gt;</code>: where <code>jsonfile</code> is the path to a JSON file on disk.  Tells Oopsy what JSON target definition to use.  We have to make a JSON to configure all GPIO pin connections for our circuit.</li>
-<li><code>blocksize &lt;N&gt;</code> where <code>N</code> can be 48, 32, 16, 8, 4, 2 or 1. How many audio samples pass in each block of processing between processing GPIO data. Making this lower will make inputs and outputs more responsive, but will also increase the CPU load.  I suggest starting with 16 or 8, and increase only if you have to.</li>
-<li><code>samplerate 96khz</code>, <code>samplerate 48khz</code>, <code>samplerate 32khz</code>: choose what sample rate to use. 48khz is normal, the same as DVD audio. 96khz may be desirable to help reduce aliasing artefacts with nonlinear audio algorithms, but CPU load will double.  32khz may have audibly lower quality, but will reduce CPU load.</li>
-</ul>
-<blockquote>
-<p>I recommend using a <code>loadbang</code> object to send your preferred settings to <code>oopsy</code> when the patcher loads -- especially if you use a custom JSON target file. </p>
-</blockquote>
-<p>Other options: </p>
-<ul>
-<li><code>boost 0</code> or <code>boost 1</code>: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. </li>
-<li><code>fastmath 0</code> or <code>fastmath 1</code>.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. </li>
-</ul>
-<h2 id="list-of-possible-components">List of possible components</h2>
+<p>One fun thing to experiment with is to place an LED right next to an LDR and wrap them up in tape or some other light blocking shield.  This is called an &quot;optocoupler&quot;.  The voltage sent to the LED will change the resistance of the LDR. It is a way of passing information from one circuit to another without actually connecting any wires -- this is actually an essential part of most hardware MIDI circuits, to prevent circuit noise between devices!  However, there&#39;s another side effect: the response of the LED + LDR pair is naturally slightly sluggish, and sometimes that&#39;s a useful property. Some synthesizers have circuits called &quot;low pass gates&quot; or &quot;vactrol&quot; components that like to use this sluggishness to create a natural softness to transitions. </p>
+<hr>
+
+<h3 id="what-other-components-can-we-connect">What other components can we connect?</h3>
 <p>Basic components:</p>
 <table>
 <thead>
@@ -603,22 +668,65 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <td>8bit/<strong>12bit</strong>, <strong>polling</strong>/DMA</td>
 </tr>
 </tbody></table>
-<p>For a more items see <a href="https://raw.githubusercontent.com/electro-smith/oopsy/refs/heads/dev/source/component_defs.json">https://raw.githubusercontent.com/electro-smith/oopsy/refs/heads/dev/source/component_defs.json</a> -- there are examples there for </p>
+<h2 id="more-complex-components">More complex components</h2>
+<p>Besides basic digital and analog inputs on the GPIOs, the Daisy can also connect to more complex sensors and circuits.  </p>
+<p>This is sometimes needed when you want to connect far more buttons, knobs, LEDs etc. than the Daisy has pins for. In that case you can use multiplexers to make a smaller number of pins on the Daisy control many more sensors.  </p>
 <ul>
-<li>CD4021 button/switch multiplexor (8 buttons from 3 pins)</li>
-<li>CD4051 analog multiplexor (8 knobs from 4 pins)</li>
-<li>PCA9685 LED controller with mono or RGB Leds</li>
-<li>PCA9685 motor controller for stepper motors/DC motors</li>
-<li>NeoTrellis light/button array</li>
-<li>MPR121 capacitative touch sensor</li>
-<li>Hall effect sensor</li>
-<li>APDS9960 proximity, light, RTBG and gesture sensor</li>
-<li>BME280/BMP390/DPS310 temperature/humidity/pressure/altitude sensor</li>
-<li>VL53L1X/VL53L0X time-of-flight distance sensor</li>
-<li>TLV493D 3-axis magnetometer</li>
-<li>BNO055/ICM-20948 9-DoF orientation accelerometer/gyro/magnetometer</li>
+<li><p>CD4051 analog multiplexor (8 knobs from 4 pins)</p>
+<ul>
+<li>We have 10 of these</li>
 </ul>
-<p>... And other things not listed can still be defined &amp; created in C++. </p>
+</li>
+<li><p>MPR121 capacitative touch sensor array</p>
+<ul>
+<li>We have 2 of these plus some copper tape for building touch surfaces</li>
+</ul>
+</li>
+<li><p>PCA9685 LED controller with mono or RGB Leds</p>
+<ul>
+<li>I might have a couple of these I can dig out</li>
+</ul>
+</li>
+<li><p>PCA9685 motor controller for stepper motors/DC motors</p>
+<ul>
+<li>I might have a couple of these I can dig out</li>
+</ul>
+</li>
+<li><p>CD4021 button/switch multiplexor (8 buttons from 3 pins)</p>
+<p>There are also other subcircuit devices we can connect to for very specific purposes, such as:</p>
+</li>
+<li><p>NeoTrellis light/button array</p>
+</li>
+<li><p>APDS9960 proximity, light, RTBG and gesture sensor</p>
+</li>
+<li><p>BME280/BMP390/DPS310 temperature/humidity/pressure/altitude sensor</p>
+</li>
+<li><p>VL53L1X/VL53L0X time-of-flight distance sensor</p>
+</li>
+<li><p>TLV493D 3-axis magnetometer</p>
+</li>
+<li><p>BNO055/ICM-20948 9-DoF orientation accelerometer/gyro/magnetometer</p>
+</li>
+</ul>
+<p>Many of these connect using the I2C protocol, which can send complex data over just two wires. Most of the complexity of this is wrapped up in C++ classes we can directly invoke in our JSON. </p>
+<p>There&#39;s also the ability to define new C++ behaviours in the JSON that can be inserted into the firmware, for other devices and protocols that are not already covered. Almost anything you can connect with Arduino can also be connected with Daisy, with a bit of work. </p>
+<p>And on top of that there&#39;s various analog and CMOS circuit designs we can use alongside the Daisy!</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1iMUwBXqKRTjaA6fHENjSYb6nXgWkCBrd1-5Fmb8WH9Q/edit?usp=sharing">Here&#39;s a work-in-progress inventory</a></p>
+<h2 id="oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</h2>
+<ul>
+<li><code>bang</code>: tells Oopsy to compile the patch and try to flash it to a USB-connected Daisy. </li>
+<li><code>target &lt;jsonfile&gt;</code>: where <code>jsonfile</code> is the path to a JSON file on disk.  Tells Oopsy what JSON target definition to use.  We have to make a JSON to configure all GPIO pin connections for our circuit.</li>
+<li><code>blocksize &lt;N&gt;</code> where <code>N</code> can be 48, 32, 16, 8, 4, 2 or 1. How many audio samples pass in each block of processing between processing GPIO data. Making this lower will make inputs and outputs more responsive, but will also increase the CPU load.  I suggest starting with 16 or 8, and increase only if you have to.</li>
+<li><code>samplerate 96khz</code>, <code>samplerate 48khz</code>, <code>samplerate 32khz</code>: choose what sample rate to use. 48khz is normal, the same as DVD audio. 96khz may be desirable to help reduce aliasing artefacts with nonlinear audio algorithms, but CPU load will double.  32khz may have audibly lower quality, but will reduce CPU load.</li>
+</ul>
+<blockquote>
+<p>I recommend using a <code>loadbang</code> object to send your preferred settings to <code>oopsy</code> when the patcher loads -- especially if you use a custom JSON target file. </p>
+</blockquote>
+<p>Other options: </p>
+<ul>
+<li><code>boost 0</code> or <code>boost 1</code>: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. </li>
+<li><code>fastmath 0</code> or <code>fastmath 1</code>.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. </li>
+</ul>
 
 <footer>Synthesis Workshop &copy; Graham Wakefield, 2026
 </footer>
