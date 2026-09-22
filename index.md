@@ -170,6 +170,25 @@ If you have never used `git` before, you'll need to get to know it. We don't nee
 
 Github project setup checkin!
 
+## Survey results:
+
+![experience](img/experience.png)
+
+Most respondents do not own or plan to bring their own equipment or hardware to class, though a few have Arduino, ESP32, sensors, servos, and other electronic components.
+
+![outputs](img/output_formats.png)
+
+(What that doesn't show, but I think is interesting, is that 8/10 of you said *some kind of hardware*, and almost all of you picked at least one *software based output*, mostly web and game engine.)
+
+Synthesis algorithms: 
+
+- General Interest and Exploration: Several respondents are unsure of specific algorithms yet, but are interested in learning **new techniques**, expanding their repertoire, and exploring general concepts.
+- Effects and Sound Manipulation: Specific technical interests include **echo, reverb, delay** effects, **live audio degradation** such as **bitcrush and bitrate loss**, **feedback loops**, and **signal mashing**.
+- Generative and Interactive Sound: Interest exists in **generative sound, algorithmic synthesis**, and **parameter mapping driven by interaction or simulation data**.
+- Thematic and Applied Audio: Specific applications mentioned include **video game sound effects**, **8-bit** Pokémon-style sound synthesis, **visual audio**, **glitch** styles, and technology-based music including siren sounds.
+
+Thank you, I will focus material on both hardware (gen~/Daisy based) and software (primarily web-based, but also game engine, both via gen~/RNBO). I will address many of the signal processing techniques here, especially delay-based effects and feedback, and lo-fi emulation/glitch, both of which mesh very nicely with generative sound and algorithmic synthesis. 
+
 ## Inspiration slides part II
 
 Inspiration slides:
@@ -190,13 +209,17 @@ I have 5 kits ready to go for group work.
 
 More gen~ explorations.
 
-Examples with the Modular: flashing Daisy Patch / Patch.init / Versio... I have 6 daisy-driven modules, and could get a couple more, if we wanted to make a class project be a modular system. That modular system could also have a software equivalent using VCVRack. 
+Examples with the Modular: flashing Daisy Patch / Patch.init / Versio... I have 6 daisy-driven modules, and could get a couple more, if we wanted to make a class project be a modular system. That modular system could also have a software equivalent using VCVRack. If we design things quickly enough, we could even manufacture PCBs!
 
+<!--
 ## Homework
+
+Finalize your working groups. Set up github (last week's homework) if you haven't yet. 
+-->
 
 ---
 
-# Week 4: 
+# Week 4: Modular Synthesis
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
