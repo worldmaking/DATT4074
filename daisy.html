@@ -72,7 +72,10 @@ function copyPatch(str) {
 <li><a href="#windows">Windows</a></li>
 <li><a href="#installing-oopsy-for-max">Installing Oopsy for Max</a></li>
 <li><a href="#how-does-oopsy-work">How does Oopsy work?</a></li>
-<li><a href="#flashing-from-oopsy">Flashing from Oopsy</a></li>
+<li><a href="#flashing-from-oopsy">Flashing from Oopsy</a><ul>
+<li><a href="#altnernative">Altnernative:</a></li>
+</ul>
+</li>
 <li><a href="#daisy-on-a-breadboard">Daisy on a Breadboard</a><ul>
 <li><a href="#placing-the-daisy">Placing the Daisy</a></li>
 <li><a href="#identifying-pins">Identifying pins</a></li>
@@ -298,6 +301,8 @@ function copyPatch(str) {
 </ul>
 </li>
 </ul>
+<h3 id="altnernative">Altnernative:</h3>
+<p>If you get as far as <code>created binary</code> but it still doesn&#39;t flash, you can try flashing manually via the <a href="">https://flash.daisy.audio/</a> webpage in Chrome.  On that page there is a tab option &quot;File Upload&quot;.  You will find your binary in your <code>Documents/Max 9/Packages/oopsy/source/build_projectname_targetname/build</code>, where &quot;projectname&quot; depends on the name of your gen~ patch and &quot;targetname&quot; depends on your target json.   Put the Daisy in to bootloader mode as above, select your binary to upload, then press the <strong>Flash</strong> button. </p>
 <h2 id="daisy-on-a-breadboard">Daisy on a Breadboard</h2>
 <p>If we want to hear the audio output and start manipulating the algorithm, we&#39;ll want to start connecting components to it (such as stereo headphone sockets).  The best place to start is with a prototyping breadboard. Here is how a broadboard is internally connected:</p>
 <p><img src="img/breadboard_wiring.jpg" alt="breadboard wiring"></p>

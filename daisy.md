@@ -178,6 +178,10 @@ Let's make a minimal example:
     - **Windows only** you may need to use Zadig to set up your USB driver, see https://docs.daisy.audio/troubleshooting/#oopsy
     - Perhaps libdaisy is not fully installed & built. Try again with the QUIET button on the Oopsy object switched to VERBOSE.  If there's an error in the Max window like "oopsy-verbose: "stderr . . . . . cannot find -ldaisy"", see the instructions at https://docs.daisy.audio/troubleshooting/#oopsy to build libdaisy. 
 
+### Altnernative:
+
+If you get as far as `created binary` but it still doesn't flash, you can try flashing manually via the [https://flash.daisy.audio/]() webpage in Chrome.  On that page there is a tab option "File Upload".  You will find your binary in your `Documents/Max 9/Packages/oopsy/source/build_projectname_targetname/build`, where "projectname" depends on the name of your gen~ patch and "targetname" depends on your target json.   Put the Daisy in to bootloader mode as above, select your binary to upload, then press the **Flash** button. 
+
 ## Daisy on a Breadboard
 
 If we want to hear the audio output and start manipulating the algorithm, we'll want to start connecting components to it (such as stereo headphone sockets).  The best place to start is with a prototyping breadboard. Here is how a broadboard is internally connected:
