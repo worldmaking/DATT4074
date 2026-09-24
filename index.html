@@ -261,8 +261,45 @@ function copyPatch(str) {
 <p>Adding more breadboard components and configuring a custom JSON file.</p>
 <p>I have 5 kits ready to go for group work. </p>
 <p><a href="daisy.html">Setting up the Daisy toolchain &amp; Flashing Daisy on breadboards from Max</a></p>
-<p>More gen~ explorations.</p>
-<p>Examples with the Modular: flashing Daisy Patch / Patch.init / Versio... I have 6 daisy-driven modules, and could get a couple more, if we wanted to make a class project be a modular system. That modular system could also have a software equivalent using VCVRack. If we design things quickly enough, we could even manufacture PCBs!</p>
+<p>Today&#39;s patch:</p>
+<p><button value="----------begin_max5_patcher----------
+1136.3oc6ZszihiCD9N+JrxkQZEKDaH7XNMGlC6k43bZznVNItCtIINx1PC6
+H1e6qsCPOcicHOfVhdfCQNsK+n99ppbb00u5AT+7BYaHBuOC9g4U8uecr0AA
+Tc+5+noiL7lnTrPOXuHVVFIW50+TwjjMRsHeJ6S.ICDwIXIAfAYDg.mP.rvm
+HQVGYJMmDwVkqGNxR+EXYzBZdxCb8DnTA.bj+ff9fxmv.+A9pWFMvG7SKCmF
+q2Vpk+umYa0yWkQySIRs9As2Oakbu.9up+cGeaW+NAq4jmU6upP0TFNNDmm3
+UK7YtFPlqAmfY5lHzYwlocFarIPYuxsEDy9xynBfedcPw8VZUAiRLOgHAYaK
+aL3IAKuAP5nI5mPXPMA0ImCTQWBP8pAntMKWi443L8568LgrbTUXdBI++.eQ
+RUaZfSgOEvQ9PCXO0.1P+5ZHOtyFxnZf4BZRNN0q+wVV2UFshvshzFAdjlRV
+S3BpxLz5NyHEtn3EgrOS64tmX5Ead+JjglajAVgLbxZ59UKnBwvbEkIU70Jt
+wRXyDaX+KqLKlvyWQ0KtUo14P8M1iZyMQANxrRwhhAJyJGql2QanIiGosZBf
+FimIiQl2lDX2Hxw4ju8maBnROq14o4zq5u.pC+py.rDJyfFv4SObroa+pJ7y
+f90Y0OiiWiC903fgmXj4r2c8+3R4AvKAkO+Nieyv3n.yWr.UjcPGn7w2o72W
+JeHXb6Hb3DiO9zoZ9FgZIeO5Ne+9x2BbVQJgqtqbmn8wFu8IyZIsiZJs6em1
+6DsGSRwaaIiW9QsGhrOsse+VSobzcJuSTdAliy.KyYgPvWTvp5Ns9pF3M5F9
+c565LOQ9AszTX1cu+2WSAkpBPc4xaHTfw4usL9zq9w79ej4NXW7V6J2M4N20
+VtKZaTJoKbWv3WRCbKntfqN0gZSf19cJXq0dbkdM8+qmNkdMCynmk5YuHXq3
+Q60y8ov.TOVKlHjzbrrLOn+3numd3u69GcTqm0MsN31TqC5lVWeSEFO1jjez
+eXHjNEvMDhf+oAQMFg7u0PnwWDD5VSqG0csFd6o0nto0itM45FDmypZO8FUs
+ue940EgF+w+vA3syWXX+dL8pAT5IvqIwOTVgaOfkRNMbkzbOGG08AYSAiKej
+kVtm89FNhlKYhEf+4qed32EDtXXBmyeFiwC+JQrTxJFJIYECcUyCky3qKJmd
+UqiWr5DpFUEHiUH1NnfECZP4VgJSrotZ+z25d9Yq8mQso1eBWEFlRDzXh8La
+9lbi3bFNw16hgugGpiHaUhEk7rtZcBooT4VWUL1iOJHk.qAJ8cfjornkj3XN
+NQDwYooNz2nTZzR4BNaUxBGhPxwJHYQkSSoLqqTlxcjf9utHmvDccE4pyiwM
+quQ2re2lChl4.pN3oUZXqXK0z4UowIr6UepEAv7DQY7RkyUEUBXueKqLVxBy
+aLKqNp+IQ4m5JJc8yhRcbVZ3tZRy1Uvp2UuB.cTQd1p.OaUbmiJr6LUT2oUP
+2dnxRExoiqza2++aDcZB<hr>end_max5_patcher-----------" onclick="copyPatch(this.value)">Copy Max Patch and select <strong>File / New From Clipboard</strong> in Max</button></p>
+<p>And the json &quot;mytarget.json&quot;:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;som&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;seed&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;components&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;knob1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;component&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;AnalogControl&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;pin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">25</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
 <!--
 ## Homework
 
@@ -274,6 +311,8 @@ Finalize your working groups. Set up github (last week's homework) if you haven'
 <h1 id="week-4-modular-synthesis">Week 4: Modular Synthesis</h1>
 <p><a href="https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1">Zoom meeting (same link every week)</a></p>
 <p><a href="https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130">Attendance</a></p>
+<p>More gen~ explorations.</p>
+<p>Examples with the Modular: flashing Daisy Patch / Patch.init / Versio... I have 6 daisy-driven modules, and could get a couple more, if we wanted to make a class project be a modular system. That modular system could also have a software equivalent using VCVRack. If we design things quickly enough, we could even manufacture PCBs!</p>
 <hr>
 
 <h1 id="class-recordings">Class Recordings</h1>
@@ -281,6 +320,7 @@ Finalize your working groups. Set up github (last week's homework) if you haven'
 <ul>
 <li><a href="https://yorku.zoom.us/rec/share/WvH17_lakNNvKvn-CyZ74cwDlYrRqHXntI-AFOhnvkXhUIDuh8ICQ0HSumcj2TCa.Q7j1bOMUS56nFRD3">Week 1</a></li>
 <li><a href="https://yorku.zoom.us/rec/share/qmHnp-lYJ9dh-JqzDLIhIPKySSfiRhGAcxGyBES_t-7U6Vmnx7o6XdK98A08yg.TVvsvu0hO3Fies_l">Week 2</a></li>
+<li><a href="https://yorku.zoom.us/rec/share/LG7WbRATprg0PIDrXjs7Ny8GioAAFhhWivTwsGMvNGY6Du3fSjjH5huM4745M02l.ww1GUoSRmULsqRA1">Week 3</a></li>
 </ul>
 
 <footer>Synthesis Workshop &copy; Graham Wakefield, 2026
