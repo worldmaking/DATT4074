@@ -53,10 +53,16 @@ We will work with the same tools many professional studios and hardware companie
 ### Evaluation
 
 - **25% Dev Log**   
-An online log of project design and the development progress, maintained throughout the course. It could be a Google Doc, a Notion doc, a Github page -- anything that can be shared online.
+An online log of project design and the development progress, maintained throughout the course. 
+  - It should be hosted on your project's Github, either via a wiki or as a webpage via the `gh-pages` branch. 
+  - It should be updated with **weekly entries** that include a) your progress, b) insights, c) next steps and d) any current roadblocks. 
 
 - **25% Presentation & Discussion**   
-Presenting work-in-progress to the group, and generous contribution to discussion.
+Presenting work-in-progress to the group, and generous contribution to discussion. 
+  - First presentation: Inspirations & Ideas
+  - Second presentation: Progress update with prototype demonstration
+  - Final presentation: Final project & demonstration
+  - If necessary, presentations can be submitted as prerecorded videos. 
 
 - **25% Final distributable project**   
 A functional, professional embodiment of the sonic ideas in a specific application format such as: adaptive sound generators for video games; new embedded hardware for guitar pedals, modular synthesizers, or interactive art installations; embedding in web-native projects; creating plugins for desktop software.
@@ -149,7 +155,7 @@ https://docs.google.com/presentation/d/1xG5xHPcHTgD2Z7tH2E1d0mNjhQ2WEzrlkpEth35P
 
 [Setting up the Daisy toolchain & Flashing Daisy on breadboards from Max](daisy.html)
 
-## Homework
+## Homework Week 2
 
 Let's use Github to manage our projects and collaborations.  Git is not *ideal* for working with Max files, but there really isn't a better option.
 
@@ -164,7 +170,7 @@ If you have never used `git` before, you'll need to get to know it. We don't nee
 - here's what Github recommends: https://docs.github.com/en/get-started/start-your-journey/git-and-github-learning-resources 
 - here's a decent tutorial: https://www.youtube.com/watch?v=8JJ101D3knE
 
-# Week 3: 
+# Week 3: Inspirations & Flashing Daisy II
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
@@ -266,11 +272,131 @@ Finalize your working groups. Set up github (last week's homework) if you haven'
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
+A quick reminder of the course goal (*"where you take a sample-level interactive audio synthesis idea from prototypes to finished, portfolio-ready products in software and/or hardware"*):
+- This course is about building YOUR professional portfolio projects, exploring a uniquely interesting implementation of audio synthesis in software and hardware.  
+- My role will be to support you through the semester, with some direct presentations & training but mostly focused guidance at the individual/group level. 
+
+Where we are at in terms of [evaluation](#evaluation):
+- **Dev Log** (25%): This will be hosted on your Github, either as a wiki page or as a github pages (`gh-pages` branch) page. From this week onward, it should be updated with **weekly entries** that include your progress, insights, next steps and any current roadblocks. If you haven't set up your Github yet, please complete that today. See the instructions [here](#homework-week-2). Let me know the link here:
+  - Undergraduate: https://eclass.yorku.ca/mod/assign/view.php?id=4495614
+  - Graduate: https://eclass.yorku.ca/mod/assign/view.php?id=4495615
+- **Presentations & Discussion** (25%): Most of you have now presented your inspirations & proposals, but not all. If you haven't done this yet, please submit it to me as video. 
+  - Undergraduate: https://eclass.yorku.ca/mod/assign/view.php?id=4495539
+  - Graduate: https://eclass.yorku.ca/mod/assign/view.php?id=4495542
+  - There will be two more presentations in the course -- one mid-term progress report & prototype demonstration, and one final project presentation. 
+  - Most of you also filled in the [Initial Survey](https://docs.google.com/forms/d/e/1FAIpQLSfc-nzHniN77CjY7-6F_ik-i8j4uW_9yHiZzF3MV-fmJt_4pQ/viewform) -- if you haven't done this yet please do, it's part of this grade section. 
+
+[Attendance (undergraduate only)](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+## Student Project Table
+
+It is time to commit to your project details. I've created a shared group Google Sheets document [here](https://docs.google.com/spreadsheets/d/15kdXMd4mkTN9xu2M9P1Lw8GIWAWJFR1Anq_oSGN6aug/edit?usp=sharing) to keep track of projects. Please update your entry in this table!
+- The most urgent items for this table are your Github project address, your platform target(s), and specific hardware requirements or any other urgent questions/roadblocks to resolve. 
+- If you still don't know what your project is going to be, I can assign you to developing a modular synthesis module, which exists both as a virtual device for VCVRack, as well as a physical device, using one of the Daisy-powered devices in the Alice Lab rack. 
+
+## Discord
+
+Since I can't merge the eClass courses, we can't run discussion through that. I know that Discord is a popular option in many DM courses, so I've set one up for our class.  I can create groups/channels for project groups if you want.  
+
+Here's the invitation link: https://discord.gg/NgWzWRbhJ
+
+## Breadboarding Daisy III
+
+[Continuing the breadboarding with Daisy -- buttons, LEDs, and other components](daisy.html)
+
+## Modular Synthesis
+
+[Modular Synthesis](modular.html)
+
+### Daisy in Modular
+
+Since the Daisy was launched in 2021, there have been very many commercial as well as DIY & open source module designs, and even more firmware designs in the wild. It has become a default platform for many designers. 
+
+I have gen~ patch templates for several different Daisy-powered hardware modules in the Alice Lab rack:
+- Versio (https://noiseengineering.us/products/versio/)
+- Daisy Patch (x2) (https://modulargrid.net/e/electrosmith-daisy-patch)
+- patch.Init (x2) (https://daisy.audio/products/patch-init)
+- Bluemchen (https://kxmx-bluemchen.recursinging.com)
+- I also have a home-brewed Daisy module, and we may also design another with PCB manufacturing if we move quickly enough. 
+
+Here are some example firmwares people have created just for the [Versio module](https://noiseengineering.us/pages/world-of-versio/), many that are open-source, some which are ports of open source algorithms, some made using gen~/oopsy:
+  - Valley Plateau / Campestria Versio (plate reverb based on Dattoro's algorithm)
+    - VCV: https://valleyaudio.github.io/rack/plateau/
+    - Hardware (Versio, C++): https://github.com/digitalartifactmusic/PlateauNEVersio
+  - Mutable Rings (string synthesis) ports:
+    - VCV: https://library.vcvrack.com/AudibleInstruments/Rings
+    - Versio: https://www.reddit.com/r/modular/comments/1gyxrkd/dont_have_mutable_instruments_rings_i_ported_it/
+  - Pyros distortion
+    - VST plugin: https://www.audiority.com/shop/pyros/
+    - Versio firmware: https://www.audiority.com/shop/pyros-versio/
+  - Pleroma mutant reverb: https://recursivefieldinstruments.com/pleroma
+  - Praetereo Versio looper (made with `gen~`): https://www.youtube.com/watch?v=pOsEjsxFNU4
+  - Acidus Versio (303 acid oscillator): https://github.com/abluenautilus/AcidusVersio/
+  - Tapeo (tape delay emulator, made with `gen~`): https://github.com/onoma2/TapeoVersio
+  - Clackotron low pass gate: https://bionoid.one//apps/clackotron/index.html
+  - Repetita Versio looper (C++) https://github.com/hirnlego/repetita-versio
+  - CRCLTR looper (`gen~`) https://github.com/s3g/crcltr
+  - MultiVersio (multiFX) https://github.com/peteb4ker/MultiVersio
+  - J&OT Stray Drum (drum voice) https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware
+  - Reticulum Versio (asynchronous delay) https://www.youtube.com/watch?v=4a6SyudL77M
+  - Triwalkmas (made with `gen~`): https://github.com/onoma2/TriwalkmaVersio
+  - So many more here: https://github.com/Maxhodges/noise-engineering-firmware-index#versio-third-party-firmware
+
+# Week 5
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
-More gen~ explorations.
+# Reading Week
 
-Examples with the Modular: flashing Daisy Patch / Patch.init / Versio... I have 6 daisy-driven modules, and could get a couple more, if we wanted to make a class project be a modular system. That modular system could also have a software equivalent using VCVRack. If we design things quickly enough, we could even manufacture PCBs!
+# Week 6
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+
+# Week 7
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+
+# Week 8
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+
+# Week 9
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+
+# Week 10
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+
+# Week 11
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
+
+# Week 12: Final presentations / performances!
+
+[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 
 # Class Recordings

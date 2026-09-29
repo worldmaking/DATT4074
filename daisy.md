@@ -536,14 +536,12 @@ This is sometimes needed when you want to connect far more buttons, knobs, LEDs 
   - We have 10 of these
 - MPR121 capacitative touch sensor array
   - We have 2 of these plus some copper tape for building touch surfaces
-- PCA9685 LED controller with mono or RGB Leds
+- PCA9685 LED/motor controller with mono or RGB Leds
   - I might have a couple of these I can dig out
-- PCA9685 motor controller for stepper motors/DC motors
-  - I might have a couple of these I can dig out
-- CD4021 button/switch multiplexor (8 buttons from 3 pins)
   
 There are also other subcircuit devices we can connect to for very specific purposes, such as:
 
+- CD4021 button/switch multiplexor (8 buttons from 3 pins)
 - NeoTrellis light/button array
 - APDS9960 proximity, light, RTBG and gesture sensor
 - BME280/BMP390/DPS310 temperature/humidity/pressure/altitude sensor
@@ -555,9 +553,13 @@ Many of these connect using the I2C protocol, which can send complex data over j
 
 There's also the ability to define new C++ behaviours in the JSON that can be inserted into the firmware, for other devices and protocols that are not already covered. Almost anything you can connect with Arduino can also be connected with Daisy, with a bit of work. 
 
+**If any of these are needed we may need to order more parts, so I need to know ASAP because of delivery times**
+
 And on top of that there's various analog and CMOS circuit designs we can use alongside the Daisy!
 
 [Here's a work-in-progress inventory](https://docs.google.com/spreadsheets/d/1iMUwBXqKRTjaA6fHENjSYb6nXgWkCBrd1-5Fmb8WH9Q/edit?usp=sharing)
+
+- Two piezo contact microphones can be used for the stereo inputs, but will need a small amplifier circuit added
 
 ## `oopsy` object options & messages
 

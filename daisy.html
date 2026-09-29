@@ -687,18 +687,13 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <li>We have 2 of these plus some copper tape for building touch surfaces</li>
 </ul>
 </li>
-<li><p>PCA9685 LED controller with mono or RGB Leds</p>
+<li><p>PCA9685 LED/motor controller with mono or RGB Leds</p>
 <ul>
 <li>I might have a couple of these I can dig out</li>
 </ul>
-</li>
-<li><p>PCA9685 motor controller for stepper motors/DC motors</p>
-<ul>
-<li>I might have a couple of these I can dig out</li>
-</ul>
+<p>There are also other subcircuit devices we can connect to for very specific purposes, such as:</p>
 </li>
 <li><p>CD4021 button/switch multiplexor (8 buttons from 3 pins)</p>
-<p>There are also other subcircuit devices we can connect to for very specific purposes, such as:</p>
 </li>
 <li><p>NeoTrellis light/button array</p>
 </li>
@@ -715,8 +710,12 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 </ul>
 <p>Many of these connect using the I2C protocol, which can send complex data over just two wires. Most of the complexity of this is wrapped up in C++ classes we can directly invoke in our JSON. </p>
 <p>There&#39;s also the ability to define new C++ behaviours in the JSON that can be inserted into the firmware, for other devices and protocols that are not already covered. Almost anything you can connect with Arduino can also be connected with Daisy, with a bit of work. </p>
+<p><strong>If any of these are needed we may need to order more parts, so I need to know ASAP because of delivery times</strong></p>
 <p>And on top of that there&#39;s various analog and CMOS circuit designs we can use alongside the Daisy!</p>
 <p><a href="https://docs.google.com/spreadsheets/d/1iMUwBXqKRTjaA6fHENjSYb6nXgWkCBrd1-5Fmb8WH9Q/edit?usp=sharing">Here&#39;s a work-in-progress inventory</a></p>
+<ul>
+<li>Two piezo contact microphones can be used for the stereo inputs, but will need a small amplifier circuit added</li>
+</ul>
 <h2 id="oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</h2>
 <ul>
 <li><code>bang</code>: tells Oopsy to compile the patch and try to flash it to a USB-connected Daisy. </li>

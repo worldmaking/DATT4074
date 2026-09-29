@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="author" content="Graham Wakefield">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/basic.css" type="text/css" />
+<link rel="stylesheet" href="css/github.css" type="text/css" />
+<style>
+img {
+	max-height: 75vh;
+}
+td { vertical-align: top;}
+header {
+	background-color:#f5f5f5;
+	font-size: 75%;
+	padding: 0.5em;
+}
+
+footer {
+	background-color:#f5f5f5;
+	font-size: 75%;
+	padding: 0.5em;
+}
+</style>
+<script>
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function copyPatch(str) {
+	navigator.clipboard.writeText(str);
+//   // Get the text field
+//   var copyText = document.getElementById("myInput");
+
+//   // Select the text field
+//   copyText.select();
+//   copyText.setSelectionRange(0, 99999); // For mobile devices
+
+//    // Copy the text inside the text field
+//   navigator.clipboard.writeText(copyText.value);
+
+//   // Alert the copied text
+//   alert("Copied the text: " + copyText.value);
+}
+</script>
+</head>
+
+<body class="centremaxwidth960">
+<header><a href="index.html">Synthesis Workshop</a><a name="top"></a></header>
+
+<h1 id="modular-synthesis">Modular Synthesis</h1>
+<p>We saw back in week 1 how <a href="https://nodemusic.cc/horizon">modular synthesis first emerged in the 1960&#39;s in commercial forms via Moog and Buchla</a>, following structures of analog computing, and then resurged since the 1990&#39;s in the Eurorack format, which continues to grow today. <p><a href="https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U">https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U</a></p>
+            <iframe src="https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5Uembed?start=false" frameborder="0" width="920" height="546" allowfullscreen></iframe></p>
+
+<footer>Synthesis Workshop &copy; Graham Wakefield, 2026
+</footer>
+</body>
+<script src="js/connect.js"></script>
+</html>
