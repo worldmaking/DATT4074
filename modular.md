@@ -4,6 +4,12 @@ We saw back in week 1 how [modular synthesis first emerged in the 1960's in comm
 
 https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U
 
+https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U
+
+https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U/
+
+
+
 ### Daisy in Modular
 
 Since the Daisy was launched in 2021, there have been very many commercial as well as DIY & open source module designs, and even more firmware designs in the wild. It has become a default platform for many designers. 
