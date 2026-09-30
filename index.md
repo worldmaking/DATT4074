@@ -290,9 +290,11 @@ Where we are at in terms of [evaluation](#evaluation):
 
 ## Student Project Table
 
-It is time to commit to your project details. I've created a shared group Google Sheets document [here](https://docs.google.com/spreadsheets/d/15kdXMd4mkTN9xu2M9P1Lw8GIWAWJFR1Anq_oSGN6aug/edit?usp=sharing) to keep track of projects. Please update your entry in this table!
+It is time to commit to your project details. I've created a shared group Google Sheets document to keep track of projects. Please update your entry in this table!
 - The most urgent items for this table are your Github project address, your platform target(s), and specific hardware requirements or any other urgent questions/roadblocks to resolve. 
 - If you still don't know what your project is going to be, I can assign you to developing a modular synthesis module, which exists both as a virtual device for VCVRack, as well as a physical device, using one of the Daisy-powered devices in the Alice Lab rack. 
+
+[https://docs.google.com/spreadsheets/d/15kdXMd4mkTN9xu2M9P1Lw8GIWAWJFR1Anq_oSGN6aug/]()
 
 ## Discord
 
