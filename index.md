@@ -304,13 +304,13 @@ Here's the invitation link: https://discord.gg/NgWzWRbhJ
 
 [Attendance (undergraduate only)](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
-## Breadboarding Daisy III
-
-[Continuing the breadboarding with Daisy -- buttons, LEDs, and other components](daisy.html)
-
 ## Modular Synthesis
 
 [Modular Synthesis](modular.html)
+
+## Breadboarding Daisy III
+
+[Continuing the breadboarding with Daisy -- buttons, LEDs, and other components](daisy.html)
 
 # Week 5
 

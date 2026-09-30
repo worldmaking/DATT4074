@@ -68,4 +68,6 @@ Quick tips:
   - Before creating a module in your plugin collection, you'll need to design the [panel as SVG graphics](https://vcvrack.com/manual/Panel)
     - Many people use Inkscape to make their panels. There's an [inkscape plugin here](https://synthpanels.design/) specifically for VCV Rack. 
     - There's an online panel designer [here](https://vpdx.pages.dev/), with a [manual here](https://github.com/transcriptaze/vpd/blob/main/GUIDE.md#getting-started).
-  - To create an actual module, first `cd MyPlugin`, and then from there run `../../helper.py createmodule MyModule res/MyModule.svg src/MyModule.cpp` .   
+  - To create an actual module, first `cd MyPlugin`, and then from there run `../../helper.py createmodule MyModule res/MyModule.svg src/MyModule.cpp`.
+
+I can also share templates for building VCV software modules that emulate the same Daisy-powered hardware modules we have.    
