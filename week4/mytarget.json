@@ -1,0 +1,18 @@
+{
+    "som": "seed",
+    "components": {
+        "knob1": {
+            "component": "AnalogControl",
+            "pin": 25
+        },
+        "button1": {
+            "component": "Switch",
+            "pin": 26
+        },
+        "led1": {
+            "component": "Led",
+            "pin": 15,
+            "invert": false
+        }
+    }
+}

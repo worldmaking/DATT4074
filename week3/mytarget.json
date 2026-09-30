@@ -1,0 +1,9 @@
+{
+    "som": "seed",
+    "components": {
+        "knob1": {
+            "component": "AnalogControl",
+            "pin": 25
+        }
+    }
+}
