@@ -213,35 +213,7 @@ I have 5 kits ready to go for group work.
 
 [Setting up the Daisy toolchain & Flashing Daisy on breadboards from Max](daisy.html)
 
-Today's patch:
-
-<pre><code>
-----------begin_max5_patcher----------
-983.3oc4XEzaZCCE9N+JrxkdgANAR.5oNoJssC6z1zzzzTkShI3RhcjsCE1D
-629rcnzwvNMAZql1xgfC9Y6m+9dum868id.0iWLaMV3cI3qlO0O+Xeq6EP08
-g+ooiBz5jbjPOXuDVQAlJ85erXR7ZoVjKJt.HYfDNFIw.Dn.KDnLLfEeKNw5
-HyITbBqhpGdfk9KQxjEDZ1Mb8Dn1B.+QvAg8A0u8CgCfpOFM.B9lkgSqJXUx
-brTuCf1EfP20uuk9Io58kR+e0TuC5c69u11+rfUJ9N0z2DplyPowHZlWqvmY
-Z.YlFbBmpaFDzFrw1dutW4lRrYh8L5fqopkn3jmITbmkVSvnDwyvRPwl5FCt
-Uvnc.RGEoe66G9zBpONfFzHfF8haVtBwonBs56cGFubTSXdFl9SvURhZOCbJ
-7w.d.bhw6d7TyOvNXHGzBLWPxnnbu96aclF0ictqvbqHsQf4jb7JLWPTlgVW
-AiTnxxGDx9Lsi6tkoWrY8aPFB0HieCxvwqH6VsvFDCwUTlTwWUbikv5HafvC
-qLKEyoUD8haUpsN19F6Qs4lnDkXVoTQ4.kYkiUyauMTzLia6jwA5ehflCJBl
-BsaD43bx+7wMAznm0o4o4zqpDwQEfkTVrO3JEop7PfpFn05Fv1LSG6xE5WGd
-yfRvFCx04fdmVPvFcHgsPdmmcejwmyd21+ubSAERBBNMFe1DyMELGqM5LHbX
-GoN+NQcS9ml57OGm0+1otn+YotjMI43yg5BG+vUJOMpK3TBy1+TB01MRO7jI
-cq835nZcdim0Q0FlQOKsydQvp3I6fw5ST5CZGqkhERBEIquS0WuGkLC+E2+3
-L20gm2tdRqGNimZt5L7+LDJpyHj+Sq6VuVfjdBzJb5M0E04FjTxIwURi6niT
-cvqKYb4bVdsN68dTBgJYhEf2d8kC+jPkfyvLNmeGBgFdMKoRWnIwvuv3KGJw
-HSHzgW+t279H3jw2b8q+3GGqa7gMT4BrfH9rRPwBV4PSNlCckaPsZbXxq8ZF
-XdxxmtEUOiwJEaFTxRurcYI6O1bJh+TShN6JEV.74uTXidlp4P784LaqpCD7
-c5LSiI4D4FWEWY9bAtFbLfgKrHmkrDmlxQYhDNKO2AhjjSRVJWvYUYKbHBlh
-hywKZbZpkYUixTqQBx2wNDHNSmCsqN2Gur80yZZcBeiL.kevzmKyl6c2pstU
-zsRerQvHdlnNPnxCvdEYdvBz2oEXue6VCVtkveXV1bz9iht67.rFil2YmkNp
-UQcSq7aVqN..cT8IaUaxV0kbTMoGo5QGWsncPkkpAoiqza6u.D0sySA
------------end_max5_patcher-----------
-</code></pre>
-
+Today's patch: https://raw.githubusercontent.com/worldmaking/DATT4074/refs/heads/main/week3/week3.maxpat
 
 And the json "mytarget.json":
 
@@ -308,6 +280,37 @@ Here's the invitation link: https://discord.gg/NgWzWRbhJ
 ## Breadboarding Daisy III
 
 [Continuing the breadboarding with Daisy -- buttons, LEDs, and other components](daisy.html)
+
+Today's patch: https://raw.githubusercontent.com/worldmaking/DATT4074/refs/heads/main/week4/week4.maxpat
+
+Today's JSON:
+
+```json
+{
+	"som": "seed",
+	"components": {
+		"knob1": {
+			"component": "AnalogControl",
+			"pin": 20
+		},
+		"switch1": {
+			"component": "Switch",
+			"pin": 26,
+			"pull": "daisy::Switch::PULL_DOWN",
+			"polarity": "daisy::Switch::POLARITY_NORMAL"
+		},
+		"switch2": {
+			"component": "Switch",
+			"pin": 27
+		},
+		"led1": {
+			"component": "Led",
+			"pin": 3,
+			"invert": false
+		}
+	}
+}
+```
 
 # Week 5
 
