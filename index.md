@@ -286,8 +286,6 @@ Where we are at in terms of [evaluation](#evaluation):
   - There will be two more presentations in the course -- one mid-term progress report & prototype demonstration, and one final project presentation. 
   - Most of you also filled in the [Initial Survey](https://docs.google.com/forms/d/e/1FAIpQLSfc-nzHniN77CjY7-6F_ik-i8j4uW_9yHiZzF3MV-fmJt_4pQ/viewform) -- if you haven't done this yet please do, it's part of this grade section. 
 
-[Attendance (undergraduate only)](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
-
 ## Student Project Table
 
 It is time to commit to your project details. I've created a shared group Google Sheets document to keep track of projects. Please update your entry in this table!
@@ -301,6 +299,10 @@ It is time to commit to your project details. I've created a shared group Google
 Since I can't merge the eClass courses, we can't run discussion through that. I know that Discord is a popular option in many DM courses, so I've set one up for our class.  I can create groups/channels for project groups if you want.  
 
 Here's the invitation link: https://discord.gg/NgWzWRbhJ
+
+---
+
+[Attendance (undergraduate only)](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 ## Breadboarding Daisy III
 
