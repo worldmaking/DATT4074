@@ -65,10 +65,97 @@ function copyPatch(str) {
 
 <body class="centremaxwidth960">
 <header><a href="index.html">Synthesis Workshop</a><a name="top"></a></header>
+<ul>
+<li><a href="#modular-synthesis">Modular Synthesis</a><ul>
+<li><a href="#daisy-in-modular">Daisy in Modular</a></li>
+<li><a href="#vcv-rack">VCV Rack</a><ul>
+<li><a href="#developing-your-own-vcv-plugins">Developing your own VCV plugins</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <h1 id="modular-synthesis">Modular Synthesis</h1>
 <p>We saw back in week 1 how <a href="https://nodemusic.cc/horizon">modular synthesis first emerged in the 1960&#39;s in commercial forms via Moog and Buchla</a>, following structures of analog computing, and then resurged since the 1990&#39;s in the Eurorack format, which continues to grow today. <p><a href="https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U">https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5U</a></p>
             <iframe src="https://docs.google.com/presentation/d/18B0RG7yMWeV9qoKtok4VDIn6UE_LBpKkcyzYGX4op5Uembed?start=false" frameborder="0" width="920" height="546" allowfullscreen></iframe></p>
+<h3 id="daisy-in-modular">Daisy in Modular</h3>
+<p>Since the Daisy was launched in 2021, there have been very many commercial as well as DIY &amp; open source module designs, and even more firmware designs in the wild. It has become a default platform for many designers. </p>
+<p>I have gen~ patch templates for several different Daisy-powered hardware modules in the Alice Lab rack:</p>
+<ul>
+<li>Versio (<a href="https://noiseengineering.us/products/versio/">https://noiseengineering.us/products/versio/</a>)</li>
+<li>Daisy Patch (x2) (<a href="https://modulargrid.net/e/electrosmith-daisy-patch">https://modulargrid.net/e/electrosmith-daisy-patch</a>)</li>
+<li>patch.Init (x2) (<a href="https://daisy.audio/products/patch-init">https://daisy.audio/products/patch-init</a>)</li>
+<li>Bluemchen (<a href="https://kxmx-bluemchen.recursinging.com">https://kxmx-bluemchen.recursinging.com</a>)</li>
+<li>I also have a home-brewed Daisy module, and we may also design another with PCB manufacturing if we move quickly enough. </li>
+</ul>
+<p>Here are some example firmwares people have created just for the <a href="https://noiseengineering.us/pages/world-of-versio/">Versio module</a>, many that are open-source, some which are ports of open source algorithms, some made using gen~/oopsy:</p>
+<ul>
+<li>Valley Plateau / Campestria Versio (plate reverb based on Dattoro&#39;s algorithm)<ul>
+<li>VCV: <a href="https://valleyaudio.github.io/rack/plateau/">https://valleyaudio.github.io/rack/plateau/</a></li>
+<li>Hardware (Versio, C++): <a href="https://github.com/digitalartifactmusic/PlateauNEVersio">https://github.com/digitalartifactmusic/PlateauNEVersio</a></li>
+</ul>
+</li>
+<li>Mutable Rings (string synthesis) ports:<ul>
+<li>VCV: <a href="https://library.vcvrack.com/AudibleInstruments/Rings">https://library.vcvrack.com/AudibleInstruments/Rings</a></li>
+<li>Versio: <a href="https://www.reddit.com/r/modular/comments/1gyxrkd/dont_have_mutable_instruments_rings_i_ported_it/">https://www.reddit.com/r/modular/comments/1gyxrkd/dont_have_mutable_instruments_rings_i_ported_it/</a></li>
+</ul>
+</li>
+<li>Pyros distortion<ul>
+<li>VST plugin: <a href="https://www.audiority.com/shop/pyros/">https://www.audiority.com/shop/pyros/</a></li>
+<li>Versio firmware: <a href="https://www.audiority.com/shop/pyros-versio/">https://www.audiority.com/shop/pyros-versio/</a></li>
+</ul>
+</li>
+<li>Pleroma mutant reverb: <a href="https://recursivefieldinstruments.com/pleroma">https://recursivefieldinstruments.com/pleroma</a></li>
+<li>Praetereo Versio looper (made with <code>gen~</code>): <a href="https://www.youtube.com/watch?v=pOsEjsxFNU4">https://www.youtube.com/watch?v=pOsEjsxFNU4</a></li>
+<li>Acidus Versio (303 acid oscillator): <a href="https://github.com/abluenautilus/AcidusVersio/">https://github.com/abluenautilus/AcidusVersio/</a></li>
+<li>Tapeo (tape delay emulator, made with <code>gen~</code>): <a href="https://github.com/onoma2/TapeoVersio">https://github.com/onoma2/TapeoVersio</a></li>
+<li>Clackotron low pass gate: <a href="https://bionoid.one//apps/clackotron/index.html">https://bionoid.one//apps/clackotron/index.html</a></li>
+<li>Repetita Versio looper (C++) <a href="https://github.com/hirnlego/repetita-versio">https://github.com/hirnlego/repetita-versio</a></li>
+<li>CRCLTR looper (<code>gen~</code>) <a href="https://github.com/s3g/crcltr">https://github.com/s3g/crcltr</a></li>
+<li>MultiVersio (multiFX) <a href="https://github.com/peteb4ker/MultiVersio">https://github.com/peteb4ker/MultiVersio</a></li>
+<li>J&amp;OT Stray Drum (drum voice) <a href="https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware">https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware</a></li>
+<li>Reticulum Versio (asynchronous delay) <a href="https://www.youtube.com/watch?v=4a6SyudL77M">https://www.youtube.com/watch?v=4a6SyudL77M</a></li>
+<li>Triwalkmas (made with <code>gen~</code>): <a href="https://github.com/onoma2/TriwalkmaVersio">https://github.com/onoma2/TriwalkmaVersio</a></li>
+<li>So many more here: <a href="https://github.com/Maxhodges/noise-engineering-firmware-index#versio-third-party-firmware">https://github.com/Maxhodges/noise-engineering-firmware-index#versio-third-party-firmware</a></li>
+</ul>
+<h2 id="vcv-rack">VCV Rack</h2>
+<p><a href="https://vcvrack.com/">https://vcvrack.com/</a></p>
+<p>VCV Rack is a free and open-source cross-platform software modular synthesizer modeled directly on Eurorack format. It comes with a collection of built-in modules, but many more can be added as <strong>plugins</strong> -- <a href="https://library.vcvrack.com/?query=&amp;brand=&amp;tag=&amp;license=free">over 4,000 free plugins</a> at the time of writing. </p>
+<ul>
+<li><a href="https://library.vcvrack.com/?tag=Hardware+clone">Here&#39;s a list of 400+ plugins that clone actual physical modules</a>. Sometimes the VCV module is made first, becomes popular, then is ported to hardware. Sometimes popular hardware modules are cloned in VCV. Sometimes a company will release a new design in both hardware and VCV simultaneously.<ul>
+<li>For example, <a href="https://library.vcvrack.com/?brand=Nonlinear%20Circuits">this collection</a> by <a href="https://mhetrick.com/">Michael Hetrick</a> of <a href="https://www.unfilteredaudio.com/">Unfiltered</a> Audio all emulate <a href="https://www.nonlinearcircuits.com/">Nonlinear Circuits</a> modules -- and <a href="https://github.com/mhetrick/nonlinearcircuits">here is the source code for them</a>, much of which was created as part of his graduate studies.</li>
+<li>For example, <a href="https://vcvrack.com/AudibleInstruments">this collection</a> is an authorized VCV Rack port of <a href="https://mutable-instruments.net/">Mutable Instruments open source Eurorack modules</a>.</li>
+</ul>
+</li>
+</ul>
+<p>Quick tips:</p>
+<ul>
+<li>Add a module by right clicking empty space, or pressing Enter</li>
+<li>To set the output, create an <code>Audio</code> module, click the option just under the module title to pick your output device. </li>
+<li>It can be useful to add a <code>Scope</code> too. </li>
+<li>Use scrollbars or middle mouse button or alt-drag or arrow keys to move around.  Use ctrl +/- or the zoom slider to zoom. </li>
+<li>Fullscreen with F11</li>
+<li>Drag ports to create and move cables. Stack multiple cables on outputs by holding Ctrl (Cmd on Mac) and dragging from an output.  Disconnect a cable end to remove the cable. </li>
+<li>Drag knobs up/down to rotate. Hold Ctrl (Cmd on Mac) while dragging to fine-tune. Right-click knobs to edit, and double-click to initialize.</li>
+<li>Right click a module &amp; choose &quot;Info &gt; User Manual&quot; to get to know it</li>
+<li><a href="https://vcvrack.com/manual/">Manual</a></li>
+</ul>
+<h3 id="developing-your-own-vcv-plugins">Developing your own VCV plugins</h3>
+<ul>
+<li><a href="https://vcvrack.com/manual/PluginDevelopmentTutorial">Tutorial</a><ul>
+<li>Skip the &quot;building Rack&quot; section of the <a href="https://vcvrack.com/manual/Building">development setup</a></li>
+<li>Download the Rack-SDK, create a folder inside it called <code>Plugins</code></li>
+<li>In a terminal/console inside of this <code>Plugins</code> folder, run <code>../helper.py createplugin MyPlugin</code>, where &quot;MyPlugin&quot; is the unique name for your project collection. </li>
+<li>Before creating a module in your plugin collection, you&#39;ll need to design the <a href="https://vcvrack.com/manual/Panel">panel as SVG graphics</a><ul>
+<li>Many people use Inkscape to make their panels. There&#39;s an <a href="https://synthpanels.design/">inkscape plugin here</a> specifically for VCV Rack. </li>
+<li>There&#39;s an online panel designer <a href="https://vpdx.pages.dev/">here</a>, with a <a href="https://github.com/transcriptaze/vpd/blob/main/GUIDE.md#getting-started">manual here</a>.</li>
+</ul>
+</li>
+<li>To create an actual module, first <code>cd MyPlugin</code>, and then from there run <code>../../helper.py createmodule MyModule res/MyModule.svg src/MyModule.cpp</code> .   </li>
+</ul>
+</li>
+</ul>
 
 <footer>Synthesis Workshop &copy; Graham Wakefield, 2026
 </footer>

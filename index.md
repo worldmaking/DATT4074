@@ -308,40 +308,6 @@ Here's the invitation link: https://discord.gg/NgWzWRbhJ
 
 [Modular Synthesis](modular.html)
 
-### Daisy in Modular
-
-Since the Daisy was launched in 2021, there have been very many commercial as well as DIY & open source module designs, and even more firmware designs in the wild. It has become a default platform for many designers. 
-
-I have gen~ patch templates for several different Daisy-powered hardware modules in the Alice Lab rack:
-- Versio (https://noiseengineering.us/products/versio/)
-- Daisy Patch (x2) (https://modulargrid.net/e/electrosmith-daisy-patch)
-- patch.Init (x2) (https://daisy.audio/products/patch-init)
-- Bluemchen (https://kxmx-bluemchen.recursinging.com)
-- I also have a home-brewed Daisy module, and we may also design another with PCB manufacturing if we move quickly enough. 
-
-Here are some example firmwares people have created just for the [Versio module](https://noiseengineering.us/pages/world-of-versio/), many that are open-source, some which are ports of open source algorithms, some made using gen~/oopsy:
-  - Valley Plateau / Campestria Versio (plate reverb based on Dattoro's algorithm)
-    - VCV: https://valleyaudio.github.io/rack/plateau/
-    - Hardware (Versio, C++): https://github.com/digitalartifactmusic/PlateauNEVersio
-  - Mutable Rings (string synthesis) ports:
-    - VCV: https://library.vcvrack.com/AudibleInstruments/Rings
-    - Versio: https://www.reddit.com/r/modular/comments/1gyxrkd/dont_have_mutable_instruments_rings_i_ported_it/
-  - Pyros distortion
-    - VST plugin: https://www.audiority.com/shop/pyros/
-    - Versio firmware: https://www.audiority.com/shop/pyros-versio/
-  - Pleroma mutant reverb: https://recursivefieldinstruments.com/pleroma
-  - Praetereo Versio looper (made with `gen~`): https://www.youtube.com/watch?v=pOsEjsxFNU4
-  - Acidus Versio (303 acid oscillator): https://github.com/abluenautilus/AcidusVersio/
-  - Tapeo (tape delay emulator, made with `gen~`): https://github.com/onoma2/TapeoVersio
-  - Clackotron low pass gate: https://bionoid.one//apps/clackotron/index.html
-  - Repetita Versio looper (C++) https://github.com/hirnlego/repetita-versio
-  - CRCLTR looper (`gen~`) https://github.com/s3g/crcltr
-  - MultiVersio (multiFX) https://github.com/peteb4ker/MultiVersio
-  - J&OT Stray Drum (drum voice) https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware
-  - Reticulum Versio (asynchronous delay) https://www.youtube.com/watch?v=4a6SyudL77M
-  - Triwalkmas (made with `gen~`): https://github.com/onoma2/TriwalkmaVersio
-  - So many more here: https://github.com/Maxhodges/noise-engineering-firmware-index#versio-third-party-firmware
-
 # Week 5
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)

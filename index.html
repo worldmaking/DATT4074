@@ -95,10 +95,7 @@ function copyPatch(str) {
 <li><a href="#student-project-table">Student Project Table</a></li>
 <li><a href="#discord">Discord</a></li>
 <li><a href="#breadboarding-daisy-iii">Breadboarding Daisy III</a></li>
-<li><a href="#modular-synthesis">Modular Synthesis</a><ul>
-<li><a href="#daisy-in-modular">Daisy in Modular</a></li>
-</ul>
-</li>
+<li><a href="#modular-synthesis">Modular Synthesis</a></li>
 </ul>
 </li>
 <li><a href="#week-5">Week 5</a></li>
@@ -372,48 +369,8 @@ Finalize your working groups. Set up github (last week's homework) if you haven'
 <p><a href="daisy.html">Continuing the breadboarding with Daisy -- buttons, LEDs, and other components</a></p>
 <h2 id="modular-synthesis">Modular Synthesis</h2>
 <p><a href="modular.html">Modular Synthesis</a></p>
-<h3 id="daisy-in-modular">Daisy in Modular</h3>
-<p>Since the Daisy was launched in 2021, there have been very many commercial as well as DIY &amp; open source module designs, and even more firmware designs in the wild. It has become a default platform for many designers. </p>
-<p>I have gen~ patch templates for several different Daisy-powered hardware modules in the Alice Lab rack:</p>
-<ul>
-<li>Versio (<a href="https://noiseengineering.us/products/versio/">https://noiseengineering.us/products/versio/</a>)</li>
-<li>Daisy Patch (x2) (<a href="https://modulargrid.net/e/electrosmith-daisy-patch">https://modulargrid.net/e/electrosmith-daisy-patch</a>)</li>
-<li>patch.Init (x2) (<a href="https://daisy.audio/products/patch-init">https://daisy.audio/products/patch-init</a>)</li>
-<li>Bluemchen (<a href="https://kxmx-bluemchen.recursinging.com">https://kxmx-bluemchen.recursinging.com</a>)</li>
-<li>I also have a home-brewed Daisy module, and we may also design another with PCB manufacturing if we move quickly enough. </li>
-</ul>
-<p>Here are some example firmwares people have created just for the <a href="https://noiseengineering.us/pages/world-of-versio/">Versio module</a>, many that are open-source, some which are ports of open source algorithms, some made using gen~/oopsy:</p>
-<ul>
-<li>Valley Plateau / Campestria Versio (plate reverb based on Dattoro&#39;s algorithm)<ul>
-<li>VCV: <a href="https://valleyaudio.github.io/rack/plateau/">https://valleyaudio.github.io/rack/plateau/</a></li>
-<li>Hardware (Versio, C++): <a href="https://github.com/digitalartifactmusic/PlateauNEVersio">https://github.com/digitalartifactmusic/PlateauNEVersio</a></li>
-</ul>
-</li>
-<li>Mutable Rings (string synthesis) ports:<ul>
-<li>VCV: <a href="https://library.vcvrack.com/AudibleInstruments/Rings">https://library.vcvrack.com/AudibleInstruments/Rings</a></li>
-<li>Versio: <a href="https://www.reddit.com/r/modular/comments/1gyxrkd/dont_have_mutable_instruments_rings_i_ported_it/">https://www.reddit.com/r/modular/comments/1gyxrkd/dont_have_mutable_instruments_rings_i_ported_it/</a></li>
-</ul>
-</li>
-<li>Pyros distortion<ul>
-<li>VST plugin: <a href="https://www.audiority.com/shop/pyros/">https://www.audiority.com/shop/pyros/</a></li>
-<li>Versio firmware: <a href="https://www.audiority.com/shop/pyros-versio/">https://www.audiority.com/shop/pyros-versio/</a></li>
-</ul>
-</li>
-<li>Pleroma mutant reverb: <a href="https://recursivefieldinstruments.com/pleroma">https://recursivefieldinstruments.com/pleroma</a></li>
-<li>Praetereo Versio looper (made with <code>gen~</code>): <a href="https://www.youtube.com/watch?v=pOsEjsxFNU4">https://www.youtube.com/watch?v=pOsEjsxFNU4</a></li>
-<li>Acidus Versio (303 acid oscillator): <a href="https://github.com/abluenautilus/AcidusVersio/">https://github.com/abluenautilus/AcidusVersio/</a></li>
-<li>Tapeo (tape delay emulator, made with <code>gen~</code>): <a href="https://github.com/onoma2/TapeoVersio">https://github.com/onoma2/TapeoVersio</a></li>
-<li>Clackotron low pass gate: <a href="https://bionoid.one//apps/clackotron/index.html">https://bionoid.one//apps/clackotron/index.html</a></li>
-<li>Repetita Versio looper (C++) <a href="https://github.com/hirnlego/repetita-versio">https://github.com/hirnlego/repetita-versio</a></li>
-<li>CRCLTR looper (<code>gen~</code>) <a href="https://github.com/s3g/crcltr">https://github.com/s3g/crcltr</a></li>
-<li>MultiVersio (multiFX) <a href="https://github.com/peteb4ker/MultiVersio">https://github.com/peteb4ker/MultiVersio</a></li>
-<li>J&amp;OT Stray Drum (drum voice) <a href="https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware">https://jasmineandolivetrees.com/pages/stray-drum-versio-firmware</a></li>
-<li>Reticulum Versio (asynchronous delay) <a href="https://www.youtube.com/watch?v=4a6SyudL77M">https://www.youtube.com/watch?v=4a6SyudL77M</a></li>
-<li>Triwalkmas (made with <code>gen~</code>): <a href="https://github.com/onoma2/TriwalkmaVersio">https://github.com/onoma2/TriwalkmaVersio</a></li>
-<li>So many more here: <a href="https://github.com/Maxhodges/noise-engineering-firmware-index#versio-third-party-firmware">https://github.com/Maxhodges/noise-engineering-firmware-index#versio-third-party-firmware</a><hr>
+<hr>
 
-</li>
-</ul>
 <h1 id="week-5">Week 5</h1>
 <p><a href="https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1">Zoom meeting (same link every week)</a></p>
 <p><a href="https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130">Attendance</a></p>
