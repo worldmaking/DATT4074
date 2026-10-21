@@ -326,8 +326,9 @@ One-on-one support & discussion with each student/team.
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
-[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+One-on-one support & discussion with each student/team.
 
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 # Week 7
 

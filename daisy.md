@@ -573,3 +573,48 @@ And on top of that there's various analog and CMOS circuit designs we can use al
 Other options: 
 - `boost 0` or `boost 1`: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. 
 - `fastmath 0` or `fastmath 1`.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. 
+
+## Piezo
+
+
+A piezo's signal needs both amplification and also protection before it reaches the Daisy audio input.  We can use an OpAmp ("Operational Amplifier") to do both of these functions. 
+
+Here's a simple circuit using a LM358 chip.  This chip contains two opamps, so it can be used to amplify two pizeos if desired. The pins are:
+
+1) OUT1
+2) IN1-
+3) IN1+
+4) GND
+5) IN2+
+6) IN2-
+7) OUT2
+8) VCC
+
+First, we need to power the opamps:
+- Connect GND to the GND rail, 
+- Connect VCC to the power rail (3v3 or 5v)
+
+The signal from the piezo needs to be biased to half way between VCC and GND.  To do this, we can create a resistor bridge voltage divider.  We can use two 1M resistors to bias the IN+ to exactly half-way between GND and VCC: 
+- one from GND to IN+, 
+- the other from IN+ to VCC.   
+
+The signal from a piezo can also get very spiky with amplifcation, creating brief very high voltages, that could damage the Daisy. To protect against that, we can use a pair 1N5819 diodes. They will be connected in parallel with the 1M resistors: 
+- one from GND to IN+ (with the diode bar toward IN+), and 
+- one from IN+ to VCC (with the bar toward VCC).  
+
+Now we need to create the buffering or amplification in the opamp.  This is done by connecting the OUT of the opamp to its IN- input, setting up a negative feedback loop.  The opamp will try to balance these to match the input at IN+.  
+
+To do no amplification, we can just bridge between IN- and OUT. In that way, the signal at OUT will be a direct copy of the signal at IN+, but completely independent. 
+
+However, that will probably produce too weak an audio signal, because most of the signals from a piezo are quite weak. Instead we will probably want to amplify this signal.  To do that we can create a resistor bridge between IN- and OUT with a voltage ratio that makes OUT much larger than IN+.  This will also require a connection to GND, which we will route through a capacitor to create a high-pass filter, so that the signal remains centred. 
+- Connect a 1M resistor between IN- and OUT. 
+- Connect a 100k resistor from IN- to a 100nF capacitor, and the other end of the capacitor to GND.  
+The ratio of the resitors (1M/100k = 10) sets the amplifcation factor of 10x. 
+The capacitor to GND creates a high-pass filter with a very low cutoff, which helps keep the voltage centred. 
+
+Finally we can connect the Piezo:
+- Connect one cable of the piezo to GND. 
+- Connect the other piezo through 10k resistor to the IN+.
+
+If you are doing this on a breadboard, you'll find that there are 5 different components connecting to the IN+ pin. 
+

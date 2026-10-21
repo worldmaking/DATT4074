@@ -97,6 +97,7 @@ function copyPatch(str) {
 </li>
 <li><a href="#more-complex-components">More complex components</a></li>
 <li><a href="#oopsy-object-options--messages"><code>oopsy</code> object options &amp; messages</a></li>
+<li><a href="#piezo">Piezo</a></li>
 </ul>
 </li>
 </ul>
@@ -731,6 +732,48 @@ cy50p3L71EmCd2Cbb0gFacjwVGXbzwkKzgky6nxAGikNlncLC1+S0yQWjB<hr>end_max5_patcher--
 <li><code>boost 0</code> or <code>boost 1</code>: Enabling boost will run the CPU at a higher clock speed, increasing performance (and energy use).  I recommend enabling this unless you expect to use battery power. </li>
 <li><code>fastmath 0</code> or <code>fastmath 1</code>.  Enabling this will reduce accuracy of many mathematical operations (power, trigonometry, etc.) to save CPU cost. This may reduce audio quality, so I do not recommend it unless absolutely necessary. </li>
 </ul>
+<h2 id="piezo">Piezo</h2>
+<p>A piezo&#39;s signal needs both amplification and also protection before it reaches the Daisy audio input.  We can use an OpAmp (&quot;Operational Amplifier&quot;) to do both of these functions. </p>
+<p>Here&#39;s a simple circuit using a LM358 chip.  This chip contains two opamps, so it can be used to amplify two pizeos if desired. The pins are:</p>
+<ol>
+<li>OUT1</li>
+<li>IN1-</li>
+<li>IN1+</li>
+<li>GND</li>
+<li>IN2+</li>
+<li>IN2-</li>
+<li>OUT2</li>
+<li>VCC</li>
+</ol>
+<p>First, we need to power the opamps:</p>
+<ul>
+<li>Connect GND to the GND rail, </li>
+<li>Connect VCC to the power rail (3v3 or 5v)</li>
+</ul>
+<p>The signal from the piezo needs to be biased to half way between VCC and GND.  To do this, we can create a resistor bridge voltage divider.  We can use two 1M resistors to bias the IN+ to exactly half-way between GND and VCC: </p>
+<ul>
+<li>one from GND to IN+, </li>
+<li>the other from IN+ to VCC.   </li>
+</ul>
+<p>The signal from a piezo can also get very spiky with amplifcation, creating brief very high voltages, that could damage the Daisy. To protect against that, we can use a pair 1N5819 diodes. They will be connected in parallel with the 1M resistors: </p>
+<ul>
+<li>one from GND to IN+ (with the diode bar toward IN+), and </li>
+<li>one from IN+ to VCC (with the bar toward VCC).  </li>
+</ul>
+<p>Now we need to create the buffering or amplification in the opamp.  This is done by connecting the OUT of the opamp to its IN- input, setting up a negative feedback loop.  The opamp will try to balance these to match the input at IN+.  </p>
+<p>To do no amplification, we can just bridge between IN- and OUT. In that way, the signal at OUT will be a direct copy of the signal at IN+, but completely independent. </p>
+<p>However, that will probably produce too weak an audio signal, because most of the signals from a piezo are quite weak. Instead we will probably want to amplify this signal.  To do that we can create a resistor bridge between IN- and OUT with a voltage ratio that makes OUT much larger than IN+.  This will also require a connection to GND, which we will route through a capacitor to create a high-pass filter, so that the signal remains centred. </p>
+<ul>
+<li>Connect a 1M resistor between IN- and OUT. </li>
+<li>Connect a 100k resistor from IN- to a 100nF capacitor, and the other end of the capacitor to GND.<br>The ratio of the resitors (1M/100k = 10) sets the amplifcation factor of 10x. 
+The capacitor to GND creates a high-pass filter with a very low cutoff, which helps keep the voltage centred. </li>
+</ul>
+<p>Finally we can connect the Piezo:</p>
+<ul>
+<li>Connect one cable of the piezo to GND. </li>
+<li>Connect the other piezo through 10k resistor to the IN+.</li>
+</ul>
+<p>If you are doing this on a breadboard, you&#39;ll find that there are 5 different components connecting to the IN+ pin. </p>
 
 <footer>Synthesis Workshop &copy; Graham Wakefield, 2026
 </footer>
