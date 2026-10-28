@@ -334,8 +334,11 @@ One-on-one support & discussion with each student/team.
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
-[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+Many of you are making great progress, but it seems that not everyone has the Dev Log set up.  This should have been set up several weeks ago.  Please add the link to your dev log to the shared document at https://docs.google.com/spreadsheets/d/15kdXMd4mkTN9xu2M9P1Lw8GIWAWJFR1Anq_oSGN6aug.  At the very minimum, this can be a Markdown file in your github.  There should be update entries every week, this is how I can keep track of where your progress is going and what roadblocks you may have. 
 
+From next week -- mid-project presentations. Please include a couple of slides and also a demonstration of your work in progress. 
+
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 # Week 8
 
