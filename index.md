@@ -324,15 +324,15 @@ One-on-one support & discussion with each student/team.
 
 # Week 6
 
-[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
-
 One-on-one support & discussion with each student/team.
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 # Week 7
 
-[Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
+One-on-one support & discussion with each student/team.
+
+---
 
 Many of you are making great progress, but it seems that not everyone has the Dev Log set up.  This should have been set up several weeks ago.  Please add the link to your dev log to the shared document at https://docs.google.com/spreadsheets/d/15kdXMd4mkTN9xu2M9P1Lw8GIWAWJFR1Anq_oSGN6aug.  At the very minimum, this can be a Markdown file in your github.  There should be update entries every week, this is how I can keep track of where your progress is going and what roadblocks you may have. 
 
@@ -355,7 +355,6 @@ From next week -- mid-project presentations. Please include a couple of slides a
 ## Mid-Project Presentations (2nd group)
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
-
 
 # Week 10
 
@@ -386,3 +385,4 @@ Recordings of the weekly sessions will be here:
 - [Week 2](https://yorku.zoom.us/rec/share/qmHnp-lYJ9dh-JqzDLIhIPKySSfiRhGAcxGyBES_t-7U6Vmnx7o6XdK98A08yg.TVvsvu0hO3Fies_l)
 - [Week 3](https://yorku.zoom.us/rec/share/LG7WbRATprg0PIDrXjs7Ny8GioAAFhhWivTwsGMvNGY6Du3fSjjH5huM4745M02l.ww1GUoSRmULsqRA1)
 - [Week 4](https://yorku.zoom.us/rec/share/ghAz82BRnLPKTf2KzRvffFjRq0foki-grLuxMOao0JtDp9BINVCoyhoL15FEfdJm.clowuUNdnkj7zkef)
+- [Week 8](https://yorku.zoom.us/rec/share/Z0HjvftZGWi3ICFU9dRsL3ehEy1At8YQUdSJJtMqYbbhtBeMkQc7FvAwv8L6dW_o.HXuA7TV7LyeMHSjy)
