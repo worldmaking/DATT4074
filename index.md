@@ -360,6 +360,8 @@ From next week -- mid-project presentations. Please include a couple of slides a
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
+Team-by-team project assistance -- prototype & export
+
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 
@@ -367,15 +369,15 @@ From next week -- mid-project presentations. Please include a couple of slides a
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
-[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+Team-by-team project assistance -- refinement & documentation
 
+[Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
 # Week 12: Final presentations / performances!
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
-
 
 # Class Recordings
 
