@@ -320,6 +320,21 @@ One-on-one support & discussion with each student/team.
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
+---
+
+## Project Teams
+
+| Team/Project Name | Names | Dev Log / Github |
+|:--- |:--- |:--- |
+| SoundChefs Bar Simulator | Kaitlyn + Emma | [Dev Log](https://docs.google.com/document/d/18WgLjXUiOX2booo8zJPbjUysZJ3e3CS26g92JNSm5DY/edit?tab=t.0#heading=h.os2bgtt5lvmz), [Github](https://github.com/kaitavly/daisy-workshop-.git) |
+| D.E.A.N | Marce + Adrien | [Dev Log](https://github.com/machinepirate/DEAN/blob/main/DevLog.md), [Github](https://github.com/machinepirate/DEAN) |
+| Dependent Machinery | Fran | [Dev Log](https://github.com/anglerfishing-io/DIGM-6074-Carandang-Project-01/wiki), [Github](https://github.com/anglerfishing-io/DIGM-6074-Carandang-Project-01) |
+| La résonance | Winnie | [Dev Log](https://weeenluo-0907.github.io/DIGM6074-Synthesis-Workshop-W/), [Github](https://weeenluo-0907.github.io/DIGM6074-Synthesis-Workshop-W/) |
+| Tap the World / Object2Sound | Jingwen | [Dev Log](https://github.com/qOp3/DATT6047Object2Sound/blob/main/Dev%20log.md), [Github](https://github.com/qOp3/DATT6047Object2Sound) |
+| Regular Degrader | Autumn + Cristian | [Dev Log](https://github.com/spangyc/Regular-Degredar---DATT4074-Project-/blob/main/Devlog.md), [Github](https://github.com/spangyc/Regular-Degredar---DATT4074-Project-) |
+|  | Nicole | [Dev Log](https://ndjia.github.io/datt4074/), [Github](https://github.com/NDJia/datt4074) |
+| Noise Looper | John | [Dev Log](https://docs.google.com/document/d/18WgLjXUiOX2booo8zJPbjUysZJ3e3CS26g92JNSm5DY/edit?tab=t.0#heading=h.os2bgtt5lvmz), [Github](https://github.com/gzapper/GS-DIGM-6074-project-gzapper) |
+
 # Reading Week
 
 # Week 6
