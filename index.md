@@ -371,6 +371,226 @@ From next week -- mid-project presentations. Please include a couple of slides a
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
 
+
+## Recommendations/Requirements for Website Documentation (undergraduate students)
+
+**Don't leave this to the last minute -- get a draft going and hosted online ASAP and verify that you know how to include images, video, and sound examples as necessary.**
+
+Think of it as a portfolio piece and a reproducible technical record, not a lab report.  The site should let someone who has never met you understand 
+- what you built
+- why you built it
+- how it works 
+
+### Website Content 
+
+The grading rubic for this assignment is based on the list below (not necessarily in this order). The list looks long, but much of this material you may already have drafted through the presentations and dev logs.  
+
+- Basic essentials:
+  - Project/product title
+  - Team name if you have one
+  - Your actual names, 
+  - Course (DATT4074, Digital Media, York University, Fall 2026)
+- "Hero" main image 
+- Project Description
+  - What the instrument/system does and how someone interacts with it
+  - Your motivation and artistic/musical intent
+  - Include 2-4 references of related or inspirational work, and how your work relates to or departs from them. 
+  - Include links wherever possible for any citations/references/related work
+  - Intended audience or performance/use context
+- If it is software like a VST or VCV plugin, how they can install it; otherwise a link to the github and description of dependencies
+- A demonstration video (1-3 minutes). 
+  - You'll probably need to use Youtube or similar, as github pages is not appropriate to host large video files. Ensure the video is publicly visible. 
+  - Show the project in actual use
+  - Record the project's audio output with high quality (direct from the device, not phone microphone)
+    - If this is not possible for whatever reason, add some direct recorded audio clip examples to the website
+  - For hardware: show close-up shots as well as wider shots that include visible gestures/interaction
+  - For software: show details as well as the use in wider context (e.g. within a DAW or other host environment)
+- System Design & Implementation
+  - A description of the principal inputs, processes and outputs.  A visual block diagram is ideal. 
+  - A description of interaction design: what gestures or inputs or interface elements map to what sound parameters, and why. Explanation of your mapping strategy. 
+  - 2-4 Focused screenshots on the most essential/interesting parts of the Max / gen~ patch or code. Under each image, explain what was interesting, innovative, essential or different about them. 
+  - For hardware: list all the hardware components ("Bill of Materials"), include photographs of the build internally and externally, and include notes on any construction/fabrication involved
+- Iterative refinement
+  - Document at least two meaningful steps in the iterative design & implementation.  
+  - What worked, what didn't, what you would change / Known issues, challenges encountered, troubleshooting steps, lessons learned. 
+  - A few ideas about how you could continue or extend the project in the future
+- Credits/acknowledgements
+  - For teams: clearly identify individual contributions
+  - Attribution for all borrowed code, libraries, samples, images, tutorials, ideas.  
+  - A clear statement about your license for the code/patches (required for Github anyway) and creative work (e.g. choose a [Creative Commons](https://creativecommons.org) license)
+  - Disclosure of any use of gen AI tools (and how/where this helped or did not help)
+  - Include links wherever possible for any citations/references/related work
+- Extra credit:
+  - Some statistical measures of performance, e.g. CPU load (include CPU properties), latency, stability over long periods, etc.
+  - A recorded musical/artistic performance using it
+
+### Writing tips
+
+- Imagine the reader is a smart student or professional, but who hasn't taken a class like this. 
+- Show then tell: start each section with an image/diagram/video and then follow with text. 
+- Be specific: "a 100k potentiometer is mapped to filter cutoff with an exponential curve" is much better than "a sensor controls the filter"
+- Be honest about failures -- dead ends are valuable lessons learned and will be credited, not penalized!
+- Prioritize clarity over decoration. 
+
+### How to host the website
+
+You can host the website on Github Pages alongside your Github project.  To do this, create a branch called `gh-pages` (the name has to be exact). 
+
+1. Go to your repository on GitHub.
+2. Click the branch dropdown menu on the top-left (it usually says main or master).
+3. Type `gh-pages` into the text box.
+4. Click Create branch: gh-pages from 'main'.
+
+- The `gh-pages` is a special branch of your github repository that can host HTML pages on the web. If you push a file called `index.html` to this `gh-pages` branch, it will be visible online as a webpage at https://[your github name].github.io/[your project name]. If your github name is "foo" and the project is "bar", the URL will be https://foo.github.io/bar
+- Remember that updates pushed to a website may not be visible immediately, it can take a few minutes for updates to propagate and be visible on the web. 
+- My recommendation is to keep it as simple as possble: a static site written in plain HTML/CSS. There are many example minimal static html/css bootstrap templates online you can start from. You are not being evaluated on website development, but on the content. 
+- It's up to you whether you make this a single-page website (easiest) or split the material into multiple pages.  You might want to make a home page that has public-facing material more similar to a product page or artist page, and a secondary page that includes the more academic requirements; that's up to you. 
+- [See the Github documentation here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site), or follow one of the many tutorials online.      
+- Remember to test your website both on a computer with a reliable browser (Firefox or Chrome) as well as on a phone. 
+- Remember to keep images at a reasonably low resolution, no more than 1-2mb each. Include alt-text and/or captions for all images for accessibility and readability. 
+- Test all links on the site to ensure they work. 
+
+
+### Examples
+
+It's the first time to run this course so we don't have previous years' student projects to share. Instead, here are some example final project websites from other similar courses around the world. These don't completely match the recommendations above, but they have many similarities:
+
+- https://wp.nyu.edu/nyushanghai-kenwu/category/nime/
+- https://fabacademy.org/2022/labs/waag/students/bas-pijls/blog/final_project/
+- https://ccrma.stanford.edu/~lukedahl/projects/index.html
+- https://sites.google.com/view/mumt306finalproject/home
+- https://github.com/TuriSc/Dodepan/
+- https://github.com/brandonegg/instrumpkin
+- https://ccrma.stanford.edu/courses/250a/past-projects/
+- https://ccrma.stanford.edu/courses/256a-fall-2023/projects/
+
+## Recommendations/Requirements for Academic Paper Documentation (graduate students)
+
+**Don't leave this to the last minute -- get a draft going ASAP and verify that you know what is needed and will be able to gather it all.**
+
+The final project implementation documented in research-appropriate writing, such as an academic paper suitable for submission to a conference such as NIME (New Instruments for Musical Expression), SMC (Sound Music Computing), or another comparable research document.
+
+I suggest following the template and guidelines from the NIME conference. 
+
+Beyond asking "Can someone understand and rebuild what you made?" a good research paper asks "What did you learn, and why should the research community care?" The instrument is the vehicle, but the contribution is the knowledge. This could be a design insight, a mapping strategy, an evaluation result, a pedagogical or accessibility finding, or a documented method.
+
+Choose a target venue for the paper. I suggest NIME as a good default but you can also consider SMC, ICMC, TEI, or another venue. Write your paper according to this conference template, norms, and page limit. Check the current call for papers each year, since page limits, templates, and policies change.
+
+### Recommended Paper Structure
+
+A typical NIME/SMC-style paper follows this outline.  If your chosen venue has different guidelines, follow those. 
+
+1. Title and Abstract (150-250 words)
+
+   - A specific title (avoid “A New Instrument for...”). 
+   - The abstract states the problem or motivation, what was built, how it was evaluated, and any key findings or contributions.
+   - Include keywords if the template requires them.
+
+2. Introduction
+
+   - Motivation and context
+   - A clearly stated research question, design goal, or hypothesis
+   - An explicit list of contributions (e.g., “We present X, evaluate Y, and discuss Z”)
+   - A brief roadmap of the paper
+
+3. Related Work
+
+   - A critical, organized review of 10-20+ sources (instruments, interaction frameworks, mapping literature, prior NIME/SMC papers, adjacent HCI work)
+   - Organized by theme, not as an annotated list
+   - A clear statement of how your project differs from or extends prior work -- if possible, articulated as a response to a gap in existing work
+
+4. Design Rationale and Approach
+
+   - Design goals and constraints, such as the musician, context, or musical practice
+   - Theoretical or conceptual framing (e.g., action-sound mappings, affordances, digital lutherie, embodied interaction)
+   - The design process, and why decisions were made, not only what was decided
+
+5. System Description / Implementation
+
+   - Hardware (if used): sensors, microcontroller, enclosure, with a block diagram and an annotated photo
+   - Software: architecture, signal flow, synthesis or processing, communication protocols
+   - Mappings: input-to-sound relationships, with justification
+   - Specific technical details for an unfamiliar reader to make sense of the project
+
+6. Evaluation
+
+   *This section is normally expected at the conference level, but currently optional for the course, as you may not have time or resources to carry out sufficient evaluation.*
+
+   - A method appropriate to the claims. Examples:
+     - Technical: latency, sensor accuracy, reliability, battery life
+     - Musical or performance-based: autoethnography, composition and performance reflection, practice-based research
+     - User-centered: interviews, think-aloud sessions, questionnaires, expert feedback
+     - Participants, procedure, and data collection, with ethics approval or exemption noted where human participants are involved
+   - Results presented honestly, including limitations and negative findings
+
+7. Discussion
+
+   *This section is normally expected at the conference level, but currently optional for the course, as you may not have time or resources to carry out sufficient evaluation.*
+
+   - Interpretation of results in light of the research question
+   - Implications for instrument design, performance, or pedagogy
+   - Limitations: scope, researcher bias, and the fact that the designer is often also the performer
+   - Future work grounded in the findings
+
+8. Conclusion
+
+  A concise restatement of the contribution and its significance (not a repeat of the abstract)
+
+9.  Acknowledgments:
+    - Attribution for all borrowed code, libraries, samples, images, tutorials, ideas.  
+    - A clear statement about your license for the code/patches (required for Github anyway) and creative work (e.g. choose a [Creative Commons](https://creativecommons.org) license)
+    - Disclosure of any use of gen AI tools (and how/where this helped or did not help)
+
+10.  Video link: (Increasingly this is a requirement for most conferences.) For this course: it is a requirement to include a link to video documentation (1-3 minutes). 
+     - Ensure the video is publicly visible. 
+     - Show the project in actual use
+     - Record the project's audio output with high quality (direct from the device, not phone microphone)
+     - If this is not possible for whatever reason, add some direct recorded audio clip examples to the website
+     - For hardware: show close-up shots as well as wider shots that include visible gestures/interaction
+     - For software: show details as well as the use in wider context (e.g. within a DAW or other host environment)
+ 
+11.  References
+     - Use a consistent citation & reference style. The venue may have a specific recommendation to follow. 
+     - Include links wherever possible for any citations/references/related work
+
+### Writing Guidelines
+
+- Argue, don’t just describe. Every section should serve the contribution. Cut anything that doesn’t. 
+- All claims need evidence. Don’t write "the instrument is expressive" without data, user comments, or a defined notion of expressiveness. Avoid self-evaluation ("this instrument is groundbreaking"; show, don't tell).
+- Position the work. Engage with the literature, not only to cite it but to say how it shaped or contrasts with your decisions. References used without engaging with them are "passing references" and will be seen as unserious by conference reviewers. 
+- Be candid about the designer-as-evaluator problem. If the author is also the primary performer, say so and discuss the implications.
+- Prioritize replicability. The NIME community has increasingly emphasized documentation that enables replication, so link to a repository and give enough detail for an expert to reproduce the work.
+- Use figures well. Include a system diagram, a photo, and at least one result figure or table, all captioned and referenced in the text.
+- Write for a peer reviewer. Assume a knowledgeable reader (a likely attendee of the conference) who has common knowledge of the field but doesn’t know your project.
+- Follow the venue template exactly. Formatting compliance is part of professional practice.
+
+### Examples
+
+Here are some examples of NIME papers written from projects in other graduate program courses:
+
+- https://nime.org/proceedings/2024/nime2024_20.pdf
+- https://nime.org/proceedings/2023/nime2023_68.pdf
+- Some online examples here: https://mct-master.github.io/interactive-music/ 
+
+There are many online papers from NIME in the archives here: https://nime.pubpub.org/nime-2022-papers -- not all describe practical projects, but perhaps around a quarter of them do.
+
+- https://nime.pubpub.org/pub/uh76shf0
+- https://nime.pubpub.org/pub/cavi
+- https://nime.pubpub.org/pub/ehocvk6o
+- https://nime.pubpub.org/pub/q8f786b3
+- https://nime.pubpub.org/pub/uofmcznd
+- https://nime.pubpub.org/pub/31l4lgcd
+- https://nime.pubpub.org/pub/vwbc1tlk
+- https://nime.pubpub.org/pub/augmented-touch
+
+[The NIME proceedings archive](https://nime.org/papers/) is also generally a good resource for finding related work for your papers!  
+
+> Note, if you are thinking of applying to NIME2027, the submission deadline is January 24. 
+
+---
+
+Team-by-team project assistance
+
 # Week 10
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
@@ -393,6 +613,7 @@ Team-by-team project assistance -- refinement & documentation
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
+
 
 # Class Recordings
 

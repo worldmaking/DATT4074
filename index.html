@@ -111,6 +111,19 @@ function copyPatch(str) {
 </li>
 <li><a href="#week-9">Week 9</a><ul>
 <li><a href="#mid-project-presentations-2nd-group">Mid-Project Presentations (2nd group)</a></li>
+<li><a href="#recommendationsrequirements-for-website-documentation-undergraduate-students">Recommendations/Requirements for Website Documentation (undergraduate students)</a><ul>
+<li><a href="#website-content">Website Content</a></li>
+<li><a href="#writing-tips">Writing tips</a></li>
+<li><a href="#how-to-host-the-website">How to host the website</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#recommendationsrequirements-for-academic-paper-documentation-graduate-students">Recommendations/Requirements for Academic Paper Documentation (graduate students)</a><ul>
+<li><a href="#recommended-paper-structure">Recommended Paper Structure</a></li>
+<li><a href="#writing-guidelines">Writing Guidelines</a></li>
+<li><a href="#examples-1">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#week-10">Week 10</a></li>
@@ -468,6 +481,241 @@ Finalize your working groups. Set up github (last week's homework) if you haven'
 <p><a href="https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1">Zoom meeting (same link every week)</a></p>
 <h2 id="mid-project-presentations-2nd-group">Mid-Project Presentations (2nd group)</h2>
 <p><a href="https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130">Attendance</a></p>
+<h2 id="recommendationsrequirements-for-website-documentation-undergraduate-students">Recommendations/Requirements for Website Documentation (undergraduate students)</h2>
+<p><strong>Don&#39;t leave this to the last minute -- get a draft going and hosted online ASAP and verify that you know how to include images, video, and sound examples as necessary.</strong></p>
+<p>Think of it as a portfolio piece and a reproducible technical record, not a lab report.  The site should let someone who has never met you understand </p>
+<ul>
+<li>what you built</li>
+<li>why you built it</li>
+<li>how it works </li>
+</ul>
+<h3 id="website-content">Website Content</h3>
+<p>The grading rubic for this assignment is based on the list below (not necessarily in this order). The list looks long, but much of this material you may already have drafted through the presentations and dev logs.  </p>
+<ul>
+<li>Basic essentials:<ul>
+<li>Project/product title</li>
+<li>Team name if you have one</li>
+<li>Your actual names, </li>
+<li>Course (DATT4074, Digital Media, York University, Fall 2026)</li>
+</ul>
+</li>
+<li>&quot;Hero&quot; main image </li>
+<li>Project Description<ul>
+<li>What the instrument/system does and how someone interacts with it</li>
+<li>Your motivation and artistic/musical intent</li>
+<li>Include 2-4 references of related or inspirational work, and how your work relates to or departs from them. </li>
+<li>Include links wherever possible for any citations/references/related work</li>
+<li>Intended audience or performance/use context</li>
+</ul>
+</li>
+<li>If it is software like a VST or VCV plugin, how they can install it; otherwise a link to the github and description of dependencies</li>
+<li>A demonstration video (1-3 minutes). <ul>
+<li>You&#39;ll probably need to use Youtube or similar, as github pages is not appropriate to host large video files. Ensure the video is publicly visible. </li>
+<li>Show the project in actual use</li>
+<li>Record the project&#39;s audio output with high quality (direct from the device, not phone microphone)<ul>
+<li>If this is not possible for whatever reason, add some direct recorded audio clip examples to the website</li>
+</ul>
+</li>
+<li>For hardware: show close-up shots as well as wider shots that include visible gestures/interaction</li>
+<li>For software: show details as well as the use in wider context (e.g. within a DAW or other host environment)</li>
+</ul>
+</li>
+<li>System Design &amp; Implementation<ul>
+<li>A description of the principal inputs, processes and outputs.  A visual block diagram is ideal. </li>
+<li>A description of interaction design: what gestures or inputs or interface elements map to what sound parameters, and why. Explanation of your mapping strategy. </li>
+<li>2-4 Focused screenshots on the most essential/interesting parts of the Max / gen~ patch or code. Under each image, explain what was interesting, innovative, essential or different about them. </li>
+<li>For hardware: list all the hardware components (&quot;Bill of Materials&quot;), include photographs of the build internally and externally, and include notes on any construction/fabrication involved</li>
+</ul>
+</li>
+<li>Iterative refinement<ul>
+<li>Document at least two meaningful steps in the iterative design &amp; implementation.  </li>
+<li>What worked, what didn&#39;t, what you would change / Known issues, challenges encountered, troubleshooting steps, lessons learned. </li>
+<li>A few ideas about how you could continue or extend the project in the future</li>
+</ul>
+</li>
+<li>Credits/acknowledgements<ul>
+<li>For teams: clearly identify individual contributions</li>
+<li>Attribution for all borrowed code, libraries, samples, images, tutorials, ideas.  </li>
+<li>A clear statement about your license for the code/patches (required for Github anyway) and creative work (e.g. choose a <a href="https://creativecommons.org">Creative Commons</a> license)</li>
+<li>Disclosure of any use of gen AI tools (and how/where this helped or did not help)</li>
+<li>Include links wherever possible for any citations/references/related work</li>
+</ul>
+</li>
+<li>Extra credit:<ul>
+<li>Some statistical measures of performance, e.g. CPU load (include CPU properties), latency, stability over long periods, etc.</li>
+<li>A recorded musical/artistic performance using it</li>
+</ul>
+</li>
+</ul>
+<h3 id="writing-tips">Writing tips</h3>
+<ul>
+<li>Imagine the reader is a smart student or professional, but who hasn&#39;t taken a class like this. </li>
+<li>Show then tell: start each section with an image/diagram/video and then follow with text. </li>
+<li>Be specific: &quot;a 100k potentiometer is mapped to filter cutoff with an exponential curve&quot; is much better than &quot;a sensor controls the filter&quot;</li>
+<li>Be honest about failures -- dead ends are valuable lessons learned and will be credited, not penalized!</li>
+<li>Prioritize clarity over decoration. </li>
+</ul>
+<h3 id="how-to-host-the-website">How to host the website</h3>
+<p>You can host the website on Github Pages alongside your Github project.  To do this, create a branch called <code>gh-pages</code> (the name has to be exact). </p>
+<ol>
+<li>Go to your repository on GitHub.</li>
+<li>Click the branch dropdown menu on the top-left (it usually says main or master).</li>
+<li>Type <code>gh-pages</code> into the text box.</li>
+<li>Click Create branch: gh-pages from &#39;main&#39;.</li>
+</ol>
+<ul>
+<li>The <code>gh-pages</code> is a special branch of your github repository that can host HTML pages on the web. If you push a file called <code>index.html</code> to this <code>gh-pages</code> branch, it will be visible online as a webpage at https://[your github name].github.io/[your project name]. If your github name is &quot;foo&quot; and the project is &quot;bar&quot;, the URL will be <a href="https://foo.github.io/bar">https://foo.github.io/bar</a></li>
+<li>Remember that updates pushed to a website may not be visible immediately, it can take a few minutes for updates to propagate and be visible on the web. </li>
+<li>My recommendation is to keep it as simple as possble: a static site written in plain HTML/CSS. There are many example minimal static html/css bootstrap templates online you can start from. You are not being evaluated on website development, but on the content. </li>
+<li>It&#39;s up to you whether you make this a single-page website (easiest) or split the material into multiple pages.  You might want to make a home page that has public-facing material more similar to a product page or artist page, and a secondary page that includes the more academic requirements; that&#39;s up to you. </li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">See the Github documentation here</a>, or follow one of the many tutorials online.      </li>
+<li>Remember to test your website both on a computer with a reliable browser (Firefox or Chrome) as well as on a phone. </li>
+<li>Remember to keep images at a reasonably low resolution, no more than 1-2mb each. Include alt-text and/or captions for all images for accessibility and readability. </li>
+<li>Test all links on the site to ensure they work. </li>
+</ul>
+<h3 id="examples">Examples</h3>
+<p>It&#39;s the first time to run this course so we don&#39;t have previous years&#39; student projects to share. Instead, here are some example final project websites from other similar courses around the world. These don&#39;t completely match the recommendations above, but they have many similarities:</p>
+<ul>
+<li><a href="https://wp.nyu.edu/nyushanghai-kenwu/category/nime/">https://wp.nyu.edu/nyushanghai-kenwu/category/nime/</a></li>
+<li><a href="https://fabacademy.org/2022/labs/waag/students/bas-pijls/blog/final_project/">https://fabacademy.org/2022/labs/waag/students/bas-pijls/blog/final_project/</a></li>
+<li><a href="https://ccrma.stanford.edu/~lukedahl/projects/index.html">https://ccrma.stanford.edu/~lukedahl/projects/index.html</a></li>
+<li><a href="https://sites.google.com/view/mumt306finalproject/home">https://sites.google.com/view/mumt306finalproject/home</a></li>
+<li><a href="https://github.com/TuriSc/Dodepan/">https://github.com/TuriSc/Dodepan/</a></li>
+<li><a href="https://github.com/brandonegg/instrumpkin">https://github.com/brandonegg/instrumpkin</a></li>
+<li><a href="https://ccrma.stanford.edu/courses/250a/past-projects/">https://ccrma.stanford.edu/courses/250a/past-projects/</a></li>
+<li><a href="https://ccrma.stanford.edu/courses/256a-fall-2023/projects/">https://ccrma.stanford.edu/courses/256a-fall-2023/projects/</a></li>
+</ul>
+<h2 id="recommendationsrequirements-for-academic-paper-documentation-graduate-students">Recommendations/Requirements for Academic Paper Documentation (graduate students)</h2>
+<p><strong>Don&#39;t leave this to the last minute -- get a draft going ASAP and verify that you know what is needed and will be able to gather it all.</strong></p>
+<p>The final project implementation documented in research-appropriate writing, such as an academic paper suitable for submission to a conference such as NIME (New Instruments for Musical Expression), SMC (Sound Music Computing), or another comparable research document.</p>
+<p>I suggest following the template and guidelines from the NIME conference. </p>
+<p>Beyond asking &quot;Can someone understand and rebuild what you made?&quot; a good research paper asks &quot;What did you learn, and why should the research community care?&quot; The instrument is the vehicle, but the contribution is the knowledge. This could be a design insight, a mapping strategy, an evaluation result, a pedagogical or accessibility finding, or a documented method.</p>
+<p>Choose a target venue for the paper. I suggest NIME as a good default but you can also consider SMC, ICMC, TEI, or another venue. Write your paper according to this conference template, norms, and page limit. Check the current call for papers each year, since page limits, templates, and policies change.</p>
+<h3 id="recommended-paper-structure">Recommended Paper Structure</h3>
+<p>A typical NIME/SMC-style paper follows this outline.  If your chosen venue has different guidelines, follow those. </p>
+<ol>
+<li><p>Title and Abstract (150-250 words)</p>
+<ul>
+<li>A specific title (avoid “A New Instrument for...”). </li>
+<li>The abstract states the problem or motivation, what was built, how it was evaluated, and any key findings or contributions.</li>
+<li>Include keywords if the template requires them.</li>
+</ul>
+</li>
+<li><p>Introduction</p>
+<ul>
+<li>Motivation and context</li>
+<li>A clearly stated research question, design goal, or hypothesis</li>
+<li>An explicit list of contributions (e.g., “We present X, evaluate Y, and discuss Z”)</li>
+<li>A brief roadmap of the paper</li>
+</ul>
+</li>
+<li><p>Related Work</p>
+<ul>
+<li>A critical, organized review of 10-20+ sources (instruments, interaction frameworks, mapping literature, prior NIME/SMC papers, adjacent HCI work)</li>
+<li>Organized by theme, not as an annotated list</li>
+<li>A clear statement of how your project differs from or extends prior work -- if possible, articulated as a response to a gap in existing work</li>
+</ul>
+</li>
+<li><p>Design Rationale and Approach</p>
+<ul>
+<li>Design goals and constraints, such as the musician, context, or musical practice</li>
+<li>Theoretical or conceptual framing (e.g., action-sound mappings, affordances, digital lutherie, embodied interaction)</li>
+<li>The design process, and why decisions were made, not only what was decided</li>
+</ul>
+</li>
+<li><p>System Description / Implementation</p>
+<ul>
+<li>Hardware (if used): sensors, microcontroller, enclosure, with a block diagram and an annotated photo</li>
+<li>Software: architecture, signal flow, synthesis or processing, communication protocols</li>
+<li>Mappings: input-to-sound relationships, with justification</li>
+<li>Specific technical details for an unfamiliar reader to make sense of the project</li>
+</ul>
+</li>
+<li><p>Evaluation</p>
+<p><em>This section is normally expected at the conference level, but currently optional for the course, as you may not have time or resources to carry out sufficient evaluation.</em></p>
+<ul>
+<li>A method appropriate to the claims. Examples:<ul>
+<li>Technical: latency, sensor accuracy, reliability, battery life</li>
+<li>Musical or performance-based: autoethnography, composition and performance reflection, practice-based research</li>
+<li>User-centered: interviews, think-aloud sessions, questionnaires, expert feedback</li>
+<li>Participants, procedure, and data collection, with ethics approval or exemption noted where human participants are involved</li>
+</ul>
+</li>
+<li>Results presented honestly, including limitations and negative findings</li>
+</ul>
+</li>
+<li><p>Discussion</p>
+<p><em>This section is normally expected at the conference level, but currently optional for the course, as you may not have time or resources to carry out sufficient evaluation.</em></p>
+<ul>
+<li>Interpretation of results in light of the research question</li>
+<li>Implications for instrument design, performance, or pedagogy</li>
+<li>Limitations: scope, researcher bias, and the fact that the designer is often also the performer</li>
+<li>Future work grounded in the findings</li>
+</ul>
+</li>
+<li><p>Conclusion</p>
+<p>A concise restatement of the contribution and its significance (not a repeat of the abstract)</p>
+</li>
+<li><p>Acknowledgments:</p>
+<ul>
+<li>Attribution for all borrowed code, libraries, samples, images, tutorials, ideas.  </li>
+<li>A clear statement about your license for the code/patches (required for Github anyway) and creative work (e.g. choose a <a href="https://creativecommons.org">Creative Commons</a> license)</li>
+<li>Disclosure of any use of gen AI tools (and how/where this helped or did not help)</li>
+</ul>
+</li>
+<li><p>Video link: (Increasingly this is a requirement for most conferences.) For this course: it is a requirement to include a link to video documentation (1-3 minutes). </p>
+<ul>
+<li>Ensure the video is publicly visible. </li>
+<li>Show the project in actual use</li>
+<li>Record the project&#39;s audio output with high quality (direct from the device, not phone microphone)</li>
+<li>If this is not possible for whatever reason, add some direct recorded audio clip examples to the website</li>
+<li>For hardware: show close-up shots as well as wider shots that include visible gestures/interaction</li>
+<li>For software: show details as well as the use in wider context (e.g. within a DAW or other host environment)</li>
+</ul>
+</li>
+<li><p>References</p>
+<ul>
+<li>Use a consistent citation &amp; reference style. The venue may have a specific recommendation to follow. </li>
+<li>Include links wherever possible for any citations/references/related work</li>
+</ul>
+</li>
+</ol>
+<h3 id="writing-guidelines">Writing Guidelines</h3>
+<ul>
+<li>Argue, don’t just describe. Every section should serve the contribution. Cut anything that doesn’t. </li>
+<li>All claims need evidence. Don’t write &quot;the instrument is expressive&quot; without data, user comments, or a defined notion of expressiveness. Avoid self-evaluation (&quot;this instrument is groundbreaking&quot;; show, don&#39;t tell).</li>
+<li>Position the work. Engage with the literature, not only to cite it but to say how it shaped or contrasts with your decisions. References used without engaging with them are &quot;passing references&quot; and will be seen as unserious by conference reviewers. </li>
+<li>Be candid about the designer-as-evaluator problem. If the author is also the primary performer, say so and discuss the implications.</li>
+<li>Prioritize replicability. The NIME community has increasingly emphasized documentation that enables replication, so link to a repository and give enough detail for an expert to reproduce the work.</li>
+<li>Use figures well. Include a system diagram, a photo, and at least one result figure or table, all captioned and referenced in the text.</li>
+<li>Write for a peer reviewer. Assume a knowledgeable reader (a likely attendee of the conference) who has common knowledge of the field but doesn’t know your project.</li>
+<li>Follow the venue template exactly. Formatting compliance is part of professional practice.</li>
+</ul>
+<h3 id="examples-1">Examples</h3>
+<p>Here are some examples of NIME papers written from projects in other graduate program courses:</p>
+<ul>
+<li><a href="https://nime.org/proceedings/2024/nime2024_20.pdf">https://nime.org/proceedings/2024/nime2024_20.pdf</a></li>
+<li><a href="https://nime.org/proceedings/2023/nime2023_68.pdf">https://nime.org/proceedings/2023/nime2023_68.pdf</a></li>
+<li>Some online examples here: <a href="https://mct-master.github.io/interactive-music/">https://mct-master.github.io/interactive-music/</a> </li>
+</ul>
+<p>There are many online papers from NIME in the archives here: <a href="https://nime.pubpub.org/nime-2022-papers">https://nime.pubpub.org/nime-2022-papers</a> -- not all describe practical projects, but perhaps around a quarter of them do.</p>
+<ul>
+<li><a href="https://nime.pubpub.org/pub/uh76shf0">https://nime.pubpub.org/pub/uh76shf0</a></li>
+<li><a href="https://nime.pubpub.org/pub/cavi">https://nime.pubpub.org/pub/cavi</a></li>
+<li><a href="https://nime.pubpub.org/pub/ehocvk6o">https://nime.pubpub.org/pub/ehocvk6o</a></li>
+<li><a href="https://nime.pubpub.org/pub/q8f786b3">https://nime.pubpub.org/pub/q8f786b3</a></li>
+<li><a href="https://nime.pubpub.org/pub/uofmcznd">https://nime.pubpub.org/pub/uofmcznd</a></li>
+<li><a href="https://nime.pubpub.org/pub/31l4lgcd">https://nime.pubpub.org/pub/31l4lgcd</a></li>
+<li><a href="https://nime.pubpub.org/pub/vwbc1tlk">https://nime.pubpub.org/pub/vwbc1tlk</a></li>
+<li><a href="https://nime.pubpub.org/pub/augmented-touch">https://nime.pubpub.org/pub/augmented-touch</a></li>
+</ul>
+<p><a href="https://nime.org/papers/">The NIME proceedings archive</a> is also generally a good resource for finding related work for your papers!  </p>
+<blockquote>
+<p>Note, if you are thinking of applying to NIME2027, the submission deadline is January 24. </p>
+</blockquote>
+<hr>
+
+<p>Team-by-team project assistance</p>
 <hr>
 
 <h1 id="week-10">Week 10</h1>
