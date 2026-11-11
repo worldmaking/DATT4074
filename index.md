@@ -441,7 +441,7 @@ You can host the website on Github Pages alongside your Github project.  To do t
 3. Type `gh-pages` into the text box.
 4. Click Create branch: gh-pages from 'main'.
 
-Create/upload an `index.html` file to this as your webpage. [I have put an example html template page here](), which you can 'save as' index.html, edit, and upload as your webpage. 
+Create/upload an `index.html` file to this as your webpage. [I have put an example html template page here](https://raw.githubusercontent.com/worldmaking/DATT4074/refs/heads/gh-pages/website_template.html), which you can 'save as' index.html, edit, and upload as your webpage. 
 
 - The `gh-pages` is a special branch of your github repository that can host HTML pages on the web. If you push a file called `index.html` to this `gh-pages` branch, it will be visible online as a webpage at https://[your github name].github.io/[your project name]. If your github name is "foo" and the project is "bar", the URL will be https://foo.github.io/bar
 - Remember that updates pushed to a website may not be visible immediately, it can take a few minutes for updates to propagate and be visible on the web. 
