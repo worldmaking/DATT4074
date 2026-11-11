@@ -624,3 +624,4 @@ Recordings of the weekly sessions will be here:
 - [Week 3](https://yorku.zoom.us/rec/share/LG7WbRATprg0PIDrXjs7Ny8GioAAFhhWivTwsGMvNGY6Du3fSjjH5huM4745M02l.ww1GUoSRmULsqRA1)
 - [Week 4](https://yorku.zoom.us/rec/share/ghAz82BRnLPKTf2KzRvffFjRq0foki-grLuxMOao0JtDp9BINVCoyhoL15FEfdJm.clowuUNdnkj7zkef)
 - [Week 8](https://yorku.zoom.us/rec/share/Z0HjvftZGWi3ICFU9dRsL3ehEy1At8YQUdSJJtMqYbbhtBeMkQc7FvAwv8L6dW_o.HXuA7TV7LyeMHSjy)
+- [Week 9](https://yorku.zoom.us/rec/share/6HHPwMaWzgwf8eaIdEYA9AKJjtl5AP1Gutw9WFda0LwrKfzznI3ba8FzvFH3TfwM.OeIu0TgdWQuy2XlD)
