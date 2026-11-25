@@ -384,6 +384,19 @@ Team-by-team project assistance -- prototype & export
 
 [Zoom meeting (same link every week)](https://yorku.zoom.us/j/93856257447?pwd=38tAeaKReiULvX3vOMVORoW3bJQIOD.1)
 
+Review of final course requirements
+
+- *(catch up on any late submissions ASAP!)*
+- **Next week**
+  - Final presentations with demo/performance 
+- **Dec 7**
+  - ***Undergraduates only*** Complete project website ([submit via eClass](https://eclass.yorku.ca/mod/assign/view.php?id=4560169))
+  - Completed Dev Log (submit via eClass - [undergraduates](https://eclass.yorku.ca/mod/assign/view.php?id=4560863) / [graduates](https://eclass.yorku.ca/mod/assign/view.php?id=4560874))
+  - Completed Post Mortem (submit via eClass - [undergraduates](https://eclass.yorku.ca/mod/assign/view.php?id=4560869) / [graduates](https://eclass.yorku.ca/mod/assign/view.php?id=4560873))
+  - Completed Final Project (submit via eClass - [undergraduates](https://eclass.yorku.ca/mod/assign/view.php?id=4560770) / [graduates](https://eclass.yorku.ca/mod/assign/view.php?id=4560876))
+- **Dec 20**
+  - ***Graduates only*** Completed project paper ([submit via eClass](https://eclass.yorku.ca/mod/assign/view.php?id=4560883))
+
 Team-by-team project assistance -- refinement & documentation
 
 [Attendance](https://eclass.yorku.ca/mod/attendance/manage.php?id=4452130)
